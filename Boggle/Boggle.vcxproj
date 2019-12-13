@@ -128,7 +128,6 @@
     <ClCompile Include="Cube.cpp" />
     <ClCompile Include="Dictionary.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Origem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Board.h" />

@@ -1,3 +1,8 @@
+// Grupo 5
+// Duarte Rodrigues
+// Ricardo Brioso
+// Mariana Xavier
+
 #pragma once
 
 class Dictionary
