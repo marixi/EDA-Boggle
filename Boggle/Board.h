@@ -4,6 +4,9 @@
 // Mariana Xavier
 
 #pragma once
+#include "Cube.h"
+using namespace std;
+
 struct Position // POSITION.H
 {
 	int lin, col; // position of a cube (top letter) on the board
