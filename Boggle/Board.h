@@ -5,6 +5,8 @@
 
 #pragma once
 #include "Cube.h"
+#include <fstream>
+#include <string>
 using namespace std;
 
 struct Position // POSITION.H
