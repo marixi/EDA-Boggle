@@ -32,6 +32,9 @@ Board::Board(const string& filename)
 	if (!(f >> s1 >> n1 >> ch >> n2))
 		cerr << "Error: Failed to read board size.";
 
+	_numRows = n1;
+	_numCols = n2;
+
 	string header;
 	getline(f, header);
 
@@ -63,30 +66,45 @@ Board::Board(const string& filename)
 		}
 	}
 
-
 }
 
 //---------------------------------------------------------------------------------------------------------------
 char Board::getTopLetter(const Position& pos) const
 {
-
+	Cube temp = _board[pos.lin][pos.col];
+	return temp.getTopLetter();
 }
 
 //---------------------------------------------------------------------------------------------------------------
 void Board::shuffle()
 {
+	for (size_t row = 0; row < _numRows; row++)
+	{
+		for (size_t col = 0; col < _numCols; col++)
+		{
+			_board[row][col].roll();
+		}
+	}
 
+	// Falta fazer shuffle mas não sei em que isso consiste ainda. 
+	//Possivelmente, fazer um rand() na posição dos cubos.
 }
 
 //---------------------------------------------------------------------------------------------------------------
 void Board::display(ostream& os) const
 {
-
+	for (size_t row = 0; row < _numRows; row++)
+	{
+		for (size_t col = 0; col < _numCols; col++)
+		{
+			_board[row][col].displayTop(os);
+		}
+	}
 }
 
 //---------------------------------------------------------------------------------------------------------------
 bool Board::findWord(string word, vector<Position>& path)
 {
-
+	// Meter a função que o prof disponibilizou e perceber como funciona.
 }
 
