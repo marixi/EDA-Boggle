@@ -30,13 +30,7 @@
 *.exe
 *.out
 *.app
-Boggle/.vs/Boggle/v16/ipch/AutoPCH/80ce1a06d4b79c58/TIMED_READ.ipch
-*.opendb
-Boggle/.vs/Boggle/v16/ipch/AutoPCH/7ddda99f0ffb29b4/CLASSES.ipch
-Boggle/.vs/Boggle/v16/Browse.VC.db
-Boggle/.vs/Boggle/v16/.suo
-Boggle/.vs/Boggle/v16/Browse.VC.db
+Boggle/.vs/*.*
 *.db
 *.vcxproj
 Boggle/Boggle.vcxproj.filters
-Boggle/.vs/Boggle/v16/.suo
