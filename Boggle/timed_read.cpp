@@ -26,6 +26,7 @@ void readStrTimed(string &str, time_t duration)
   int tAvail;
   t2 = time(NULL);
   tAvail = (int)(duration - (t2 - t1));
+
   while (tAvail > 0)
   {
     if (_kbhit())
@@ -51,11 +52,9 @@ void readStrTimed(string &str, time_t duration)
   }
   return;
 }
-//==========================================================================================
-// Reads several words and stores them into file named 'fileName'; 
-// all letters are converted to upercase.
-// The words must be read before 'duration' time is elapsed
-//------------------------------------------------------------------------------------------
+/*Reads several words and stores them into file named 'fileName'
+all letters are converted to upercase.
+The words must be read before 'duration' time is elapsed*/
 void readWords(const string & fileName, time_t duration)
 {
   const char BEEP = (char)7;
@@ -67,10 +66,12 @@ void readWords(const string & fileName, time_t duration)
   t2 = time(NULL);
   tAvail = (int)(duration - (t2 - t1));
   cout << "Word (available time = " << tAvail << ") ? ";
+
   while (tAvail > 0)
   {
     string str;
     readStrTimed(str, tAvail);
+
     if (str != "")
       f << str << endl << flush;
     t2 = time(NULL);

@@ -19,12 +19,13 @@ class Player
 public:
 	Player(); // builds a player with name="NO NAME"
 	Player(string name);
+	Player(string name, int age);
 	void readInfo(); // reads player's info (name, age)
-	void readWordsTimed(unsigned int duration); // reads words of the player's bet, in one round
+	void readWordsTimed(const string& fileName, time_t duration);
 	void display(ostream& os) const;  // showInfo()
-	// TO DO: choose other methods, if necessary
 private:
 	string _name; // name of the player
 	unsigned int _age;
+	void readStrTimed(string& str, time_t duration);
 	// TO DO: other attributes, namely the words of his/her bet (and methods, if necessary)
 };
