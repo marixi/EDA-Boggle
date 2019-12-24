@@ -10,7 +10,6 @@ Board::Board(size_t numRows = 4, size_t numCols = 4)
 {
 	_numRows = numRows;
 	_numCols = numCols;
-
 	for (size_t i = 0; i < numRows; i++)
 	{
 		vector<Cube> row;
@@ -21,46 +20,39 @@ Board::Board(size_t numRows = 4, size_t numCols = 4)
 		_board.push_back(row);
 	}
 }
-
 //---------------------------------------------------------------------------------------------------------------
 Board::Board(const string& filename)
 {
 	ifstream f(filename);
-
 	if (f.fail())
 		cerr << "Error: \"" << filename << "\" was not found! \n";
 
 	string s1; int n1 = 0, int n2 = 0, char ch;
-
 	if (!(f >> s1 >> n1 >> ch >> n2))
 		cerr << "Error: Failed to read board size.";
-
 	_numRows = n1;
 	_numCols = n2;
+	
+	// Isto é necessário? Já não foi retirado à pouco?
+	/*string header;
+	getline(f, header);*/
 
-	string header;
-	getline(f, header);
-
-	_board.resize(n1);
+	_board.resize(n1); // Creates space for the number of cubes on the board
 	for (size_t row = 0; row < n1; row++)
 		_board[row].resize(n2);
 
 	int a = 0, b = 0;
-
 	for (size_t i = 0; i < n1 * n2; i++)
 	{
 		vector<char> faces;
 		char face;
-
-		for (size_t j = 0; j < 6; j++) // 6 is the number of faces of a cube.
+		for (size_t j = 0; j < 6; j++) // 6 is the number of faces of a cube
 		{
 			f >> face;
 			faces.push_back(face);
 		}
-
 		_board[a][b] = Cube(faces);
-
-		if (b < n2)
+		if (b < n2) // Increment the position of the cubes
 			b++;
 		else
 		{
@@ -68,16 +60,18 @@ Board::Board(const string& filename)
 			a++;
 		}
 	}
-
 }
-
+//---------------------------------------------------------------------------------------------------------------
+Cube Board::cubeInPosition(const Position& pos)
+{
+	return _board[pos.lin][pos.col];
+}
 //---------------------------------------------------------------------------------------------------------------
 char Board::getTopLetter(const Position& pos) const
 {
-	Cube temp = _board[pos.lin][pos.col];
+	Cube temp = _board[pos.lin][pos.col]; // QUERIA POR ESTA MERDA COM A FUNCAO DE CIMA
 	return temp.getTopLetter();
 }
-
 //---------------------------------------------------------------------------------------------------------------
 void Board::shuffle()
 {
@@ -89,7 +83,7 @@ void Board::shuffle()
 		{
 			Cube cube1;
 			int randomRow = rand() % _numRows;
-			int randomCol = rand() % _numRows;
+			int randomCol = rand() % _numCols;
 			Position pos;
 			pos.lin = randomRow;
 			pos.col = randomCol;
@@ -134,7 +128,6 @@ void Board::shuffle()
 	// Falta fazer shuffle mas não sei em que isso consiste ainda. I think its done
 	//Possivelmente, fazer um rand() na posição dos cubos.
 }
-
 //---------------------------------------------------------------------------------------------------------------
 void Board::display(ostream& os) const
 {
@@ -150,7 +143,6 @@ void Board::display(ostream& os) const
 		os << "\n" << "\n";
 	}
 }
-
 //---------------------------------------------------------------------------------------------------------------
 bool Board::findWord(const vector<vector<char>>& board, string word, ostream& os)//(string word, vector<Position>& path) -> argumentos usados inicialmente pelo prof
 {
@@ -181,7 +173,6 @@ bool Board::findWord(const vector<vector<char>>& board, string word, ostream& os
 				
 	return found; //depois ao testar dizer que se saiu true entao ta otimo... se saiu false entao deu asneira
 }
-
 //---------------------------------------------------------------------------------------------------------------
 bool Board::findWordAux(const vector<vector<char>>& board, vector<vector<bool>>& visited, int i, int j, string& str, const string& word, bool& found, ostream& os, vector<Position>& path)
 {
@@ -230,13 +221,6 @@ bool Board::findWordAux(const vector<vector<char>>& board, vector<vector<bool>>&
 	//se uma das letras falha reposta not found e o findwordaux corre todo outra vez,
 	//mas deixando a cellua registada como false, o que nao ativa o if
 }
-
-//---------------------------------------------------------------------------------------------------------------
-Cube Board::cubeInPosition(const Position& pos)
-{
-	return _board[pos.lin][pos.col];
-}
-
 //---------------------------------------------------------------------------------------------------------------
 void Board::displayPath(ostream& os, vector<Position>& path)
 {

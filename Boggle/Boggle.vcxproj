@@ -124,7 +124,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Board.cpp" />
-    <ClCompile Include="Origem.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Cube.cpp" />
     <ClCompile Include="Dictionary.cpp" />

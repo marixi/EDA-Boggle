@@ -21,7 +21,6 @@ public:
 	char getTopLetter() const; // get top letter
 	void displayTop(ostream& os) const; // display top letter
 	void displayAll(ostream& os) const; // display all letters existing on the cube faces
-	// TO DO: choose other methods, if necessary
 private:
 	vector<char> _letters; // the letters of the cube
 	size_t _topSide; // the side up: 0..5
