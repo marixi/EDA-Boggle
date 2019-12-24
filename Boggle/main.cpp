@@ -9,7 +9,7 @@
 #include"Player.h"
 using namespace std;
 
-int main()
-{
-// srand(time(NULL));
-}
+//int main()
+//{
+//// srand(time(NULL));
+//}

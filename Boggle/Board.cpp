@@ -6,7 +6,7 @@
 #include"Board.h"
 using namespace std;
 
-Board::Board(size_t numRows = 4, size_t numCols = 4)
+Board::Board(size_t numRows, size_t numCols)
 {
 	_numRows = numRows;
 	_numCols = numCols;
@@ -27,7 +27,7 @@ Board::Board(const string& filename)
 	if (f.fail())
 		cerr << "Error: \"" << filename << "\" was not found! \n";
 
-	string s1; int n1 = 0, int n2 = 0, char ch;
+	string s1; size_t n1 = 0; size_t n2 = 0; char ch;
 	if (!(f >> s1 >> n1 >> ch >> n2))
 		cerr << "Error: Failed to read board size.";
 	_numRows = n1;
@@ -41,7 +41,7 @@ Board::Board(const string& filename)
 	for (size_t row = 0; row < n1; row++)
 		_board[row].resize(n2);
 
-	int a = 0, b = 0;
+	size_t a = 0; size_t b = 0;
 	for (size_t i = 0; i < n1 * n2; i++)
 	{
 		vector<char> faces;

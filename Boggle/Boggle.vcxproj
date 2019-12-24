@@ -128,7 +128,8 @@
     <ClCompile Include="Cube.cpp" />
     <ClCompile Include="Dictionary.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="timed_read.cpp" />
+    <ClCompile Include="testBoard.cpp" />
+    <ClCompile Include="testDictionary.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Board.h" />

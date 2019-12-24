@@ -40,7 +40,6 @@ bool Dictionary::find(const string& word)
 //---------------------------------------------------------------------------------------------------------------
 void Dictionary::display(ostream& os) const
 {
-
 	for (const auto& x : dictionary)
 		os << x.second << endl;
 }
