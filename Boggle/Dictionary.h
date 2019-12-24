@@ -4,6 +4,10 @@
 // Mariana Xavier
 
 #pragma once
+#include <fstream>
+#include <iostream>
+#include <string>
+#include <map>
 
 class Dictionary
 {
@@ -13,5 +17,6 @@ public:
 	void display(ostream& os) const; // displays all words (don't do it for long "dictionaries"...)
 	// TO DO: choose other methods, if necessary
 private:
+	map<int, string> dictionary;
 	// TO DO: choose attributes (and methods, if necessary)
 };

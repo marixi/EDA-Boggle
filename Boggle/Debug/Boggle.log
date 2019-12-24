@@ -1,2 +1,54 @@
-﻿  main.cpp
-  Boggle.vcxproj -> C:\Users\maria\Documents\GitHub\EDA\Boggle\Debug\Boggle.exe
+﻿  Board.cpp
+C:\Users\maria\Documents\GitHub\EDA\Boggle\Board.cpp(9,31): error C2572:  'Board::Board': redefinição do argumento padrão: parâmetro 1
+C:\Users\maria\Documents\GitHub\EDA\Boggle\Board.h(20): message :  consulte a declaração de 'Board::Board'
+C:\Users\maria\Documents\GitHub\EDA\Boggle\Board.cpp(9,51): error C2572:  'Board::Board': redefinição do argumento padrão: parâmetro 2
+C:\Users\maria\Documents\GitHub\EDA\Boggle\Board.h(20): message :  consulte a declaração de 'Board::Board'
+C:\Users\maria\Documents\GitHub\EDA\Boggle\Board.cpp(33,29): error C2062:  tipo 'int' inesperado
+C:\Users\maria\Documents\GitHub\EDA\Boggle\Board.cpp(35,25): error C2065:  'ch': identificador não declarado
+C:\Users\maria\Documents\GitHub\EDA\Boggle\Board.cpp(35,31): error C2065:  'n2': identificador não declarado
+C:\Users\maria\Documents\GitHub\EDA\Boggle\Board.cpp(39,13): error C2065:  'n2': identificador não declarado
+C:\Users\maria\Documents\GitHub\EDA\Boggle\Board.cpp(45,27): warning C4018:  '<': incompatibilidade de signed/unsigned
+C:\Users\maria\Documents\GitHub\EDA\Boggle\Board.cpp(46,22): error C2065:  'n2': identificador não declarado
+C:\Users\maria\Documents\GitHub\EDA\Boggle\Board.cpp(50,30): error C2065:  'n2': identificador não declarado
+C:\Users\maria\Documents\GitHub\EDA\Boggle\Board.cpp(63,11): error C2065:  'n2': identificador não declarado
+C:\Users\maria\Documents\GitHub\EDA\Boggle\Board.cpp(170,20): warning C4018:  '<': incompatibilidade de signed/unsigned
+C:\Users\maria\Documents\GitHub\EDA\Boggle\Board.cpp(171,21): warning C4018:  '<': incompatibilidade de signed/unsigned
+C:\Users\maria\Documents\GitHub\EDA\Boggle\Board.cpp(207,45): warning C4018:  '<': incompatibilidade de signed/unsigned
+  Origem.cpp
+  Dictionary.cpp
+C:\Users\maria\Documents\GitHub\EDA\Boggle\Board.cpp(208,46): warning C4018:  '<': incompatibilidade de signed/unsigned
+C:\Users\maria\Documents\GitHub\EDA\Boggle\Board.cpp(208,46): warning C4018: c1xx: fatal error C1083: Não é possível abrir arquivo fonte: 'Origem.cpp': No such file or directory
+C:\Users\maria\Documents\GitHub\EDA\Boggle\Dictionary.h(15,36): error C4430:  faltando especificador de tipo - int assumido. Observação: C++ não suporta default-int
+C:\Users\maria\Documents\GitHub\EDA\Boggle\Dictionary.h(15,25): error C2143:  erro de sintaxe: ',' ausente antes de '&'
+C:\Users\maria\Documents\GitHub\EDA\Boggle\Dictionary.h(16,24): error C4430:  faltando especificador de tipo - int assumido. Observação: C++ não suporta default-int
+C:\Users\maria\Documents\GitHub\EDA\Boggle\Dictionary.h(16,24): error C2143:  erro de sintaxe: ',' ausente antes de '&'
+C:\Users\maria\Documents\GitHub\EDA\Boggle\Dictionary.h(17,22): error C2061:  erro de sintaxe: identificador 'ostream'
+C:\Users\maria\Documents\GitHub\EDA\Boggle\Dictionary.h(20,5): error C2143:  erro de sintaxe: ';' ausente antes de '<'
+C:\Users\maria\Documents\GitHub\EDA\Boggle\Dictionary.h(20,17): error C4430:  faltando especificador de tipo - int assumido. Observação: C++ não suporta default-int
+C:\Users\maria\Documents\GitHub\EDA\Boggle\Dictionary.h(20,29): error C2238:  token(s) inesperado(s) precedendo ';'
+C:\Users\maria\Documents\GitHub\EDA\Boggle\Dictionary.cpp(10,1): error C2511:  'Dictionary::Dictionary(const std::string &)': função membro sobrecarregada não encontrada em 'Dictionary'
+C:\Users\maria\Documents\GitHub\EDA\Boggle\Dictionary.h(12): message :  consulte a declaração de 'Dictionary'
+C:\Users\maria\Documents\GitHub\EDA\Boggle\Dictionary.cpp(20,3): error C2065:  'dictionary': identificador não declarado
+C:\Users\maria\Documents\GitHub\EDA\Boggle\Dictionary.cpp(27,1): error C2511:  'bool Dictionary::find(const std::string &)': função membro sobrecarregada não encontrada em 'Dictionary'
+C:\Users\maria\Documents\GitHub\EDA\Boggle\Dictionary.h(12): message :  consulte a declaração de 'Dictionary'
+C:\Users\maria\Documents\GitHub\EDA\Boggle\Dictionary.cpp(31,12): error C2065:  'dictionary': identificador não declarado
+C:\Users\maria\Documents\GitHub\EDA\Boggle\Dictionary.cpp(31,38): error C2065:  'dictionary': identificador não declarado
+C:\Users\maria\Documents\GitHub\EDA\Boggle\Dictionary.cpp(42,1): error C2511:  'void Dictionary::display(std::ostream &) const': função membro sobrecarregada não encontrada em 'Dictionary'
+C:\Users\maria\Documents\GitHub\EDA\Boggle\Dictionary.h(12): message :  consulte a declaração de 'Dictionary'
+C:\Users\maria\Documents\GitHub\EDA\Boggle\Dictionary.cpp(44,23): error C2065:  'dictionary': identificador não declarado
+C:\Users\maria\Documents\GitHub\EDA\Boggle\Dictionary.cpp(45,3): error C2672:  'begin': nenhuma função sobrecarregada correspondente encontrada
+C:\Users\maria\Documents\GitHub\EDA\Boggle\Dictionary.cpp(44,3): error C2893:  Falha em especializar template de função 'unknown-type std::begin(_Container &)'
+C:\Users\maria\Documents\GitHub\EDA\Boggle\Dictionary.cpp(44,3): message :  Com os seguintes argumentos de template:
+C:\Users\maria\Documents\GitHub\EDA\Boggle\Dictionary.cpp(44,3): message :  '_Container=unknown-type'
+C:\Users\maria\Documents\GitHub\EDA\Boggle\Dictionary.cpp(44,3): error C2784:  'const _Elem *std::begin(std::initializer_list<_Elem>) noexcept': não foi possível deduzir argumento de modelo para 'std::initializer_list<_Elem>' de 'unknown-type'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\initializer_list(52): message :  consulte a declaração de 'std::begin'
+C:\Users\maria\Documents\GitHub\EDA\Boggle\Dictionary.cpp(45,3): error C2672:  'end': nenhuma função sobrecarregada correspondente encontrada
+C:\Users\maria\Documents\GitHub\EDA\Boggle\Dictionary.cpp(44,3): error C2893:  Falha em especializar template de função 'unknown-type std::end(_Container &)'
+C:\Users\maria\Documents\GitHub\EDA\Boggle\Dictionary.cpp(44,3): message :  Com os seguintes argumentos de template:
+C:\Users\maria\Documents\GitHub\EDA\Boggle\Dictionary.cpp(44,3): message :  '_Container=unknown-type'
+C:\Users\maria\Documents\GitHub\EDA\Boggle\Dictionary.cpp(44,3): error C2784:  'const _Elem *std::end(std::initializer_list<_Elem>) noexcept': não foi possível deduzir argumento de modelo para 'std::initializer_list<_Elem>' de 'unknown-type'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\initializer_list(58): message :  consulte a declaração de 'std::end'
+C:\Users\maria\Documents\GitHub\EDA\Boggle\Dictionary.cpp(44,3): error C3536:  '<begin>$L0': não pode ser usado antes de ser inicializado
+C:\Users\maria\Documents\GitHub\EDA\Boggle\Dictionary.cpp(44,3): error C3536:  '<end>$L0': não pode ser usado antes de ser inicializado
+  Gerando Código...
+C:\Users\maria\Documents\GitHub\EDA\Boggle\Dictionary.cpp(44,3): error C2100:  indireção inválida
