@@ -5,6 +5,7 @@
 
 #include"Dictionary.h"
 #include"Cube.h"
+#include"Player.h"
 using namespace std;
 
 // Test for the dictionary functions
@@ -45,7 +46,27 @@ void testCubeRollAndDisplayTop()
 	cube.displayTop(cout);
 }
 
+// Test for the player functions
+void testPlayerConstructorAndDisplay()
+{
+	string name = "Avo Cantigas";
+	int age = 70;
+	Player player(name, age);
+	player.display(cout);
+}
 
+void testPlayerReadInfo()
+{
+	Player player;
+	player.readInfo();
+	player.display(cout);
+}
+
+void testPlayerReadWordsTimed()
+{
+	Player player;
+	player.readWordsTimed("results readWordsTimed.txt",10);
+}
 
 int main()
 {
@@ -59,5 +80,10 @@ int main()
 	testCubeRollAndDisplayTop();
 	cout << endl;
 
+	cout << endl << "Test for the player functions: " << endl;
+	testPlayerConstructorAndDisplay();
+	testPlayerReadInfo();
+	testPlayerReadWordsTimed();
+	
 	return 0;
 }
