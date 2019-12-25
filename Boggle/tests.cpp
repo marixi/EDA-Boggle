@@ -6,6 +6,7 @@
 #include"Dictionary.h"
 #include"Cube.h"
 #include"Player.h"
+#include"Board.h"
 using namespace std;
 
 // Test for the dictionary functions
@@ -68,9 +69,18 @@ void testPlayerReadWordsTimed()
 	player.readWordsTimed("results readWordsTimed.txt",10);
 }
 
+// Test for the board functions
+void testBoardConstructorsAndDisplay()
+{
+	Board b1;
+	b1.display(cout);
+	Board b2("BOARD_INT.txt");
+	b2.display(cout);
+}
+
 int main()
 {
-	cout << "Test for the dictionary functions: " << endl;
+	/*cout << "Test for the dictionary functions: " << endl;
 	testDictionaryConstructorAndDisplay();
 	cout << testDictionaryFind() << endl;
 
@@ -83,7 +93,10 @@ int main()
 	cout << endl << "Test for the player functions: " << endl;
 	testPlayerConstructorAndDisplay();
 	testPlayerReadInfo();
-	testPlayerReadWordsTimed();
+	testPlayerReadWordsTimed();*/
 	
+	cout << endl << "Test for the player functions: " << endl;
+	testBoardConstructorsAndDisplay();
+
 	return 0;
 }

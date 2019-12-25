@@ -32,14 +32,13 @@ Board::Board(const string& filename)
 		cerr << "Error: Failed to read board size.";
 	_numRows = n1;
 	_numCols = n2;
-	
-	// Isto é necessário? Já não foi retirado à pouco?
-	/*string header;
-	getline(f, header);*/
 
-	_board.resize(n1); // Creates space for the number of cubes on the board
-	for (size_t row = 0; row < n1; row++)
-		_board[row].resize(n2);
+	/*// Creates space for the number of cubes on the board
+	_board.resize(n1);
+    for (size_t row = 0; row < n1; row++)
+		_board[row].resize(n2);*/
+	// Forma mais compacta de fazer o que está acima MAS QUE TAMBEM NAO FUNCIONA PQP
+	_board.resize(n1, vector<Cube>(n2));
 
 	size_t a = 0; size_t b = 0;
 	for (size_t i = 0; i < n1 * n2; i++)
@@ -49,7 +48,7 @@ Board::Board(const string& filename)
 		for (size_t j = 0; j < 6; j++) // 6 is the number of faces of a cube
 		{
 			f >> face;
-			faces.push_back(face);
+			faces.push_back(face); 
 		}
 		_board[a][b] = Cube(faces);
 		if (b < n2) // Increment the position of the cubes
@@ -75,8 +74,8 @@ char Board::getTopLetter(const Position& pos) const
 //---------------------------------------------------------------------------------------------------------------
 void Board::shuffle()
 {
-	Board fin=Board(_numRows, _numCols);
-	char test,test2;
+	Board fin = Board(_numRows, _numCols);
+	char test, test2;
 	for (size_t row = 0; row < _numRows; row++)
 	{
 		for (size_t col = 0; col < _numCols; col++)
@@ -97,17 +96,17 @@ void Board::shuffle()
 			else //talvez pudesse ser melhorado se os primeiros termos fossem passados por referencia
 			{
 				Position pos1;
-				do{
+				do {
 					Cube cube2;
 					int randomRow1 = rand() % _numRows;
 					int randomCol1 = rand() % _numRows;
-					
+
 					pos1.lin = randomRow1;
 					pos1.col = randomCol1;
 					cube2 = fin.cubeInPosition(pos);
 					test2 = cube1.getTopLetter();
 				} while (test2 != '*');
-					fin.cubeInPosition(pos1) = _board[row][col];
+				fin.cubeInPosition(pos1) = _board[row][col];
 			}
 		}
 
@@ -140,7 +139,7 @@ void Board::display(ostream& os) const
 			_board[row][col].displayTop(os);
 			os << "  ";
 		}
-		os << "\n" << "\n";
+		os << "\n";
 	}
 }
 //---------------------------------------------------------------------------------------------------------------
@@ -154,7 +153,7 @@ bool Board::findWord(const vector<vector<char>>& board, string word, ostream& os
 
 	//declaration of the path
 	vector<Position> path;
-	
+
 	// Consider every character and look for 'word', starting with the first character
 	//once that is found pass to findWordAux
 	int numIter = 0;
@@ -168,9 +167,9 @@ bool Board::findWord(const vector<vector<char>>& board, string word, ostream& os
 				firstlett.col = j;
 				path.push_back(firstlett);
 
-				findWordAux(board, visited, i, j, str, word, found, os,path);
+				findWordAux(board, visited, i, j, str, word, found, os, path);
 			}
-				
+
 	return found; //depois ao testar dizer que se saiu true entao ta otimo... se saiu false entao deu asneira
 }
 //---------------------------------------------------------------------------------------------------------------
@@ -186,7 +185,7 @@ bool Board::findWordAux(const vector<vector<char>>& board, vector<vector<bool>>&
 	if (str == word)
 	{
 		found = true;
-		for (size_t a=0; a < path.size(); a++)
+		for (size_t a = 0; a < path.size(); a++)
 		{
 			os << "(" << path[a].lin << "," << path[a].col << ") \n";
 		}
@@ -203,13 +202,13 @@ bool Board::findWordAux(const vector<vector<char>>& board, vector<vector<bool>>&
 					adduplett.lin = row;
 					adduplett.col = col;
 					path.push_back(adduplett);
-					findWordAux(board, visited, row, col, str, word, found, os,path);
+					findWordAux(board, visited, row, col, str, word, found, os, path);
 				}
-					
-					//fazer o vetor de positions path com push_backs (found true) e pull_backs (!found)
-		// Erase current character from string, 
-		// remove character position from 'path' and
-		// mark visited[i][j] as false
+
+		//fazer o vetor de positions path com push_backs (found true) e pull_backs (!found)
+// Erase current character from string, 
+// remove character position from 'path' and
+// mark visited[i][j] as false
 		if (!found)
 		{
 			str.erase(str.length() - 1);
@@ -217,7 +216,7 @@ bool Board::findWordAux(const vector<vector<char>>& board, vector<vector<bool>>&
 			path.pop_back();
 		}
 	}
-	return found; 
+	return found;
 	//se uma das letras falha reposta not found e o findwordaux corre todo outra vez,
 	//mas deixando a cellua registada como false, o que nao ativa o if
 }
