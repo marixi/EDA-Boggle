@@ -21,7 +21,6 @@ Dictionary::Dictionary(const string& filename)
 		i++;
 	}
 }
-
 //---------------------------------------------------------------------------------------------------------------
 bool Dictionary::find(const string& word)
 {
@@ -36,7 +35,6 @@ bool Dictionary::find(const string& word)
 	}
 	return foundWord;
 }
-
 //---------------------------------------------------------------------------------------------------------------
 void Dictionary::display(ostream& os) const
 {
