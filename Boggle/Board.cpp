@@ -78,59 +78,16 @@ char Board::getTopLetter(const Position& pos) const
 //---------------------------------------------------------------------------------------------------------------
 void Board::shuffle()
 {
-	Board fin = Board(_numRows, _numCols); //board com *
-	char test;
+	//Rolls randomly every cube on the board.
 	for (size_t row = 0; row < _numRows; row++)
 	{
 		for (size_t col = 0; col < _numCols; col++)
 		{
-			Cube cube1;
-			int randomRow = rand() % _numRows;
-			int randomCol = rand() % _numCols;
-			Position pos;
-			pos.lin = randomRow + 1;
-			pos.col = randomCol + 1;
-			cube1 = fin.cubeInPosition(pos);
-			test = cube1.getTopLetter();
-			//se no board fin o cubo na posicao random tiver * entao pode-se meter o cubo novo do _board rolar este
-			if (test == '*')
-			{
-				fin.replace(randomRow, randomCol, _board[row][col]); //será que substitui? ou é preciso criar uma função insert?
-			}
-			else //talvez pudesse ser melhorado se os primeiros termos fossem passados por referencia
-			{
-				Position pos1;
-				char test2;
-				do {
-					Cube cube2;
-					int randomRow1 = rand() % _numRows;
-					int randomCol1 = rand() % _numRows;
-
-					pos1.lin = randomRow1 + 1;
-					pos1.col = randomCol1 + 1;
-					cube2 = fin.cubeInPosition(pos);
-					test2 = cube2.getTopLetter();
-				} while (test2 != '*');
-				fin.replace(pos1, _board[row][col]);
-			}
-		}
-
-	}
-
-	for (size_t row = 0; row < _numRows; row++)
-	{
-		for (size_t col = 0; col < _numCols; col++)
-		{
-			Position finpos;
-			finpos.lin = row + 1;
-			finpos.col = col + 1;
-			_board[row][col] = fin.cubeInPosition(finpos);
 			_board[row][col].roll();
 		}
-	}// para que o valor saia em referencia
-
-	// Falta fazer shuffle mas não sei em que isso consiste ainda. I think its done
-	//Possivelmente, fazer um rand() na posição dos cubos.
+	}
+	//Randomly shuffles the cubes on the board.
+	random_shuffle(_board.begin(), _board.end());
 }
 //---------------------------------------------------------------------------------------------------------------
 void Board::display(ostream& os) const
