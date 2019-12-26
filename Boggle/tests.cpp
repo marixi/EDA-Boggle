@@ -105,6 +105,14 @@ void testBoardShuffle()
 	b.display(cout);
 }
 
+void testBoardFindWordanddisplayPath()
+{
+	Board b("BOARD_INT.txt");
+	b.display;
+	string s = "EEEG";
+	b.findWord(s,cout);
+	
+}
 
 int main()
 {
