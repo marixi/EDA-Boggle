@@ -124,9 +124,9 @@ int main()
 	testPlayerReadWordsTimed();*/
 	
 	cout << endl << "Test for the Board functions: " << endl;
-	/*testBoardConstructorsAndDisplay();
+	testBoardConstructorsAndDisplay();
 	testBoardCubeInPosition();
-	testBoardTopLetter();*/
+	testBoardTopLetter();
 	testBoardShuffle();
 	
 	//Bugs: se tiver  5 x 5 no ficheiro e nao houver cubos suficientes ele mostra cubos que nao existem.
