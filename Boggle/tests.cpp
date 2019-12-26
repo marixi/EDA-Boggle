@@ -10,6 +10,7 @@
 using namespace std;
 
 // This file is where we tested the functions that were developed.
+//The position declared in the tests is the postion in the board so from rows and columns 1 to 4
 
 // Test for the dictionary functions
 void testDictionaryConstructorAndDisplay()
@@ -83,7 +84,7 @@ void testBoardConstructorsAndDisplay()
 void testBoardCubeInPosition()
 {
 	Board b("BOARD_INT.txt");
-	Position pos = { 2,2 };
+	Position pos = { 1,1 };
 	Cube c = b.cubeInPosition(pos);
 	c.displayAll(cout);
 }
@@ -91,35 +92,43 @@ void testBoardCubeInPosition()
 void testBoardTopLetter()
 {
 	Board b("BOARD_INT.txt");
-	Position pos = { 2,2 };
+	Position pos = { 1,1 };
 	char topLetter = b.getTopLetter(pos);
 	cout << "Top Letter: " << topLetter;
 }
 
+void testBoardShuffle()
+{
+	Board b("BOARD_INT.txt");
+	b.display(cout);
+	b.shuffle();
+	b.display(cout);
+}
 
 
 int main()
 {
 	/*cout << "Test for the dictionary functions: " << endl;
 	testDictionaryConstructorAndDisplay();
-	cout << testDictionaryFind() << endl;
+	cout << testDictionaryFind() << endl;*/
 
-	cout << endl << "Test for the cube functions: " << endl;
+	/*cout << endl << "Test for the cube functions: " << endl;
 	testCubeConstructorAndDisplayAll();
 	cout << endl << testCubeGetTopLetter() << endl;
 	testCubeRollAndDisplayTop();
-	cout << endl;
+	cout << endl;*/
 
-	cout << endl << "Test for the player functions: " << endl;
+	/*cout << endl << "Test for the player functions: " << endl;
 	testPlayerConstructorAndDisplay();
 	testPlayerReadInfo();
 	testPlayerReadWordsTimed();*/
 	
 	cout << endl << "Test for the Board functions: " << endl;
-	testBoardConstructorsAndDisplay();
+	/*testBoardConstructorsAndDisplay();
 	testBoardCubeInPosition();
-	testBoardTopLetter();
-
+	testBoardTopLetter();*/
+	testBoardShuffle();
+		
 	//Falta fazer testes do shuffle e adiante.
 	//Bugs: se tiver  5 x 5 no ficheiro e nao houver cubos suficientes ele mostra cubos que nao existem.
 

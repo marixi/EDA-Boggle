@@ -67,19 +67,19 @@ Board::Board(const string& filename)
 //---------------------------------------------------------------------------------------------------------------
 Cube Board::cubeInPosition(const Position& pos)
 {
-	return _board[pos.lin][pos.col];
+	return _board[pos.lin - 1][pos.col - 1];
 }
 //---------------------------------------------------------------------------------------------------------------
 char Board::getTopLetter(const Position& pos) const
 {
-	Cube temp = _board[pos.lin][pos.col]; // QUERIA POR ESTA MERDA COM A FUNCAO DE CIMA
+	Cube temp = _board[pos.lin - 1][pos.col - 1]; // QUERIA POR ESTA MERDA COM A FUNCAO DE CIMA | isto dá para fazer mas tem de se tirar o const
 	return temp.getTopLetter();
 }
 //---------------------------------------------------------------------------------------------------------------
 void Board::shuffle()
 {
-	Board fin = Board(_numRows, _numCols);
-	char test, test2;
+	Board fin = Board(_numRows, _numCols); //board com *
+	char test;
 	for (size_t row = 0; row < _numRows; row++)
 	{
 		for (size_t col = 0; col < _numCols; col++)
@@ -88,29 +88,30 @@ void Board::shuffle()
 			int randomRow = rand() % _numRows;
 			int randomCol = rand() % _numCols;
 			Position pos;
-			pos.lin = randomRow;
-			pos.col = randomCol;
+			pos.lin = randomRow + 1;
+			pos.col = randomCol + 1;
 			cube1 = fin.cubeInPosition(pos);
 			test = cube1.getTopLetter();
 			//se no board fin o cubo na posicao random tiver * entao pode-se meter o cubo novo do _board rolar este
 			if (test == '*')
 			{
-				fin.cubeInPosition(pos) = _board[row][col]; //será que substitui? ou é preciso criar uamm função insert?
+				fin.replace(randomRow, randomCol, _board[row][col]); //será que substitui? ou é preciso criar uma função insert?
 			}
 			else //talvez pudesse ser melhorado se os primeiros termos fossem passados por referencia
 			{
 				Position pos1;
+				char test2;
 				do {
 					Cube cube2;
 					int randomRow1 = rand() % _numRows;
 					int randomCol1 = rand() % _numRows;
 
-					pos1.lin = randomRow1;
-					pos1.col = randomCol1;
+					pos1.lin = randomRow1 + 1;
+					pos1.col = randomCol1 + 1;
 					cube2 = fin.cubeInPosition(pos);
-					test2 = cube1.getTopLetter();
+					test2 = cube2.getTopLetter();
 				} while (test2 != '*');
-				fin.cubeInPosition(pos1) = _board[row][col];
+				fin.replace(pos1, _board[row][col]);
 			}
 		}
 
@@ -121,8 +122,8 @@ void Board::shuffle()
 		for (size_t col = 0; col < _numCols; col++)
 		{
 			Position finpos;
-			finpos.lin = row;
-			finpos.col = col;
+			finpos.lin = row + 1;
+			finpos.col = col + 1;
 			_board[row][col] = fin.cubeInPosition(finpos);
 			_board[row][col].roll();
 		}
@@ -151,6 +152,7 @@ void Board::display(ostream& os) const
 		}
 		os << "\n";
 	}
+	os << "\n";
 }
 //---------------------------------------------------------------------------------------------------------------
 bool Board::findWord(const vector<vector<char>>& board, string word, ostream& os)//(string word, vector<Position>& path) -> argumentos usados inicialmente pelo prof
@@ -239,3 +241,37 @@ void Board::displayPath(ostream& os, vector<Position>& path)
 	}
 }
 //NO FINAL, DEPOIS DO DISPLAY, O BOARD É UM vector<vector<char>>, e é nisso que o find word se baseia,i think
+//---------------------------------------------------------------------------------------------------------------
+void Board::replace(unsigned int indexrow,unsigned int indexcol, Cube c)
+{
+	_board[indexrow][indexcol] = c;
+}
+//---------------------------------------------------------------------------------------------------------------
+void Board::replace(const Position& pos, Cube c)
+{
+	unsigned int indexrow = pos.lin-1;
+	unsigned int indexcol = pos.col-1;
+	_board[indexrow][indexcol] = c;
+}
+//---------------------------------------------------------------------------------------------------------------
+void Board::alter()
+{
+	Board fin = Board(_numRows, _numCols);
+	Position pos;
+		pos.lin = 2 + 1;
+		pos.col = 3 + 1;
+
+	fin.replace(pos, _board[0][1]);
+
+		for (size_t row = 0; row < _numRows; row++)
+		{
+			for (size_t col = 0; col < _numCols; col++)
+			{
+				Position finpos;
+				finpos.lin = row + 1;
+				finpos.col = col + 1;
+				_board[row][col] = fin.cubeInPosition(finpos);
+			}
+		}
+}
+//uma funçao teste para ver um problema estupido de substituiçoes

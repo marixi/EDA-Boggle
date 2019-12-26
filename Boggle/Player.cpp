@@ -99,7 +99,7 @@ void Player::readWordsTimed(const string& fileName, time_t duration)
     else
       cout << endl << "Time is over !" << BEEP << endl;;
   }
-  f.close();
+  //f.close();
 }
 
 void Player::display(ostream& os) const
