@@ -80,6 +80,24 @@ void testBoardConstructorsAndDisplay()
 	b2.display(cout);
 }
 
+void testBoardCubeInPosition()
+{
+	Board b("BOARD_INT.txt");
+	Position pos = { 2,2 };
+	Cube c = b.cubeInPosition(pos);
+	c.displayAll(cout);
+}
+
+void testBoardTopLetter()
+{
+	Board b("BOARD_INT.txt");
+	Position pos = { 2,2 };
+	char topLetter = b.getTopLetter(pos);
+	cout << "Top Letter: " << topLetter;
+}
+
+
+
 int main()
 {
 	/*cout << "Test for the dictionary functions: " << endl;
@@ -99,7 +117,10 @@ int main()
 	
 	cout << endl << "Test for the Board functions: " << endl;
 	testBoardConstructorsAndDisplay();
+	testBoardCubeInPosition();
+	testBoardTopLetter();
 
+	//Falta fazer testes do shuffle e adiante.
 	//Bugs: se tiver  5 x 5 no ficheiro e nao houver cubos suficientes ele mostra cubos que nao existem.
 
 	return 0;

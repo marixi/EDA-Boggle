@@ -1,6 +1,2 @@
-﻿  Board.cpp
-C:\Users\maria\Documents\GitHub\EDA\Boggle\Board.cpp(161,20): warning C4018:  '<': incompatibilidade de signed/unsigned
-C:\Users\maria\Documents\GitHub\EDA\Boggle\Board.cpp(162,21): warning C4018:  '<': incompatibilidade de signed/unsigned
-C:\Users\maria\Documents\GitHub\EDA\Boggle\Board.cpp(197,45): warning C4018:  '<': incompatibilidade de signed/unsigned
-C:\Users\maria\Documents\GitHub\EDA\Boggle\Board.cpp(198,46): warning C4018:  '<': incompatibilidade de signed/unsigned
-  Boggle.vcxproj -> C:\Users\maria\Documents\GitHub\EDA\Boggle\Debug\Boggle.exe
+﻿  tests.cpp
+  Boggle.vcxproj -> C:\Users\Ricardo\source\repos\EDA\Boggle\Debug\Boggle.exe
