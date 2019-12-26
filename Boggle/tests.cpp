@@ -136,8 +136,7 @@ int main()
 	testBoardCubeInPosition();
 	testBoardTopLetter();*/
 	testBoardShuffle();
-		
-	//Falta fazer testes do shuffle e adiante.
+	
 	//Bugs: se tiver  5 x 5 no ficheiro e nao houver cubos suficientes ele mostra cubos que nao existem.
 
 	return 0;

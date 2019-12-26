@@ -9,6 +9,7 @@
 #include<string>
 #include <stdio.h>
 #include <ctype.h>
+#include <algorithm>
 using namespace std;
 
 struct Position

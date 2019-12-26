@@ -1,7 +1,1 @@
-﻿  Board.cpp
-D:\Visual Studio\Ex e proj\EDA\Boggle\Board.cpp(58,9): warning C4018:  '<': signed/unsigned mismatch
-D:\Visual Studio\Ex e proj\EDA\Boggle\Board.cpp(173,20): warning C4018:  '<': signed/unsigned mismatch
-D:\Visual Studio\Ex e proj\EDA\Boggle\Board.cpp(174,21): warning C4018:  '<': signed/unsigned mismatch
-D:\Visual Studio\Ex e proj\EDA\Boggle\Board.cpp(209,45): warning C4018:  '<': signed/unsigned mismatch
-D:\Visual Studio\Ex e proj\EDA\Boggle\Board.cpp(210,46): warning C4018:  '<': signed/unsigned mismatch
-  Boggle.vcxproj -> D:\Visual Studio\Ex e proj\EDA\Boggle\Debug\Boggle.exe
+﻿  Boggle.vcxproj -> C:\Users\Ricardo\source\repos\EDA\Boggle\Debug\Boggle.exe
