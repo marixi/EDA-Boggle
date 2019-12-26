@@ -9,6 +9,8 @@
 #include"Board.h"
 using namespace std;
 
+// This file is where we tested the functions that were developed.
+
 // Test for the dictionary functions
 void testDictionaryConstructorAndDisplay()
 {
@@ -95,8 +97,10 @@ int main()
 	testPlayerReadInfo();
 	testPlayerReadWordsTimed();*/
 	
-	cout << endl << "Test for the player functions: " << endl;
+	cout << endl << "Test for the Board functions: " << endl;
 	testBoardConstructorsAndDisplay();
+
+	//Bugs: se tiver  5 x 5 no ficheiro e nao houver cubos suficientes ele mostra cubos que nao existem.
 
 	return 0;
 }

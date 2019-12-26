@@ -23,35 +23,39 @@ Board::Board(size_t numRows, size_t numCols)
 //---------------------------------------------------------------------------------------------------------------
 Board::Board(const string& filename)
 {
+	// Checks if the text file exists.
 	ifstream f(filename);
 	if (f.fail())
+	{
 		cerr << "Error: \"" << filename << "\" was not found! \n";
+		exit(1);
+	}
 
+	// Checks if the text file has the correct format and tries to read board size.
 	string s1; size_t n1 = 0; size_t n2 = 0; char ch;
-	if (!(f >> s1 >> n1 >> ch >> n2))
+	if (!(f >> s1 >> n1 >> ch >> n2) || n1 != n2)
+	{
 		cerr << "Error: Failed to read board size.";
+		exit(1);
+	}
+
 	_numRows = n1;
 	_numCols = n2;
 
-	/*// Creates space for the number of cubes on the board
-	_board.resize(n1);
-    for (size_t row = 0; row < n1; row++)
-		_board[row].resize(n2);*/
-	// Forma mais compacta de fazer o que está acima MAS QUE TAMBEM NAO FUNCIONA PQP
 	_board.resize(n1, vector<Cube>(n2));
 
-	size_t a = 0; size_t b = 0;
+	int a = 0; int b = 0;
 	for (size_t i = 0; i < n1 * n2; i++)
 	{
-		vector<char> faces;
+		vector<char> faces(6);
 		char face;
 		for (size_t j = 0; j < 6; j++) // 6 is the number of faces of a cube
 		{
 			f >> face;
-			faces.push_back(face); 
+			faces[j] = face;
 		}
 		_board[a][b] = Cube(faces);
-		if (b < n2) // Increment the position of the cubes
+		if (b < n2 - 1) // Increment the position of the cubes
 			b++;
 		else
 		{
@@ -130,7 +134,13 @@ void Board::shuffle()
 //---------------------------------------------------------------------------------------------------------------
 void Board::display(ostream& os) const
 {
-	os << "  1  2  3  4" << "\n";
+	os << "  ";
+	for (size_t header = 0; header < _numRows; header++)
+	{
+		os << header + 1 << "  ";
+	}
+	os << "\n";
+
 	for (size_t row = 0; row < _numRows; row++)
 	{
 		os << row + 1 << " ";
