@@ -112,13 +112,19 @@ void Board::display(ostream& os) const
 	os << "\n";
 }
 //---------------------------------------------------------------------------------------------------------------
-bool Board::findWord(const vector<vector<char>>& board, string word, ostream& os)//(string word, vector<Position>& path) -> argumentos usados inicialmente pelo prof
+bool Board::findWord(string word, ostream& os)//(string word, vector<Position>& path) -> argumentos usados inicialmente pelo prof
 {
 	// Mark all characters as not visited 
 	vector<vector<bool>> visited(_numRows, vector<bool>(_numCols, false));
 
 	// Initialize test word 
 	string str = "";
+
+	//Put word in upper case
+	for (int i = 0; word[i] = '\0'; i++)
+	{
+		word[i] = toupper(word[i]);
+	}
 
 	//declaration of the path
 	vector<Position> path;
@@ -129,14 +135,16 @@ bool Board::findWord(const vector<vector<char>>& board, string word, ostream& os
 	bool found = false;
 	for (int i = 0; i < _numRows; i++)
 		for (int j = 0; j < _numCols; j++)
-			if (board[i][j] == word[0])
+			if (_board[i][j].getTopLetter() == word[0])
 			{
 				Position firstlett;
-				firstlett.lin = i;
-				firstlett.col = j;
+				firstlett.lin = i+1;
+				firstlett.col = j+1;
 				path.push_back(firstlett);
 
-				findWordAux(board, visited, i, j, str, word, found, os, path);
+				vector<vector<char>> boardtop;// FAZER O MOLDE PARA ESTA boardtop PARA SER PASSADA PARAA FUNCAO SEGUINTE
+
+				findWordAux(boardtop, visited, i, j, str, word, found, os, path);
 			}
 
 	return found; //depois ao testar dizer que se saiu true entao ta otimo... se saiu false entao deu asneira

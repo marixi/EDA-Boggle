@@ -26,7 +26,7 @@ public:
 	char getTopLetter(const Position& pos) const; // get top letter at position 'pos'
 	void shuffle(); // roll all cubes and shuffle them on the board
 	void display(ostream& os) const; // display board
-	bool findWord(const vector<vector<char>>& board, string word, ostream& os); //(string word, vector<Position>& path); // find 'word' on board
+	bool findWord(string word, ostream& os); //(string word, vector<Position>& path); // find 'word' on board
 	void displayPath(ostream& os, vector<Position>& path); // if 'word' is found, 'path' must contain the coordinates (lin,col) of the letters of the word
 	void alter(); //cagar nesta funcao, foi so para testar a substituiçao entre boards... retira-se no fim
 private:
