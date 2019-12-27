@@ -134,6 +134,7 @@ int main()
 	testPlayerReadWordsTimed();*/
 	
 	cout << endl << "Test for the Board functions: " << endl;
+
 	//testBoardConstructorsAndDisplay();
 	/*testBoardCubeInPosition();
 	testBoardTopLetter();
