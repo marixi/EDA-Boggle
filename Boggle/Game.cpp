@@ -61,12 +61,12 @@ bool Game::minLetters(const string word)
 		return false;
 }
 //--------------------------------------------------------------------------------------------------------------
-bool possibleForm(const string word)
+bool Game::findInBoard(const string word, ostream& os)
 {
-	// Return false se nao possivel formar
+	return _board.findWord(word, os);
 }
 //--------------------------------------------------------------------------------------------------------------
-bool Game::findWord(const string word)
+bool Game::findInDictionary(const string word)
 {
 	return _dictionary.find(word);
 }
@@ -115,9 +115,9 @@ void Game::roundPoints(ostream& os)
 				getline(Words, word);
 				if (minLetters(word) == false)
 					os << word << ": 0 (the word doesn't have the minimum amount of letters necessary)." << endl;
-				else if (possibleForm(word) == false)
+				else if (findInBoard(word) == false)
 					os << word << ": 0 (the word can't possibly be formed with this board)." << endl;
-				else if (findWord(word) == false)
+				else if (findInDictionary(word) == false)
 					os << word << ": 0 (the word isn't on the list of valid words)" << endl;
 				else if (repeatedWord(word) == true)
 					os << word << ": 0 (the word has also been chosen by another player)" << endl;
