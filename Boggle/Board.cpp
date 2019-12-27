@@ -121,7 +121,7 @@ bool Board::findWord(string word, ostream& os)//(string word, vector<Position>& 
 	string str = "";
 
 	//Put word in upper case
-	for (int i = 0; word[i] = '\0'; i++)
+	for (int i = 0; i < word.size(); i++)
 	{
 		word[i] = toupper(word[i]);
 	}
@@ -129,22 +129,29 @@ bool Board::findWord(string word, ostream& os)//(string word, vector<Position>& 
 	//declaration of the path
 	vector<Position> path;
 
+	//initialize a board with only the top char
+	vector<vector<char>>boardTop;// FAZER O MOLDE PARA ESTA boardtop PARA SER PASSADA PARA A FUNCAO SEGUINTE
+	boardTop.resize(_numRows, vector<char>(_numCols));
+
+	for (int a = 0; a < _numRows; a++)
+		for (int b = 0; b < _numCols; b++)
+			boardTop[a][b] = _board[a][b].getTopLetter();
+
+
+	bool found = false;
+
 	// Consider every character and look for 'word', starting with the first character
 	//once that is found pass to findWordAux
-	int numIter = 0;
-	bool found = false;
 	for (int i = 0; i < _numRows; i++)
 		for (int j = 0; j < _numCols; j++)
 			if (_board[i][j].getTopLetter() == word[0])
 			{
 				Position firstlett;
-				firstlett.lin = i+1;
-				firstlett.col = j+1;
+				firstlett.lin = i + 1;
+				firstlett.col = j + 1;
 				path.push_back(firstlett);
 
-				vector<vector<char>> boardtop;// FAZER O MOLDE PARA ESTA boardtop PARA SER PASSADA PARAA FUNCAO SEGUINTE
-
-				findWordAux(boardtop, visited, i, j, str, word, found, os, path);
+				findWordAux(boardTop, visited, i, j, str, word, found, os, path);
 			}
 
 	return found; //depois ao testar dizer que se saiu true entao ta otimo... se saiu false entao deu asneira
@@ -162,26 +169,115 @@ bool Board::findWordAux(const vector<vector<char>>& board, vector<vector<bool>>&
 	if (str == word)
 	{
 		found = true;
+		os << word << " can be found in the board, following the path : \n";
 		for (size_t a = 0; a < path.size(); a++)
 		{
 			os << "(" << path[a].lin << "," << path[a].col << ") \n";
 		}
 
 	}
-	else
+	else //the word isn't complete
 	{
 		// Visit 8 adjacent cells of board[i][j] 
-		for (int row = i - 1; row <= i + 1 && row < _numRows; row++)
-			for (int col = j - 1; col <= j + 1 && col < _numCols; col++) //o if em baixo é genial
-				if (row >= 0 && col >= 0 && !visited[row][col] && str.length() < word.length() && !found && word.substr(0, str.length()) == str)
-				{
-					Position adduplett;
-					adduplett.lin = row;
-					adduplett.col = col;
-					path.push_back(adduplett);
-					findWordAux(board, visited, row, col, str, word, found, os, path);
-				}
+		if (i == 0 && j == 0)
+		{
+			for (int row = i; row <= i + 1 && row < _numRows; row++)
+				for (int col = j; col <= j + 1 && col < _numCols; col++) //o if em baixo é genial
+					if (row >= 0 && col >= 0 && !visited[row][col] && str.length() < word.length() && !found && word.substr(0, str.length()) == str)
+					{
+						Position addUpLetter;
+						addUpLetter.lin = row + 1;
+						addUpLetter.col = col + 1;
+						path.push_back(addUpLetter);
 
+						findWordAux(board, visited, row, col, str, word, found, os, path);
+					}
+		}
+		else if (i == 0 && (j >= 1 && j < _numCols - 1))
+		{
+			for (int row = i; row <= i + 1 && row < _numRows; row++)
+				for (int col = j-1; col <= j + 1 && col < _numCols; col++) //o if em baixo é genial
+					if (row >= 0 && col >= 0 && !visited[row][col] && str.length() < word.length() && !found && word.substr(0, str.length()) == str)
+					{
+						Position addUpLetter;
+						addUpLetter.lin = row + 1;
+						addUpLetter.col = col + 1;
+						path.push_back(addUpLetter);
+
+						findWordAux(board, visited, row, col, str, word, found, os, path);
+					}
+		}
+		else if (i == 0 && j == _numCols - 1)
+		{
+			for (int row = i; row <= i + 1 && row < _numRows; row++)
+				for (int col = j-1; col <= j && col < _numCols; col++) //o if em baixo é genial
+					if (row >= 0 && col >= 0 && !visited[row][col] && str.length() < word.length() && !found && word.substr(0, str.length()) == str)
+					{
+						Position addUpLetter;
+						addUpLetter.lin = row + 1;
+						addUpLetter.col = col + 1;
+						path.push_back(addUpLetter);
+
+						findWordAux(board, visited, row, col, str, word, found, os, path);
+					}
+		}
+		else if (j == 0 && (i >= 1 && i < _numRows - 1))
+		{
+			for (int row = i-1; row <= i + 1 && row < _numRows; row++)
+				for (int col = j; col <= j + 1 && col < _numCols; col++) //o if em baixo é genial
+					if (row >= 0 && col >= 0 && !visited[row][col] && str.length() < word.length() && !found && word.substr(0, str.length()) == str)
+					{
+						Position addUpLetter;
+						addUpLetter.lin = row + 1;
+						addUpLetter.col = col + 1;
+						path.push_back(addUpLetter);
+
+						findWordAux(board, visited, row, col, str, word, found, os, path);
+					}
+		}
+		else if (i == _numRows - 1 && j == 0)
+		{
+			for (int row = i-1; row <= i && row < _numRows; row++)
+				for (int col = j; col <= j + 1 && col < _numCols; col++) //o if em baixo é genial
+					if (row >= 0 && col >= 0 && !visited[row][col] && str.length() < word.length() && !found && word.substr(0, str.length()) == str)
+					{
+						Position addUpLetter;
+						addUpLetter.lin = row + 1;
+						addUpLetter.col = col + 1;
+						path.push_back(addUpLetter);
+
+						findWordAux(board, visited, row, col, str, word, found, os, path);
+					}
+		}
+		else if (i == _numRows - 1 && j == _numCols - 1)
+		{
+			for (int row = i-1; row <= i && row < _numRows; row++)
+				for (int col = j-1; col <= j && col < _numCols; col++) //o if em baixo é genial
+					if (row >= 0 && col >= 0 && !visited[row][col] && str.length() < word.length() && !found && word.substr(0, str.length()) == str)
+					{
+						Position addUpLetter;
+						addUpLetter.lin = row + 1;
+						addUpLetter.col = col + 1;
+						path.push_back(addUpLetter);
+
+						findWordAux(board, visited, row, col, str, word, found, os, path);
+					}
+		}
+		else
+		{
+
+			for (int row = i - 1; row <= i + 1 && row < _numRows; row++)
+				for (int col = j - 1; col <= j + 1 && col < _numCols; col++) //o if em baixo é genial
+					if (row >= 0 && col >= 0 && !visited[row][col] && str.length() < word.length() && !found && word.substr(0, str.length()) == str)
+					{
+						Position addUpLetter;
+						addUpLetter.lin = row + 1;
+						addUpLetter.col = col + 1;
+						path.push_back(addUpLetter);
+
+						findWordAux(board, visited, row, col, str, word, found, os, path);
+					}
+		}
 		//fazer o vetor de positions path com push_backs (found true) e pull_backs (!found)
 // Erase current character from string, 
 // remove character position from 'path' and
@@ -198,45 +294,15 @@ bool Board::findWordAux(const vector<vector<char>>& board, vector<vector<bool>>&
 	//mas deixando a cellua registada como false, o que nao ativa o if
 }
 //---------------------------------------------------------------------------------------------------------------
-void Board::displayPath(ostream& os, vector<Position>& path)
-{
-	for (size_t a = 0; a < path.size(); a++)
-	{
-		os << "(" << path[a].lin << "," << path[a].col << ") \n";
-	}
-}
-//NO FINAL, DEPOIS DO DISPLAY, O BOARD É UM vector<vector<char>>, e é nisso que o find word se baseia,i think
-//---------------------------------------------------------------------------------------------------------------
-void Board::replace(unsigned int indexrow,unsigned int indexcol, Cube c)
+void Board::replace(unsigned int indexrow, unsigned int indexcol, Cube c)
 {
 	_board[indexrow][indexcol] = c;
 }
 //---------------------------------------------------------------------------------------------------------------
 void Board::replace(const Position& pos, Cube c)
 {
-	unsigned int indexrow = pos.lin-1;
-	unsigned int indexcol = pos.col-1;
+	unsigned int indexrow = pos.lin - 1;
+	unsigned int indexcol = pos.col - 1;
 	_board[indexrow][indexcol] = c;
 }
 //---------------------------------------------------------------------------------------------------------------
-void Board::alter()
-{
-	Board fin = Board(_numRows, _numCols);
-	Position pos;
-		pos.lin = 2 + 1;
-		pos.col = 3 + 1;
-
-	fin.replace(pos, _board[0][1]);
-
-		for (size_t row = 0; row < _numRows; row++)
-		{
-			for (size_t col = 0; col < _numCols; col++)
-			{
-				Position finpos;
-				finpos.lin = row + 1;
-				finpos.col = col + 1;
-				_board[row][col] = fin.cubeInPosition(finpos);
-			}
-		}
-}
-//uma funçao teste para ver um problema estupido de substituiçoes

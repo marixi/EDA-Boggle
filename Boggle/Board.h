@@ -27,12 +27,11 @@ public:
 	void shuffle(); // roll all cubes and shuffle them on the board
 	void display(ostream& os) const; // display board
 	bool findWord(string word, ostream& os); //(string word, vector<Position>& path); // find 'word' on board
-	void displayPath(ostream& os, vector<Position>& path); // if 'word' is found, 'path' must contain the coordinates (lin,col) of the letters of the word
-	void alter(); //cagar nesta funcao, foi so para testar a substituiçao entre boards... retira-se no fim
 private:
-	void replace(unsigned int indexrow,unsigned int indexcol, Cube c);
+	void replace(unsigned int indexrow,unsigned int indexcol, Cube c); //os replaces ja nao sao precisos, mas vou deixar ate ao fim
 	void replace(const Position& pos, Cube c);
 	bool findWordAux(const vector<vector<char>>& board, vector<vector<bool>>& visited, int i, int j, string& str, const string& word, bool& found, ostream& os, vector<Position>& path);
+
 	size_t _numRows, _numCols; // number of columns and number of rows of the board
 	vector<vector<Cube>> _board; // board representation
 };

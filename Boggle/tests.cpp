@@ -108,10 +108,12 @@ void testBoardShuffle()
 void testBoardFindWordanddisplayPath()
 {
 	Board b("BOARD_INT.txt");
-	b.display;
-	string s = "EEEG";
-	b.findWord(s,cout);
-	
+	b.display(cout);
+	string s = "reoideentsaebge";
+
+	bool f;
+	f=b.findWord(s,cout);
+	cout << endl << f << endl;
 }
 
 int main()
@@ -132,11 +134,12 @@ int main()
 	testPlayerReadWordsTimed();*/
 	
 	cout << endl << "Test for the Board functions: " << endl;
-	/*testBoardConstructorsAndDisplay();
-	testBoardCubeInPosition();
-	testBoardTopLetter();*/
-	testBoardShuffle();
-	
+	//testBoardConstructorsAndDisplay();
+	/*testBoardCubeInPosition();
+	testBoardTopLetter();
+	testBoardShuffle();*/
+	testBoardFindWordanddisplayPath();
+
 	//Bugs: se tiver  5 x 5 no ficheiro e nao houver cubos suficientes ele mostra cubos que nao existem.
 
 	return 0;
