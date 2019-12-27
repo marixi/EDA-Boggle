@@ -22,6 +22,7 @@ public:
 	void readInfo(); // reads player's info (name, age)
 	void readWordsTimed(const string& fileName, time_t duration); // reads words of the player's bet, in one round
 	void display(ostream& os) const;  // showInfo()
+	string getName();
 private:
 	string _name; // name of the player
 	unsigned int _age; // age of the player

@@ -10,25 +10,25 @@ Player::Player()
 	_name = "NO NAME";
 	_age = 0;
 }
-
+//--------------------------------------------------------------------------------------------------------------
 Player::Player(string name)
 {
 	_name = name;
 	_age = 0;
 }
-
+//--------------------------------------------------------------------------------------------------------------
 Player::Player(string name, int age)
 {
 	_name = name;
 	_age = age;
 }
-
+//--------------------------------------------------------------------------------------------------------------
 void Player::readInfo()
 {
 	cout << "Insert Player's name: "; cin >> _name;
 	cout << "Insert Player's age: "; cin >> _age;
 }
-
+//--------------------------------------------------------------------------------------------------------------
 /*
 Reads a word to string 'str'
 It must be read before 'duration' time is elapsed, 
@@ -68,7 +68,7 @@ void Player::readStrTimed(string& str, time_t duration)
   }
   return;
 }
-
+//--------------------------------------------------------------------------------------------------------------
 /*
 Author: JAS
 Reads several words and stores them into file named 'fileName'
@@ -101,9 +101,14 @@ void Player::readWordsTimed(const string& fileName, time_t duration)
   }
   //f.close();
 }
-
+//--------------------------------------------------------------------------------------------------------------
 void Player::display(ostream& os) const
 {
   os << "Player's Name: " << _name << endl;
   os << "Player's Age: " << _age << endl;
+}
+//--------------------------------------------------------------------------------------------------------------
+string Player::getName()
+{
+	return _name;
 }

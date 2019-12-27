@@ -1,2 +1,51 @@
-﻿  tests.cpp
-  Boggle.vcxproj -> C:\Users\Ricardo\source\repos\EDA\Boggle\Debug\Boggle.exe
+﻿  Config.cpp
+  Game.cpp
+C:\Users\maria\Documents\GitHub\EDA\Boggle\Game.cpp(133,15): warning C4018:  '>=': incompatibilidade de signed/unsigned
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\xstddef(124,1): error C2678:  '<' binário : nenhum operador encontrado que receba um operando de lado esquerdo do tipo 'const _Ty' (ou não há conversão aceitável)
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\xstddef(124,1): error C2678:         with
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\xstddef(124,1): error C2678:         [
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\xstddef(124,1): error C2678:             _Ty=Player
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\xstddef(124,1): error C2678:         ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\system_error(263,24): message :  poderia ser 'bool std::operator <(const std::error_condition &,const std::error_condition &) noexcept'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\system_error(258,24): message :  ou       'bool std::operator <(const std::error_code &,const std::error_code &) noexcept'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\xstddef(124,1): message :  ao tentar corresponder a lista de argumentos '(const _Ty, const _Ty)'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\xstddef(124,1): message :         with
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\xstddef(124,1): message :         [
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\xstddef(124,1): message :             _Ty=Player
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\xstddef(124,1): message :         ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\xstddef(123): message :  ao compilar a função de membro 'bool std::less<_Kty>::operator ()(const _Ty &,const _Ty &) const' do modelo da classe
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\xstddef(123): message :         with
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\xstddef(123): message :         [
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\xstddef(123): message :             _Kty=Player,
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\xstddef(123): message :             _Ty=Player
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\xstddef(123): message :         ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\xutility(622): message :  consulte a referência à criação de instância 'bool std::less<_Kty>::operator ()(const _Ty &,const _Ty &) const' do modelo que está sendo compilada
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\xutility(622): message :         with
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\xutility(622): message :         [
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\xutility(622): message :             _Kty=Player,
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\xutility(622): message :             _Ty=Player
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\xutility(622): message :         ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\xmemory(1423): message :  consulte a referência à criação de instância 'std::less<_Kty>' do modelo da classe que está sendo compilada
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\xmemory(1423): message :         with
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\xmemory(1423): message :         [
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\xmemory(1423): message :             _Kty=Player
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\xmemory(1423): message :         ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\xmemory(1422): message :  consulte a referência para o modelo de variável 'const bool is_empty_v<std::less<Player> >' sendo compilado
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\map(70): message :  consulte a referência à criação de instância 'std::_Tree<std::_Tmap_traits<_Kty,_Ty,_Pr,_Alloc,false>>' do modelo da classe que está sendo compilada
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\map(70): message :         with
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\map(70): message :         [
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\map(70): message :             _Kty=Player,
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\map(70): message :             _Ty=std::string,
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\map(70): message :             _Pr=std::less<Player>,
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\map(70): message :             _Alloc=std::allocator<std::pair<const Player,std::string>>
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\map(70): message :         ]
+  Player.cpp
+  main.cpp
+  tests.cpp
+  Gerando Código...
+C:\Users\maria\Documents\GitHub\EDA\Boggle\Game.h(27): message :  consulte a referência à criação de instância 'std::map<Player,std::string,std::less<_Kty>,std::allocator<std::pair<const _Kty,_Ty>>>' do modelo da classe que está sendo compilada
+C:\Users\maria\Documents\GitHub\EDA\Boggle\Game.h(27): message :         with
+C:\Users\maria\Documents\GitHub\EDA\Boggle\Game.h(27): message :         [
+C:\Users\maria\Documents\GitHub\EDA\Boggle\Game.h(27): message :             _Kty=Player,
+C:\Users\maria\Documents\GitHub\EDA\Boggle\Game.h(27): message :             _Ty=std::string
+C:\Users\maria\Documents\GitHub\EDA\Boggle\Game.h(27): message :         ]

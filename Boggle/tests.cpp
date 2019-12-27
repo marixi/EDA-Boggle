@@ -2,15 +2,15 @@
 // Duarte Rodrigues
 // Ricardo Brioso
 // Mariana Xavier
+// This file is where we tested the functions that were developed.
+//The position declared in the tests is the postion in the board so from rows and columns 1 to 4
 
 #include"Dictionary.h"
 #include"Cube.h"
 #include"Player.h"
 #include"Board.h"
+#include"Game.h"
 using namespace std;
-
-// This file is where we tested the functions that were developed.
-//The position declared in the tests is the postion in the board so from rows and columns 1 to 4
 
 // Test for the dictionary functions
 void testDictionaryConstructorAndDisplay()
@@ -116,32 +116,39 @@ void testBoardFindWordanddisplayPath()
 	cout << endl << f << endl;
 }
 
-int main()
+// Test for the config functions
+void testConfigConstructorsAndDisplay()
 {
-	/*cout << "Test for the dictionary functions: " << endl;
-	testDictionaryConstructorAndDisplay();
-	cout << testDictionaryFind() << endl;*/
-
-	/*cout << endl << "Test for the cube functions: " << endl;
-	testCubeConstructorAndDisplayAll();
-	cout << endl << testCubeGetTopLetter() << endl;
-	testCubeRollAndDisplayTop();
-	cout << endl;*/
-
-	/*cout << endl << "Test for the player functions: " << endl;
-	testPlayerConstructorAndDisplay();
-	testPlayerReadInfo();
-	testPlayerReadWordsTimed();*/
-	
-	cout << endl << "Test for the Board functions: " << endl;
-
-	//testBoardConstructorsAndDisplay();
-	/*testBoardCubeInPosition();
-	testBoardTopLetter();
-	testBoardShuffle();*/
-	testBoardFindWordanddisplayPath();
-
-	//Bugs: se tiver  5 x 5 no ficheiro e nao houver cubos suficientes ele mostra cubos que nao existem.
-
-	return 0;
+	Config g("BOGGLE_CONFIG.txt");
+	g.displayConfig(cout);
 }
+//
+//int main()
+//{
+//	/*cout << "Test for the dictionary functions: " << endl;
+//	testDictionaryConstructorAndDisplay();
+//	cout << testDictionaryFind() << endl;*/
+//
+//	/*cout << endl << "Test for the cube functions: " << endl;
+//	testCubeConstructorAndDisplayAll();
+//	cout << endl << testCubeGetTopLetter() << endl;
+//	testCubeRollAndDisplayTop();
+//	cout << endl;*/
+//
+//	/*cout << endl << "Test for the player functions: " << endl;
+//	testPlayerConstructorAndDisplay();
+//	testPlayerReadInfo();
+//	testPlayerReadWordsTimed();*/
+//	
+//	/*cout << endl << "Test for the Board functions: " << endl;
+//	testBoardConstructorsAndDisplay();
+//	testBoardCubeInPosition();
+//	testBoardTopLetter();
+//	testBoardShuffle();
+//	testBoardFindWordanddisplayPath();*/
+//
+//	cout << endl << "Test for the Config functions: " << endl;
+//	testConfigConstructorsAndDisplay();
+//
+//	return 0;
+//}

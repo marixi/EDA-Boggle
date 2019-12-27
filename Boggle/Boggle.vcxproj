@@ -124,6 +124,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Board.cpp" />
+    <ClCompile Include="Console.cpp" />
+    <ClCompile Include="Config.cpp" />
+    <ClCompile Include="Game.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Cube.cpp" />
     <ClCompile Include="Dictionary.cpp" />
@@ -132,8 +135,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Board.h" />
+    <ClInclude Include="Console.h" />
     <ClInclude Include="Cube.h" />
     <ClInclude Include="Dictionary.h" />
+    <ClInclude Include="Config.h" />
+    <ClInclude Include="Game.h" />
     <ClInclude Include="Player.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

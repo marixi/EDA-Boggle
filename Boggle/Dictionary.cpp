@@ -6,6 +6,11 @@
 #include"Dictionary.h"
 using namespace std;
 
+Dictionary::Dictionary()
+{
+	_dictionary.insert(pair<int, string>(0, "NO WORDS"));
+}
+//---------------------------------------------------------------------------------------------------------------
 Dictionary::Dictionary(const string& filename)
 {
 	ifstream f(filename);
@@ -17,7 +22,7 @@ Dictionary::Dictionary(const string& filename)
 	string s;
 	while (getline(f,s))
 	{
-		dictionary.insert(pair<int, string>(i, s));
+		_dictionary.insert(pair<int, string>(i, s));
 		i++;
 	}
 }
@@ -27,7 +32,7 @@ bool Dictionary::find(const string& word)
 	bool foundWord = false;
 	map<int, string>::const_iterator mi;
 	pair<int, string> p;
-	for (mi = dictionary.begin(); mi != dictionary.end(); mi++)
+	for (mi = _dictionary.begin(); mi != _dictionary.end(); mi++)
 	{
 		p = *mi;
 		if (p.second == word)
@@ -38,6 +43,6 @@ bool Dictionary::find(const string& word)
 //---------------------------------------------------------------------------------------------------------------
 void Dictionary::display(ostream& os) const
 {
-	for (const auto& x : dictionary)
+	for (const auto& x : _dictionary)
 		os << x.second << endl;
 }

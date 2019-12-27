@@ -1,23 +1,35 @@
+// Grupo 5
+// Duarte Rodrigues
+// Ricardo Brioso
+// Mariana Xavier
+
 #pragma once
-#include "Board.h"
-#include "Player.h"
+#include"Player.h"
+#include"Config.h"
+#include"Dictionary.h"
+#include<vector>
+#include<sstream>
+using namespace std;
 
 class Game
 {
-private:
-	string _filenameDictionary; 
-	string _filenameBoard;
-	vector<Player> _players;
-	unsigned int _maxTime; // Maximum time for each round/game.
-	unsigned int _minLetters; // Minimum of letters of a word.
-	unsigned int _victoryPoints; // Points required to win.
 public:
 	Game();
-	Game(const string& filename);
-	void readGameConfig(const string& filename); //Almost the same has the constructor but it changes an existing object.
-	void readPlayers(istream& is);
-	//void wordsToPoints; // Case Structure that translates the number of words that the player tried to guess into words.
-	//Not sure if the above function makes sense in this class yet.
-
+	void readPlayers();
+	void readConfig(const string& filename);
+	void readDictionary(const string& filename);
+	void readPlayersWords();
+	void roundPoints(ostream& os);
+private:
+	vector<Player> _players;
+	Config _config;
+	Dictionary _dictionary;
+	map<Player, string> _playersWords;
+	map<Player, int> _playersPoints;
+	bool minLetters(const string word);
+	bool possibleForm(const string word);
+	bool findWord(const string word);
+	bool repeatedWord(const string word);
+	int charsToPoints(const string word);
+	bool checkForVictory(pair<Player, int> p);
 };
-
