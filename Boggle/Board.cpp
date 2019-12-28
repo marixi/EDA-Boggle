@@ -44,7 +44,7 @@ Board::Board(const string& filename)
 
 	_board.resize(n1, vector<Cube>(n2));
 
-	int a = 0; int b = 0;
+	size_t a = 0; size_t b = 0;
 	for (size_t i = 0; i < n1 * n2; i++)
 	{
 		vector<char> faces(6);
@@ -121,7 +121,7 @@ bool Board::findWord(string word, ostream& os)//(string word, vector<Position>& 
 	string str = "";
 
 	//Put word in upper case
-	for (int i = 0; i < word.size(); i++)
+	for (size_t i = 0; i < word.size(); i++)
 	{
 		word[i] = toupper(word[i]);
 	}
@@ -133,8 +133,8 @@ bool Board::findWord(string word, ostream& os)//(string word, vector<Position>& 
 	vector<vector<char>>boardTop;// FAZER O MOLDE PARA ESTA boardtop PARA SER PASSADA PARA A FUNCAO SEGUINTE
 	boardTop.resize(_numRows, vector<char>(_numCols));
 
-	for (int a = 0; a < _numRows; a++)
-		for (int b = 0; b < _numCols; b++)
+	for (size_t a = 0; a < _numRows; a++)
+		for (size_t b = 0; b < _numCols; b++)
 			boardTop[a][b] = _board[a][b].getTopLetter();
 
 
@@ -142,8 +142,8 @@ bool Board::findWord(string word, ostream& os)//(string word, vector<Position>& 
 
 	// Consider every character and look for 'word', starting with the first character
 	//once that is found pass to findWordAux
-	for (int i = 0; i < _numRows; i++)
-		for (int j = 0; j < _numCols; j++)
+	for (size_t i = 0; i < _numRows; i++)
+		for (size_t j = 0; j < _numCols; j++)
 			if (_board[i][j].getTopLetter() == word[0])
 			{
 				Position firstlett;
@@ -157,7 +157,7 @@ bool Board::findWord(string word, ostream& os)//(string word, vector<Position>& 
 	return found; //depois ao testar dizer que se saiu true entao ta otimo... se saiu false entao deu asneira
 }
 //---------------------------------------------------------------------------------------------------------------
-void Board::isNextLetter(const vector<vector<char>>& board, vector<vector<bool>>& visited, int row, int col, string& str, const string& word, bool& found, ostream& os, vector<Position> path)
+void Board::isNextLetter(const vector<vector<char>>& board, vector<vector<bool>>& visited, size_t row, size_t col, string& str, const string& word, bool& found, ostream& os, vector<Position> path)
 {
 	if (row >= 0 && col >= 0 && !visited[row][col] && str.length() < word.length() && !found && word.substr(0, str.length()) == str)
 	{
@@ -170,7 +170,7 @@ void Board::isNextLetter(const vector<vector<char>>& board, vector<vector<bool>>
 	}
 }
 //---------------------------------------------------------------------------------------------------------------
-bool Board::findWordAux(const vector<vector<char>>& board, vector<vector<bool>>& visited, int i, int j, string& str, const string& word, bool& found, ostream& os, vector<Position>& path)
+bool Board::findWordAux(const vector<vector<char>>& board, vector<vector<bool>>& visited, size_t i, size_t j, string& str, const string& word, bool& found, ostream& os, vector<Position>& path)
 {
 	// Mark current board cell as visited and append current character to 'str'
 
@@ -188,53 +188,52 @@ bool Board::findWordAux(const vector<vector<char>>& board, vector<vector<bool>>&
 		}
 
 	}
-	else //the word isn't complete
+	else // The word isn't complete.
 	{
 		// Visit 8 adjacent cells of board[i][j] 
 		if (i == 0 && j == 0)
 		{
-			for (int row = i; row <= i + 1 && row < _numRows; row++)
-				for (int col = j; col <= j + 1 && col < _numCols; col++)
+			for (size_t row = i; row <= i + 1 && row < _numRows; row++)
+				for (size_t col = j; col <= j + 1 && col < _numCols; col++)
 					isNextLetter(board, visited, row, col, str, word, found, os, path);
 		}
 		else if (i == 0 && (j >= 1 && j < _numCols - 1))
 		{
-			for (int row = i; row <= i + 1 && row < _numRows; row++)
-				for (int col = j-1; col <= j + 1 && col < _numCols; col++)
+			for (size_t row = i; row <= i + 1 && row < _numRows; row++)
+				for (size_t col = j-1; col <= j + 1 && col < _numCols; col++)
 					isNextLetter(board, visited, row, col, str, word, found, os, path);
 		}
 		else if (i == 0 && j == _numCols - 1)
 		{
-			for (int row = i; row <= i + 1 && row < _numRows; row++)
-				for (int col = j-1; col <= j && col < _numCols; col++)
+			for (size_t row = i; row <= i + 1 && row < _numRows; row++)
+				for (size_t col = j-1; col <= j && col < _numCols; col++)
 					isNextLetter(board, visited, row, col, str, word, found, os, path);
 		}
 		else if (j == 0 && (i >= 1 && i < _numRows - 1))
 		{
-			for (int row = i-1; row <= i + 1 && row < _numRows; row++)
-				for (int col = j; col <= j + 1 && col < _numCols; col++)
+			for (size_t row = i-1; row <= i + 1 && row < _numRows; row++)
+				for (size_t col = j; col <= j + 1 && col < _numCols; col++)
 					isNextLetter(board, visited, row, col, str, word, found, os, path);
 		}
 		else if (i == _numRows - 1 && j == 0)
 		{
-			for (int row = i-1; row <= i && row < _numRows; row++)
-				for (int col = j; col <= j + 1 && col < _numCols; col++)
+			for (size_t row = i-1; row <= i && row < _numRows; row++)
+				for (size_t col = j; col <= j + 1 && col < _numCols; col++)
 					isNextLetter(board, visited, row, col, str, word, found, os, path);
 		}
 		else if (i == _numRows - 1 && j == _numCols - 1)
 		{
-			for (int row = i-1; row <= i && row < _numRows; row++)
-				for (int col = j-1; col <= j && col < _numCols; col++)
+			for (size_t row = i-1; row <= i && row < _numRows; row++)
+				for (size_t col = j-1; col <= j && col < _numCols; col++)
 					isNextLetter(board, visited, row, col, str, word, found, os, path);
 		}
 		else
 		{
-
-			for (int row = i - 1; row <= i + 1 && row < _numRows; row++)
-				for (int col = j - 1; col <= j + 1 && col < _numCols; col++)
+			for (size_t row = i - 1; row <= i + 1 && row < _numRows; row++)
+				for (size_t col = j - 1; col <= j + 1 && col < _numCols; col++)
 					isNextLetter(board, visited, row, col, str, word, found, os, path);
 		}
-		//fazer o vetor de positions path com push_backs (found true) e pull_backs (!found)
+		// Fazer o vetor de positions path com push_backs (found true) e pull_backs (!found)
 // Erase current character from string, 
 // remove character position from 'path' and
 // mark visited[i][j] as false
@@ -247,7 +246,6 @@ bool Board::findWordAux(const vector<vector<char>>& board, vector<vector<bool>>&
 	}
 	return found;
 	//se uma das letras falha reposta not found e o findwordaux corre todo outra vez,
-	//mas deixando a cellua registada como false, o que nao ativa o if
 }
 //---------------------------------------------------------------------------------------------------------------
 void Board::replace(unsigned int indexrow, unsigned int indexcol, Cube c)
