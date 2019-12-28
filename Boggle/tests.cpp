@@ -109,7 +109,7 @@ void testBoardFindWordanddisplayPath()
 {
 	Board b("BOARD_INT.txt");
 	b.display(cout);
-	string s = "reoideentsaebge";
+	string s = "NEGA";
 
 	bool f;
 	f=b.findWord(s,cout);
@@ -122,7 +122,7 @@ void testConfigConstructorsAndDisplay()
 	Config g("BOGGLE_CONFIG.txt");
 	g.displayConfig(cout);
 }
-//
+
 //int main()
 //{
 //	/*cout << "Test for the dictionary functions: " << endl;
@@ -147,8 +147,8 @@ void testConfigConstructorsAndDisplay()
 //	testBoardShuffle();
 //	testBoardFindWordanddisplayPath();*/
 //
-//	cout << endl << "Test for the Config functions: " << endl;
-//	testConfigConstructorsAndDisplay();
+//	/*cout << endl << "Test for the Config functions: " << endl;
+//	testConfigConstructorsAndDisplay();*/
 //
 //	return 0;
 //}

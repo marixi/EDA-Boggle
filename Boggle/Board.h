@@ -30,6 +30,7 @@ public:
 private:
 	void replace(unsigned int indexrow,unsigned int indexcol, Cube c); //os replaces ja nao sao precisos, mas vou deixar ate ao fim
 	void replace(const Position& pos, Cube c);
+	void isNextLetter(const vector<vector<char>>& board, vector<vector<bool>>& visited, int row, int col, string& str, const string& word, bool& found, ostream& os, vector<Position> path);
 	bool findWordAux(const vector<vector<char>>& board, vector<vector<bool>>& visited, int i, int j, string& str, const string& word, bool& found, ostream& os, vector<Position>& path);
 
 	size_t _numRows, _numCols; // number of columns and number of rows of the board
