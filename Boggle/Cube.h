@@ -15,13 +15,13 @@ using namespace std;
 class Cube
 {
 public:
-	Cube(); // build a cube with '*' on all faces
-	Cube(const vector<char>& letters); // build a cube with 'letters' on faces
-	void roll(); // roll cube => change _topSide
-	char getTopLetter() const; // get top letter
-	void displayTop(ostream& os) const; // display top letter
-	void displayAll(ostream& os) const; // display all letters existing on the cube faces
+	Cube(); // Builds a cube with '*' on all the sides.
+	Cube(const vector<char>& letters); // Builds a cube with chars in all of the sides.
+	void roll(); // Randomly changes the _topSide of the Cube.
+	char getTopLetter() const;
+	void displayTop(ostream& os) const; // Displays top letter.
+	void displayAll(ostream& os) const; // Display alls letters on the Cube's sides.
 private:
-	vector<char> _letters; // the letters of the cube
-	size_t _topSide; // the side up: 0..5
+	vector<char> _letters; // Each char of the vector corresponds to one side of the Cube.
+	size_t _topSide; // The side and is faced up. Goes from 0 to 5.
 };

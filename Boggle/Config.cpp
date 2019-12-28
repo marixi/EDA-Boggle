@@ -23,11 +23,13 @@ void Config::defineParameters(string aux, string& parameter)
 //--------------------------------------------------------------------------------------------------------------
 Config::Config(const string& filename)
 {
+	// Checks if the text file exists.
 	ifstream f(filename);
-
 	if (f.fail())
+	{
 		cerr << "Error: \"" << filename << "\" was not found! \n";
-
+		exit(1);
+	}
 	
 	string header, separator, aux;
 	getline(f, header);
@@ -44,6 +46,9 @@ Config::Config(const string& filename)
 	_maxTime = stoi(parameters[2]);
 	_minLetters = stoi(parameters[3]);
 	_victoryPoints = stoi(parameters[4]);
+
+	// Closes the file stream.
+	f.close();
 }
 //--------------------------------------------------------------------------------------------------------------
 void Config::displayConfig(ostream& os) const

@@ -63,6 +63,9 @@ Board::Board(const string& filename)
 			a++;
 		}
 	}
+
+	// Closes the file stream.
+	f.close();
 }
 //---------------------------------------------------------------------------------------------------------------
 Cube Board::cubeInPosition(const Position& pos)
@@ -112,7 +115,7 @@ void Board::display(ostream& os) const
 	os << "\n";
 }
 //---------------------------------------------------------------------------------------------------------------
-bool Board::findWord(string word, ostream& os)//(string word, vector<Position>& path) -> argumentos usados inicialmente pelo prof
+bool Board::findWord(string word, ostream& os)
 {
 	// Mark all characters as not visited 
 	vector<vector<bool>> visited(_numRows, vector<bool>(_numCols, false));
@@ -126,17 +129,16 @@ bool Board::findWord(string word, ostream& os)//(string word, vector<Position>& 
 		word[i] = toupper(word[i]);
 	}
 
-	//declaration of the path
+	// Declaration of the path
 	vector<Position> path;
 
-	//initialize a board with only the top char
+	// Initialize a board with only the top char
 	vector<vector<char>>boardTop;// FAZER O MOLDE PARA ESTA boardtop PARA SER PASSADA PARA A FUNCAO SEGUINTE
 	boardTop.resize(_numRows, vector<char>(_numCols));
 
 	for (size_t a = 0; a < _numRows; a++)
 		for (size_t b = 0; b < _numCols; b++)
 			boardTop[a][b] = _board[a][b].getTopLetter();
-
 
 	bool found = false;
 
@@ -173,7 +175,6 @@ void Board::isNextLetter(const vector<vector<char>>& board, vector<vector<bool>>
 bool Board::findWordAux(const vector<vector<char>>& board, vector<vector<bool>>& visited, size_t i, size_t j, string& str, const string& word, bool& found, ostream& os, vector<Position>& path)
 {
 	// Mark current board cell as visited and append current character to 'str'
-
 	visited[i][j] = true;
 	str = str + board[i][j];
 
@@ -186,7 +187,6 @@ bool Board::findWordAux(const vector<vector<char>>& board, vector<vector<bool>>&
 		{
 			os << "(" << path[a].lin << "," << path[a].col << ") \n";
 		}
-
 	}
 	else // The word isn't complete.
 	{
@@ -233,10 +233,10 @@ bool Board::findWordAux(const vector<vector<char>>& board, vector<vector<bool>>&
 				for (size_t col = j - 1; col <= j + 1 && col < _numCols; col++)
 					isNextLetter(board, visited, row, col, str, word, found, os, path);
 		}
-		// Fazer o vetor de positions path com push_backs (found true) e pull_backs (!found)
-// Erase current character from string, 
-// remove character position from 'path' and
-// mark visited[i][j] as false
+
+		/*Erases current character from string, 
+		removes character position from 'path' and
+		marks visited[i][j] as false.*/
 		if (!found)
 		{
 			str.erase(str.length() - 1);
@@ -245,7 +245,6 @@ bool Board::findWordAux(const vector<vector<char>>& board, vector<vector<bool>>&
 		}
 	}
 	return found;
-	//se uma das letras falha reposta not found e o findwordaux corre todo outra vez,
 }
 //---------------------------------------------------------------------------------------------------------------
 void Board::replace(unsigned int indexrow, unsigned int indexcol, Cube c)

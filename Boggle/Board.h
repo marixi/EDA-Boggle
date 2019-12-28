@@ -20,20 +20,20 @@ struct Position
 class Board
 {
 public:
-	Board(size_t numRows = 4, size_t numCols = 4); // Build a board w/cubes having '*' on faces
-	Board(const string& filename); // Load board from 'filename'
-	Cube cubeInPosition(const Position& pos); // Position in the game (1 to 4)
-	char getTopLetter(const Position& pos) const; // Get top letter at position 'pos'
-	void shuffle(); // Roll all cubes and shuffle them on the board
-	void display(ostream& os) const; // Display board
+	Board(size_t numRows = 4, size_t numCols = 4); // Builds a board with default Cubes.
+	Board(const string& filename); // Loads board from 'filename'.
+	Cube cubeInPosition(const Position& pos); // Gives cube in position 'pos'.
+	char getTopLetter(const Position& pos) const; // Get top letter at position 'pos'.
+	void shuffle(); // Rolls all cubes and shuffles them on the board.
+	void display(ostream& os) const; // Displays board.
 	bool findWord(string word, ostream& os);
 private:
-	void replace(unsigned int indexrow,unsigned int indexcol, Cube c); //os replaces ja nao sao precisos, mas vou deixar ate ao fim
+	void replace(unsigned int indexrow,unsigned int indexcol, Cube c);
 	void replace(const Position& pos, Cube c);
 	void isNextLetter(const vector<vector<char>>& board, vector<vector<bool>>& visited, size_t row, size_t col, string& str, const string& word, bool& found, ostream& os, vector<Position> path);
 	bool findWordAux(const vector<vector<char>>& board, vector<vector<bool>>& visited, size_t i, size_t j, string& str, const string& word, bool& found, ostream& os, vector<Position>& path);
 
 	// Class Atributes
-	size_t _numRows, _numCols; // number of columns and number of rows of the board
-	vector<vector<Cube>> _board; // board representation
+	size_t _numRows, _numCols; // Number of columns and number of rows of the board
+	vector<vector<Cube>> _board; // Vector of Cubes by rows and columns.
 };

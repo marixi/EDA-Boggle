@@ -13,10 +13,13 @@ Dictionary::Dictionary()
 //---------------------------------------------------------------------------------------------------------------
 Dictionary::Dictionary(const string& filename)
 {
+	// Checks if the text file exists.
 	ifstream f(filename);
-
 	if (f.fail())
+	{
 		cerr << "Error: \"" << filename << "\" was not found! \n";
+		exit(1);
+	}
 
 	int i = 0;
 	string s;
@@ -29,6 +32,9 @@ Dictionary::Dictionary(const string& filename)
 		_dictionary.insert(pair<int, string>(i, s));
 		i++;
 	}
+
+	// Closes the file stream.
+	f.close();
 }
 //---------------------------------------------------------------------------------------------------------------
 bool Dictionary::find(const string& word)

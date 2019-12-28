@@ -77,8 +77,8 @@ void Player::readStrTimed(string& str, time_t duration)
 //--------------------------------------------------------------------------------------------------------------
 /*
 Author: JAS
-Reads several words and stores them into file named 'fileName'
-all letters are converted to upercase.
+Reads several words and stores them into file named 'fileName'.
+All letters are converted to upercase.
 The words must be read before 'duration' time is elapsed
 */
 void Player::readWordsTimed(const string& fileName, time_t duration)
@@ -105,6 +105,8 @@ void Player::readWordsTimed(const string& fileName, time_t duration)
     else
       cout << endl << "Time is over !" << BEEP << endl;;
   }
+
+  // Closes the file stream.
   f.close();
 }
 //--------------------------------------------------------------------------------------------------------------
