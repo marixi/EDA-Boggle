@@ -11,7 +11,7 @@ Game::Game()
 {
 	_config = Config();
 	_dictionary = Dictionary();
-	_winner = "NO NAME";
+	_winner = Player();
 }
 //--------------------------------------------------------------------------------------------------------------
 void Game::readPlayers()
@@ -23,10 +23,9 @@ void Game::readPlayers()
 		Player p;
 		p.readInfo();
 		_players.push_back(p);
-		_playersWords.insert(pair<string, string>(p.getName(), "NO FILE"));
-		_playersPoints.insert(pair<string, int>(p.getName(), 0));
 		i++;
 	} while (!cin.eof());
+	_players.resize(_players.size()-1);
 	clrscr();
 }
 //--------------------------------------------------------------------------------------------------------------
@@ -47,22 +46,16 @@ void Game::readBoard(const string& filename)
 //--------------------------------------------------------------------------------------------------------------
 void Game::readPlayersWords()
 {
-	map<string, string>::const_iterator ms;
-	pair<string, string> p;
 	int duration = _config.getMaxTime();
 	string filename;
-	size_t i = 0;
 	_board.shuffle();
-	for (ms = _playersWords.begin(); ms != _playersWords.end(); ms++)
+	for (size_t i = 0; i < _players.size(); i++)
 	{
 		_board.display(cout);
-		cout << endl << "Player " << i+1 << ": " << endl;
-		p = *ms;
-		filename = p.first + ".txt";
-		p.second = filename;
+		cout << endl << "Player " << i + 1 << ": " << endl;
+		filename = (_players[i]).getName() + ".txt";
 		_players[i].readWordsTimed(filename, duration);
 		clrscr();
-		i++;
 		Sleep(6000);
 	}
 }
@@ -71,6 +64,8 @@ bool Game::minLetters(const string word)
 {
 	if ((unsigned int)(sizeof(word) / sizeof(char)) < _config.getMinLetters())
 		return false;
+	else
+		return true;
 }
 //--------------------------------------------------------------------------------------------------------------
 bool Game::findInBoard(const string word, ostream& os)
@@ -86,12 +81,10 @@ bool Game::findInDictionary(const string word)
 bool Game::repeatedWord(const string wordSearch)
 {
 	int sum = 0;
-	map<string, string>::const_iterator ms;
-	pair<string, string> p;
-	for (ms = _playersWords.begin(); ms != _playersWords.end(); ms++)
+	for (size_t i = 0; i < _players.size(); i++)
 	{
-		p = *ms;
-		ifstream file(p.second);
+		string filename = (_players[i]).getName() + ".txt";
+		ifstream file(filename);
 		string word;
 		while (!(file.eof()))
 		{
@@ -105,6 +98,8 @@ bool Game::repeatedWord(const string wordSearch)
 	}
 	if (sum > 1)
 		return true;
+	else
+		return false;
 }
 //--------------------------------------------------------------------------------------------------------------
 int Game::charsToPoints(const string word)
@@ -122,56 +117,52 @@ int Game::charsToPoints(const string word)
 //--------------------------------------------------------------------------------------------------------------
 void Game::roundPoints(ostream& os)
 {
-	map<string, string>::const_iterator ms;
-	map<string, int>::const_iterator mi;
-	pair<string, string> ps;
-	pair<string, int> pi;
-	for (mi = _playersPoints.begin(); mi != _playersPoints.end(); mi++)
+	for (size_t i = 0; i < _players.size(); i++)
 	{
-		pi = *mi;
-		for (ms = _playersWords.begin(); ms != _playersWords.end(); ms++)
+		os << "Player " << i + 1 << ": " << endl;
+		string filename = (_players[i]).getName() + ".txt";
+		ifstream Words(filename);
+		string word;
+		while (!Words.eof())
 		{
-			ps = *ms;
-			ifstream Words(ps.second);
-			string word;
-			while (!Words.eof())
+			getline(Words, word);
+			if (minLetters(word) == false)
+				os << word << ": 0 (the word doesn't have the minimum amount of letters necessary)." << endl;
+			else if (findInBoard(word) == false)
+				os << word << ": 0 (the word can't possibly be formed with this board)." << endl;
+			else if (findInDictionary(word) == false)
+				os << word << ": 0 (the word isn't on the list of valid words)" << endl;
+			else if (repeatedWord(word) == true)
+				os << word << ": 0 (the word has also been chosen by another player)" << endl;
+			else
 			{
-				getline(Words, word);
-				if (minLetters(word) == false)
-					os << word << ": 0 (the word doesn't have the minimum amount of letters necessary)." << endl;
-				else if (findInBoard(word) == false)
-					os << word << ": 0 (the word can't possibly be formed with this board)." << endl;
-				else if (findInDictionary(word) == false)
-					os << word << ": 0 (the word isn't on the list of valid words)" << endl;
-				else if (repeatedWord(word) == true)
-					os << word << ": 0 (the word has also been chosen by another player)" << endl;
-				else
-				{
-					os << word << ": " << charsToPoints(word) << endl; // FALTA MOSTRAR O PATH AQUI
-					pi.second += charsToPoints(word);
-				}
+				os << word << ": " << charsToPoints(word) << endl; // FALTA MOSTRAR O PATH AQUI
+				(_players[i]).updatePoints(charsToPoints(word));
 			}
 		}
+		os << endl;
 	}
+	Sleep(3000);
+	clrscr();
 }
 //--------------------------------------------------------------------------------------------------------------
 bool Game::checkForVictory()
 {
-	map<string, int>::const_iterator m;
-	pair<string, int> p;
-	for (m = _playersPoints.begin(); m != _playersPoints.end(); m++)
+	bool victory = false;
+	for (size_t i = 0; i < _players.size(); i++)
 	{
-		p = *m;
-		if ((unsigned int)p.second >= _config.getVictoryPoints())
+		if ((_players[i]).getPoints() >= _config.getVictoryPoints())
 		{
-			return true;
-			_winner = p.first;
+			victory = true;
+			_winner = _players[i];
+			break;
 		}
 	}
+	return victory;
 }
 //--------------------------------------------------------------------------------------------------------------
 void Game::displayWinner(ostream& os)
 {
-	os << "The winner is " << _winner << "!";
+	os << "The winner is " << _winner.getName() << "!";
 }
 

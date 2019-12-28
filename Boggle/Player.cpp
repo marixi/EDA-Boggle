@@ -9,18 +9,21 @@ Player::Player()
 {
 	_name = "NO NAME";
 	_age = 0;
+	_points = 0;
 }
 //--------------------------------------------------------------------------------------------------------------
 Player::Player(string name)
 {
 	_name = name;
 	_age = 0;
+	_points = 0;
 }
 //--------------------------------------------------------------------------------------------------------------
 Player::Player(string name, int age)
 {
 	_name = name;
 	_age = age;
+	_points = 0;
 }
 //--------------------------------------------------------------------------------------------------------------
 void Player::readInfo()
@@ -102,7 +105,7 @@ void Player::readWordsTimed(const string& fileName, time_t duration)
   f.close();
 }
 //--------------------------------------------------------------------------------------------------------------
-void Player::display(ostream& os) const
+void Player::displayInfo(ostream& os) const
 {
   os << "Player's Name: " << _name << endl;
   os << "Player's Age: " << _age << endl;
@@ -111,4 +114,14 @@ void Player::display(ostream& os) const
 string Player::getName()
 {
 	return _name;
+}
+//--------------------------------------------------------------------------------------------------------------
+unsigned int Player::getPoints()
+{
+	return _points;
+}
+//--------------------------------------------------------------------------------------------------------------
+void Player::updatePoints(unsigned int roundPoints)
+{
+	_points += roundPoints;
 }

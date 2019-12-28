@@ -56,14 +56,14 @@ void testPlayerConstructorAndDisplay()
 	string name = "Avo Cantigas";
 	int age = 70;
 	Player player(name, age);
-	player.display(cout);
+	player.displayInfo(cout);
 }
 
 void testPlayerReadInfo()
 {
 	Player player;
 	player.readInfo();
-	player.display(cout);
+	player.displayInfo(cout);
 }
 
 void testPlayerReadWordsTimed()

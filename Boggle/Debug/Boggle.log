@@ -1,5 +1,2 @@
 ﻿  Game.cpp
-C:\Users\maria\Documents\GitHub\EDA\Boggle\Game.cpp(74): warning C4715:  'Game::minLetters': nem todos os caminhos de controle retornam um valor
-C:\Users\maria\Documents\GitHub\EDA\Boggle\Game.cpp(108): warning C4715:  'Game::repeatedWord': nem todos os caminhos de controle retornam um valor
-C:\Users\maria\Documents\GitHub\EDA\Boggle\Game.cpp(171): warning C4715:  'Game::checkForVictory': nem todos os caminhos de controle retornam um valor
   Boggle.vcxproj -> C:\Users\maria\Documents\GitHub\EDA\Boggle\Debug\Boggle.exe
