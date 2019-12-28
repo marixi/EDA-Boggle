@@ -67,10 +67,27 @@ void Game::readPlayersWords()
 	}
 }
 //--------------------------------------------------------------------------------------------------------------
+Config Game::getConfig()
+{
+	return _config;
+}
+//--------------------------------------------------------------------------------------------------------------
+Dictionary Game::getDictionary()
+{
+	return _dictionary;
+}
+//--------------------------------------------------------------------------------------------------------------
+Board Game::getBoard()
+{
+	return _board;
+}
+//--------------------------------------------------------------------------------------------------------------
 bool Game::minLetters(const string word)
 {
 	if ((unsigned int)(sizeof(word) / sizeof(char)) < _config.getMinLetters())
 		return false;
+	else
+		return true;
 }
 //--------------------------------------------------------------------------------------------------------------
 bool Game::findInBoard(const string word, ostream& os)
@@ -105,6 +122,8 @@ bool Game::repeatedWord(const string wordSearch)
 	}
 	if (sum > 1)
 		return true;
+	else
+		return false;
 }
 //--------------------------------------------------------------------------------------------------------------
 int Game::charsToPoints(const string word)
@@ -168,6 +187,7 @@ bool Game::checkForVictory()
 			_winner = p.first;
 		}
 	}
+	return false;
 }
 //--------------------------------------------------------------------------------------------------------------
 void Game::displayWinner(ostream& os)

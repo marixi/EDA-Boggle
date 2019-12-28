@@ -1,10 +1,6 @@
-﻿  Board.cpp
-  Game.cpp
+﻿  Game.cpp
   main.cpp
-C:\Users\Ricardo\source\repos\EDA\Boggle\main.cpp(27,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\Ricardo\source\repos\EDA\Boggle\main.cpp(28,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
   tests.cpp
   Generating Code...
-C:\Users\Ricardo\source\repos\EDA\Boggle\Game.cpp(108): warning C4715: 'Game::repeatedWord': not all control paths return a value
-C:\Users\Ricardo\source\repos\EDA\Boggle\Game.cpp(171): warning C4715: 'Game::checkForVictory': not all control paths return a value
-C:\Users\Ricardo\source\repos\EDA\Boggle\Game.cpp(74): warning C4715: 'Game::minLetters': not all control paths return a value
   Boggle.vcxproj -> C:\Users\Ricardo\source\repos\EDA\Boggle\Debug\Boggle.exe
