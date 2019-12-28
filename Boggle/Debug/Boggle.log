@@ -1,7 +1,5 @@
-﻿  Config.cpp
-  Game.cpp
+﻿  Game.cpp
   main.cpp
-C:\Users\Ricardo\source\repos\EDA\Boggle\main.cpp(32,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-  tests.cpp
+C:\Users\Ricardo\source\repos\EDA\Boggle\main.cpp(33,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
   Generating Code...
   Boggle.vcxproj -> C:\Users\Ricardo\source\repos\EDA\Boggle\Debug\Boggle.exe

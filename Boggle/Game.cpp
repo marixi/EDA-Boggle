@@ -128,7 +128,7 @@ bool Game::repeatedWord(const string wordSearch)
 //--------------------------------------------------------------------------------------------------------------
 int Game::charsToPoints(const string word)
 {
-	int length = sizeof(word) / sizeof(char);
+	unsigned int length = sizeof(word) / sizeof(char);
 	switch (length)
 	{
 	case 3: case 4: return 1; break;
