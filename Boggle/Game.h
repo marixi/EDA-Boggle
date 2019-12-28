@@ -22,6 +22,9 @@ public:
 	void readDictionary(const string& filename);
 	void readBoard(const string& filename);
 	void readPlayersWords(); // Shows the board and reads the words
+	Config getConfig();
+	Dictionary getDictionary();
+	Board getBoard();
 	void roundPoints(ostream& os);
 	bool checkForVictory();
 	void displayWinner(ostream& os);

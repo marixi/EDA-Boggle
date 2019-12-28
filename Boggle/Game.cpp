@@ -60,6 +60,21 @@ void Game::readPlayersWords()
 	}
 }
 //--------------------------------------------------------------------------------------------------------------
+Config Game::getConfig()
+{
+	return _config;
+}
+//--------------------------------------------------------------------------------------------------------------
+Dictionary Game::getDictionary()
+{
+	return _dictionary;
+}
+//--------------------------------------------------------------------------------------------------------------
+Board Game::getBoard()
+{
+	return _board;
+}
+//--------------------------------------------------------------------------------------------------------------
 bool Game::minLetters(const string word)
 {
 	if ((unsigned int)(sizeof(word) / sizeof(char)) < _config.getMinLetters())
@@ -104,7 +119,7 @@ bool Game::repeatedWord(const string wordSearch)
 //--------------------------------------------------------------------------------------------------------------
 int Game::charsToPoints(const string word)
 {
-	int length = sizeof(word) / sizeof(char);
+	unsigned int length = sizeof(word) / sizeof(char);
 	switch (length)
 	{
 	case 3: case 4: return 1; break;
