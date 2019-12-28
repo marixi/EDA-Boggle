@@ -157,13 +157,25 @@ bool Board::findWord(string word, ostream& os)//(string word, vector<Position>& 
 	return found; //depois ao testar dizer que se saiu true entao ta otimo... se saiu false entao deu asneira
 }
 //---------------------------------------------------------------------------------------------------------------
+void Board::isNextLetter(const vector<vector<char>>& board, vector<vector<bool>>& visited, int row, int col, string& str, const string& word, bool& found, ostream& os, vector<Position> path)
+{
+	if (row >= 0 && col >= 0 && !visited[row][col] && str.length() < word.length() && !found && word.substr(0, str.length()) == str)
+	{
+		Position addUpLetter;
+		addUpLetter.lin = row + 1;
+		addUpLetter.col = col + 1;
+		path.push_back(addUpLetter);
+
+		findWordAux(board, visited, row, col, str, word, found, os, path);
+	}
+}
+//---------------------------------------------------------------------------------------------------------------
 bool Board::findWordAux(const vector<vector<char>>& board, vector<vector<bool>>& visited, int i, int j, string& str, const string& word, bool& found, ostream& os, vector<Position>& path)
 {
 	// Mark current board cell as visited and append current character to 'str'
 
-	visited[i][j] = true; //nesta celula sabemos que temos o primeiro char do inicio da palavra
-	str = str + board[i][j]; //str começa vazio
-
+	visited[i][j] = true;
+	str = str + board[i][j];
 
 	// If 'str' is equal to 'word', then "announce" it has been found
 	if (str == word)
@@ -182,101 +194,45 @@ bool Board::findWordAux(const vector<vector<char>>& board, vector<vector<bool>>&
 		if (i == 0 && j == 0)
 		{
 			for (int row = i; row <= i + 1 && row < _numRows; row++)
-				for (int col = j; col <= j + 1 && col < _numCols; col++) //o if em baixo é genial
-					if (row >= 0 && col >= 0 && !visited[row][col] && str.length() < word.length() && !found && word.substr(0, str.length()) == str)
-					{
-						Position addUpLetter;
-						addUpLetter.lin = row + 1;
-						addUpLetter.col = col + 1;
-						path.push_back(addUpLetter);
-
-						findWordAux(board, visited, row, col, str, word, found, os, path);
-					}
+				for (int col = j; col <= j + 1 && col < _numCols; col++)
+					isNextLetter(board, visited, row, col, str, word, found, os, path);
 		}
 		else if (i == 0 && (j >= 1 && j < _numCols - 1))
 		{
 			for (int row = i; row <= i + 1 && row < _numRows; row++)
-				for (int col = j-1; col <= j + 1 && col < _numCols; col++) //o if em baixo é genial
-					if (row >= 0 && col >= 0 && !visited[row][col] && str.length() < word.length() && !found && word.substr(0, str.length()) == str)
-					{
-						Position addUpLetter;
-						addUpLetter.lin = row + 1;
-						addUpLetter.col = col + 1;
-						path.push_back(addUpLetter);
-
-						findWordAux(board, visited, row, col, str, word, found, os, path);
-					}
+				for (int col = j-1; col <= j + 1 && col < _numCols; col++)
+					isNextLetter(board, visited, row, col, str, word, found, os, path);
 		}
 		else if (i == 0 && j == _numCols - 1)
 		{
 			for (int row = i; row <= i + 1 && row < _numRows; row++)
-				for (int col = j-1; col <= j && col < _numCols; col++) //o if em baixo é genial
-					if (row >= 0 && col >= 0 && !visited[row][col] && str.length() < word.length() && !found && word.substr(0, str.length()) == str)
-					{
-						Position addUpLetter;
-						addUpLetter.lin = row + 1;
-						addUpLetter.col = col + 1;
-						path.push_back(addUpLetter);
-
-						findWordAux(board, visited, row, col, str, word, found, os, path);
-					}
+				for (int col = j-1; col <= j && col < _numCols; col++)
+					isNextLetter(board, visited, row, col, str, word, found, os, path);
 		}
 		else if (j == 0 && (i >= 1 && i < _numRows - 1))
 		{
 			for (int row = i-1; row <= i + 1 && row < _numRows; row++)
-				for (int col = j; col <= j + 1 && col < _numCols; col++) //o if em baixo é genial
-					if (row >= 0 && col >= 0 && !visited[row][col] && str.length() < word.length() && !found && word.substr(0, str.length()) == str)
-					{
-						Position addUpLetter;
-						addUpLetter.lin = row + 1;
-						addUpLetter.col = col + 1;
-						path.push_back(addUpLetter);
-
-						findWordAux(board, visited, row, col, str, word, found, os, path);
-					}
+				for (int col = j; col <= j + 1 && col < _numCols; col++)
+					isNextLetter(board, visited, row, col, str, word, found, os, path);
 		}
 		else if (i == _numRows - 1 && j == 0)
 		{
 			for (int row = i-1; row <= i && row < _numRows; row++)
-				for (int col = j; col <= j + 1 && col < _numCols; col++) //o if em baixo é genial
-					if (row >= 0 && col >= 0 && !visited[row][col] && str.length() < word.length() && !found && word.substr(0, str.length()) == str)
-					{
-						Position addUpLetter;
-						addUpLetter.lin = row + 1;
-						addUpLetter.col = col + 1;
-						path.push_back(addUpLetter);
-
-						findWordAux(board, visited, row, col, str, word, found, os, path);
-					}
+				for (int col = j; col <= j + 1 && col < _numCols; col++)
+					isNextLetter(board, visited, row, col, str, word, found, os, path);
 		}
 		else if (i == _numRows - 1 && j == _numCols - 1)
 		{
 			for (int row = i-1; row <= i && row < _numRows; row++)
-				for (int col = j-1; col <= j && col < _numCols; col++) //o if em baixo é genial
-					if (row >= 0 && col >= 0 && !visited[row][col] && str.length() < word.length() && !found && word.substr(0, str.length()) == str)
-					{
-						Position addUpLetter;
-						addUpLetter.lin = row + 1;
-						addUpLetter.col = col + 1;
-						path.push_back(addUpLetter);
-
-						findWordAux(board, visited, row, col, str, word, found, os, path);
-					}
+				for (int col = j-1; col <= j && col < _numCols; col++)
+					isNextLetter(board, visited, row, col, str, word, found, os, path);
 		}
 		else
 		{
 
 			for (int row = i - 1; row <= i + 1 && row < _numRows; row++)
-				for (int col = j - 1; col <= j + 1 && col < _numCols; col++) //o if em baixo é genial
-					if (row >= 0 && col >= 0 && !visited[row][col] && str.length() < word.length() && !found && word.substr(0, str.length()) == str)
-					{
-						Position addUpLetter;
-						addUpLetter.lin = row + 1;
-						addUpLetter.col = col + 1;
-						path.push_back(addUpLetter);
-
-						findWordAux(board, visited, row, col, str, word, found, os, path);
-					}
+				for (int col = j - 1; col <= j + 1 && col < _numCols; col++)
+					isNextLetter(board, visited, row, col, str, word, found, os, path);
 		}
 		//fazer o vetor de positions path com push_backs (found true) e pull_backs (!found)
 // Erase current character from string, 
