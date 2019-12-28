@@ -26,7 +26,6 @@ Dictionary::Dictionary(const string& filename)
 		{
 			s[i] = toupper(s[i]);
 		}
-
 		_dictionary.insert(pair<int, string>(i, s));
 		i++;
 	}

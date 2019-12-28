@@ -4,7 +4,7 @@
 // Mariana Xavier
 
 #include"Game.h"
-
+#include<stdlib.h>
 using namespace std;
 
 Game::Game()
@@ -12,6 +12,13 @@ Game::Game()
 	_config = Config();
 	_dictionary = Dictionary();
 	_winner = Player();
+}
+//--------------------------------------------------------------------------------------------------------------
+void Game::setGame(const string& filenameConfig)
+{
+	_config = Config(filenameConfig);
+	_dictionary = Dictionary(_config.getFilenameDictionary());
+	_board = Board(_config.getFilenameBoard());
 }
 //--------------------------------------------------------------------------------------------------------------
 void Game::readPlayers()
@@ -25,23 +32,10 @@ void Game::readPlayers()
 		_players.push_back(p);
 		i++;
 	} while (!cin.eof());
-	_players.resize(_players.size()-1);
+	_players.resize(_players.size() - 1);
+	cout << endl;
+	system("pause");
 	clrscr();
-}
-//--------------------------------------------------------------------------------------------------------------
-void Game::readConfig(const string& filename)
-{
-	_config = Config(filename);
-}
-//--------------------------------------------------------------------------------------------------------------
-void Game::readDictionary(const string& filename)
-{
-	_dictionary = Dictionary(filename);
-}
-//--------------------------------------------------------------------------------------------------------------
-void Game::readBoard(const string& filename)
-{
-	_board = Board(filename);
 }
 //--------------------------------------------------------------------------------------------------------------
 void Game::readPlayersWords()
@@ -55,29 +49,15 @@ void Game::readPlayersWords()
 		cout << endl << "Player " << i + 1 << ": " << endl;
 		filename = (_players[i]).getName() + ".txt";
 		_players[i].readWordsTimed(filename, duration);
+		cout << endl;
+		system("pause");
 		clrscr();
-		Sleep(6000);
 	}
-}
-//--------------------------------------------------------------------------------------------------------------
-Config Game::getConfig()
-{
-	return _config;
-}
-//--------------------------------------------------------------------------------------------------------------
-Dictionary Game::getDictionary()
-{
-	return _dictionary;
-}
-//--------------------------------------------------------------------------------------------------------------
-Board Game::getBoard()
-{
-	return _board;
 }
 //--------------------------------------------------------------------------------------------------------------
 bool Game::minLetters(const string word)
 {
-	if ((unsigned int)(sizeof(word) / sizeof(char)) < _config.getMinLetters())
+	if ((unsigned int)(word.length() / sizeof(char)) < _config.getMinLetters())
 		return false;
 	else
 		return true;
@@ -85,7 +65,7 @@ bool Game::minLetters(const string word)
 //--------------------------------------------------------------------------------------------------------------
 bool Game::findInBoard(const string word, ostream& os)
 {
-	return _board.findWord(word,os);
+	return _board.findWord(word, os);
 }
 //--------------------------------------------------------------------------------------------------------------
 bool Game::findInDictionary(string word)
@@ -119,7 +99,7 @@ bool Game::repeatedWord(const string wordSearch)
 //--------------------------------------------------------------------------------------------------------------
 int Game::charsToPoints(const string word)
 {
-	unsigned int length = sizeof(word) / sizeof(char);
+	unsigned int length = word.length() / sizeof(char);
 	switch (length)
 	{
 	case 3: case 4: return 1; break;
@@ -132,32 +112,37 @@ int Game::charsToPoints(const string word)
 //--------------------------------------------------------------------------------------------------------------
 void Game::roundPoints(ostream& os)
 {
+	_board.display(os);
 	for (size_t i = 0; i < _players.size(); i++)
 	{
-		os << "Player " << i + 1 << ": " << endl;
+		os << endl << endl << "Player " << i + 1 << ": " << endl;
 		string filename = (_players[i]).getName() + ".txt";
 		ifstream Words(filename);
 		string word;
 		while (!Words.eof())
 		{
 			getline(Words, word);
-			if (minLetters(word) == false)
-				os << word << ": 0 (the word doesn't have the minimum amount of letters necessary)." << endl;
-			else if (findInDictionary(word) == false)
-				os << word << ": 0 (the word isn't on the list of valid words)" << endl;
-			else if (repeatedWord(word) == true)
-				os << word << ": 0 (the word has also been chosen by another player)" << endl;
-			else if (findInBoard(word) == false)
-				os << word << ": 0 (the word can't possibly be formed with this board)." << endl;
-			else
+			if (!word.empty())
 			{
-				os << word << ": " << charsToPoints(word) << endl; // FALTA MOSTRAR O PATH AQUI
-				(_players[i]).updatePoints(charsToPoints(word));
+				if (minLetters(word) == false)
+					os << word << ": 0 (the word doesn't have the minimum amount of letters necessary)." << endl;
+				else if (findInDictionary(word) == false)
+					os << word << ": 0 (the word isn't on the list of valid words)" << endl;
+				else if (repeatedWord(word) == true)
+					os << word << ": 0 (the word has also been chosen by another player)" << endl;
+				else if (findInBoard(word) == false)
+					os << word << ": 0 (the word can't possibly be formed with this board)." << endl;
+				else
+				{
+					os << word << ": " << charsToPoints(word) << endl;
+					(_players[i]).updatePoints(charsToPoints(word));
+				}
 			}
 		}
 		os << endl;
 	}
-	Sleep(15000);
+	cout << endl;
+	system("pause");
 	clrscr();
 }
 //--------------------------------------------------------------------------------------------------------------

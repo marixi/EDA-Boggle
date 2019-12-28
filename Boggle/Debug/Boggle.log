@@ -1,2 +1,3 @@
-﻿  Dictionary.cpp
-  Boggle.vcxproj -> D:\Visual Studio\Ex e proj\EDA\Boggle\Debug\Boggle.exe
+﻿  main.cpp
+C:\Users\maria\Documents\GitHub\EDA\Boggle\main.cpp(26,12): warning C4244:  'argumento': conversão de 'time_t' para 'unsigned int', possível perda de dados
+  Boggle.vcxproj -> C:\Users\maria\Documents\GitHub\EDA\Boggle\Debug\Boggle.exe

@@ -8,24 +8,17 @@ using namespace std;
 
 void set(Game& game)
 {
+	game.setGame("BOGGLE_CONFIG.txt");
 	game.readPlayers();
-	game.readConfig("BOGGLE_CONFIG.txt");
-	game.readDictionary("WORDS_PT.txt");
-	game.readBoard("BOARD_INT.txt");
-
-	// This also works
-	/*Config gameConfig = game.getConfig();
-	game.readDictionary(gameConfig.getFilenameDictionary());
-	game.readBoard(gameConfig.getFilenameBoard());
-	gameConfig.displayConfig(cout);*/
 }
 
 void loop(Game game)
 {
 	do {
 		game.readPlayersWords();
-		game.roundPoints(cout);//esta funcao ja tem os testes todos
+		game.roundPoints(cout);
 	} while (game.checkForVictory() == false);
+	game.displayWinner(cout);
 }
 
 int main()
@@ -34,5 +27,4 @@ int main()
  Game game;
  set(game);
  loop(game);
- game.displayWinner(cout);
 }

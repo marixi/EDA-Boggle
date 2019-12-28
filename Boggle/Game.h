@@ -18,18 +18,12 @@ class Game
 {
 public:
 	Game();
-	void readPlayers();
-	void readConfig(const string& filename);
-	void readDictionary(const string& filename);
-	void readBoard(const string& filename);
-	void readPlayersWords(); // Shows the board and reads the words
-	Config getConfig();
-	Dictionary getDictionary();
-	Board getBoard();
-	void roundPoints(ostream& os);
-	bool checkForVictory();
-	void displayWinner(ostream& os);
-
+	void setGame(const string& filenameConfig); // Reads configuration, board and dictionary
+	void readPlayers(); // Reads players' info
+	void readPlayersWords(); // Shows the board and reads the words from consecutive players
+	void roundPoints(ostream& os); // Reads words and calculates points
+	bool checkForVictory(); // Checks if the players have reacher the necessary points to win
+	void displayWinner(ostream& os); // Shows the winner on the screen
 private:
 	vector<Player> _players;
 	Config _config;
