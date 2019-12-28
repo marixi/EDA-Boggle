@@ -1,6 +1,4 @@
-﻿  Config.cpp
-  Game.cpp
-C:\Users\maria\Documents\GitHub\EDA\Boggle\Game.cpp(133,15): warning C4018:  '>=': incompatibilidade de signed/unsigned
+﻿  Game.cpp
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\xstddef(124,1): error C2678:  '<' binário : nenhum operador encontrado que receba um operando de lado esquerdo do tipo 'const _Ty' (ou não há conversão aceitável)
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\xstddef(124,1): error C2678:         with
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\xstddef(124,1): error C2678:         [
@@ -39,13 +37,16 @@ C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.2
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\map(70): message :             _Pr=std::less<Player>,
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\map(70): message :             _Alloc=std::allocator<std::pair<const Player,std::string>>
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\map(70): message :         ]
-  Player.cpp
   main.cpp
+C:\Users\maria\Documents\GitHub\EDA\Boggle\Game.h(31): message :  consulte a referência à criação de instância 'std::map<Player,std::string,std::less<_Kty>,std::allocator<std::pair<const _Kty,_Ty>>>' do modelo da classe que está sendo compilada
+C:\Users\maria\Documents\GitHub\EDA\Boggle\Game.h(31): message :         with
+C:\Users\maria\Documents\GitHub\EDA\Boggle\Game.h(31): message :         [
+C:\Users\maria\Documents\GitHub\EDA\Boggle\Game.h(31): message :             _Kty=Player,
+C:\Users\maria\Documents\GitHub\EDA\Boggle\Game.h(31): message :             _Ty=std::string
+C:\Users\maria\Documents\GitHub\EDA\Boggle\Game.h(31): message :         ]
+C:\Users\maria\Documents\GitHub\EDA\Boggle\main.cpp(23,1): error C2059:  erro de sintaxe: '}'
+C:\Users\maria\Documents\GitHub\EDA\Boggle\main.cpp(23,1): error C2143:  erro de sintaxe: ';' ausente antes de '}'
+C:\Users\maria\Documents\GitHub\EDA\Boggle\main.cpp(26,1): error C2143:  erro de sintaxe: ';' ausente antes de '{'
   tests.cpp
   Gerando Código...
-C:\Users\maria\Documents\GitHub\EDA\Boggle\Game.h(27): message :  consulte a referência à criação de instância 'std::map<Player,std::string,std::less<_Kty>,std::allocator<std::pair<const _Kty,_Ty>>>' do modelo da classe que está sendo compilada
-C:\Users\maria\Documents\GitHub\EDA\Boggle\Game.h(27): message :         with
-C:\Users\maria\Documents\GitHub\EDA\Boggle\Game.h(27): message :         [
-C:\Users\maria\Documents\GitHub\EDA\Boggle\Game.h(27): message :             _Kty=Player,
-C:\Users\maria\Documents\GitHub\EDA\Boggle\Game.h(27): message :             _Ty=std::string
-C:\Users\maria\Documents\GitHub\EDA\Boggle\Game.h(27): message :         ]
+C:\Users\maria\Documents\GitHub\EDA\Boggle\main.cpp(26,1): error C2447:  '{': faltando cabeçalho de função (lista formal de estilo antigo?)

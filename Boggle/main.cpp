@@ -3,16 +3,30 @@
 // Ricardo Brioso
 // Mariana Xavier
 
-#include"Config.h"
 #include"Game.h"
-#include"Cube.h"
-#include"Board.h"
-#include"Dictionary.h"
-#include"Player.h"
 using namespace std;
 
-//int main()
-//{
-// srand(time(NULL));
-// Config config("BOGGLE_CONFIG");
-//}
+void set(Game& game)
+{
+	game.readPlayers();
+	game.readConfig("BOGGLE_CONFIG.txt");
+	game.readDictionary("WORDS_PT.txt");
+	game.readBoard("BOARD_INT.txt");
+}
+
+void loop(Game game)
+{
+	do {
+		game.readPlayersWords();
+		game.roundPoints(cout);
+	} while (game.checkForVictory() == false);
+}
+
+int main()
+{
+ srand(time(NULL));
+ Game game;
+ set(game);
+ loop(game);
+ game.displayWinner(cout);
+}

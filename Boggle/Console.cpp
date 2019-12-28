@@ -1,6 +1,10 @@
-#include <windows.h> // for controlling foreground & background console colors
-#include "Console.h"
+// Grupo 5
+// Duarte Rodrigues
+// Ricardo Brioso
+// Mariana Xavier
 
+#include<windows.h> // for controlling foreground & background console colors
+#include"Console.h"
 using namespace std;
 
 //================================================================================

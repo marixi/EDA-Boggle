@@ -7,9 +7,9 @@
 #include"Cube.h"
 #include<fstream>
 #include<string>
-#include <stdio.h>
-#include <ctype.h>
-#include <algorithm>
+#include<stdio.h>
+#include<ctype.h>
+#include<algorithm>
 using namespace std;
 
 struct Position

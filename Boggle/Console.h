@@ -1,3 +1,8 @@
+// Grupo 5
+// Duarte Rodrigues
+// Ricardo Brioso
+// Mariana Xavier
+
 #ifndef CONSOLE_H
 #define CONSOLE_H
 

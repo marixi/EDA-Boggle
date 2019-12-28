@@ -8,11 +8,9 @@ using namespace std;
 
 Game::Game()
 {
-	_players.push_back(Player());
 	_config = Config();
 	_dictionary = Dictionary();
-	_playersWords.insert(pair <Player, string>("NO PLAYER", "NO FILE"));
-	_playersPoints.insert(pair <Player, int>("NO PLAYER", 0));
+	_winner = Player();
 }
 //--------------------------------------------------------------------------------------------------------------
 void Game::readPlayers()
@@ -23,10 +21,10 @@ void Game::readPlayers()
 		cout << "Player " << i + 1 << ": ";
 		Player p;
 		p.readInfo();
-		_players.push_back(p);
 		_playersWords.insert(pair<Player, string>(p, "NO FILE"));
 		_playersPoints.insert(pair<Player, int>(p, 0));
 	} while (!cin.eof());
+	clrscr();
 }
 //--------------------------------------------------------------------------------------------------------------
 void Game::readConfig(const string& filename)
@@ -39,25 +37,35 @@ void Game::readDictionary(const string& filename)
 	_dictionary = Dictionary(filename);
 }
 //--------------------------------------------------------------------------------------------------------------
+void Game::readBoard(const string& filename)
+{
+	_board = Board(filename);
+}
+//--------------------------------------------------------------------------------------------------------------
 void Game::readPlayersWords()
 {
-	map<Player, string>::const_iterator mi;
+	map<Player, string>::const_iterator ms;
 	pair<Player, string> p;
 	int duration = _config.getMaxTime();
 	string filename;
 	size_t i = 0;
-	for (mi = _playersWords.begin(); mi != _playersWords.end(); mi++)
+	_board.shuffle();
+	for (ms = _playersWords.begin(); ms != _playersWords.end(); ms++)
 	{
-		filename = _players[i].getName() + ".txt";
-		p = *mi;
+		_board.display(cout);
+		cout << endl << "Player " << i + 1 << ": ";
+		p = *ms;
+		filename = (p.first).getName() + ".txt";
+		p.second = filename;
 		(p.first).readWordsTimed(filename, duration);
 		i++;
+		clrscr();
 	}
 }
 //--------------------------------------------------------------------------------------------------------------
 bool Game::minLetters(const string word)
 {
-	if (sizeof(word) / sizeof(char) < _config.getMinLetters())
+	if ((unsigned int)(sizeof(word) / sizeof(char)) < _config.getMinLetters())
 		return false;
 }
 //--------------------------------------------------------------------------------------------------------------
@@ -71,9 +79,28 @@ bool Game::findInDictionary(const string word)
 	return _dictionary.find(word);
 }
 //--------------------------------------------------------------------------------------------------------------
-bool Game::repeatedWord(const string word)
+bool Game::repeatedWord(const string wordSearch)
 {
-	// Return true se repetida
+	int sum = 0;
+	map<Player, string>::const_iterator ms;
+	pair<Player, string> p;
+	for (ms = _playersWords.begin(); ms != _playersWords.end(); ms++)
+	{
+		p = *ms;
+		ifstream file(p.second);
+		string word;
+		while (!(file.eof()))
+		{
+			getline(file, word);
+			if (word == wordSearch)
+			{
+				sum++;
+				break;
+			}
+		}
+	}
+	if (sum > 1)
+		return true;
 }
 //--------------------------------------------------------------------------------------------------------------
 int Game::charsToPoints(const string word)
@@ -85,15 +112,8 @@ int Game::charsToPoints(const string word)
 	case 5: return 2; break;
 	case 6: return 3; break;
 	case 7: return 5; break;
-	case 8:return 11; break;
 	default: return 11;
 	}
-}
-//--------------------------------------------------------------------------------------------------------------
-bool Game::checkForVictory(pair<Player, int> p)
-{
-	if (p.second >= _config.getVictoryPoints())
-		return true;
 }
 //--------------------------------------------------------------------------------------------------------------
 void Game::roundPoints(ostream& os)
@@ -128,10 +148,26 @@ void Game::roundPoints(ostream& os)
 				}
 			}
 		}
-		os << (pi.first).getName() << "'s points: " << pi.second;
-		if (checkForVictory(pi) == true)
-			os << (pi.first).getName() << " is the winner!"; // E DE ALGUMA MANEIRA FECHAR TUDO
 	}
 }
-
+//--------------------------------------------------------------------------------------------------------------
+bool Game::checkForVictory()
+{
+	map<Player, int>::const_iterator m;
+	pair<Player, int> p;
+	for (m = _playersPoints.begin(); m != _playersPoints.end(); m++)
+	{
+		p = *m;
+		if ((unsigned int)p.second >= _config.getVictoryPoints())
+		{
+			return true;
+			_winner = p.first;
+		}
+	}
+}
+//--------------------------------------------------------------------------------------------------------------
+void Game::displayWinner(ostream& os)
+{
+	os << "The winner is " << (_winner.first).getName() << "!";
+}
 
