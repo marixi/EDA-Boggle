@@ -21,6 +21,7 @@ public:
 	unsigned int getMaxTime() const;
 	unsigned int getMinLetters() const;
 	unsigned int getVictoryPoints() const;
+
 private:
 	string _filenameDictionary;
 	string _filenameBoard;

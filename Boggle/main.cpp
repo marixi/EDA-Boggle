@@ -24,7 +24,7 @@ void loop(Game game)
 {
 	do {
 		game.readPlayersWords();
-		game.roundPoints(cout);
+		game.roundPoints(cout);//esta funcao ja tem os testes todos
 	} while (game.checkForVictory() == false);
 }
 

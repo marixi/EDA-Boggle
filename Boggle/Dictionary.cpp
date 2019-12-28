@@ -22,6 +22,11 @@ Dictionary::Dictionary(const string& filename)
 	string s;
 	while (getline(f,s))
 	{
+		for (size_t i = 0; i < s.size(); i++)
+		{
+			s[i] = toupper(s[i]);
+		}
+
 		_dictionary.insert(pair<int, string>(i, s));
 		i++;
 	}
@@ -35,6 +40,8 @@ bool Dictionary::find(const string& word)
 	for (mi = _dictionary.begin(); mi != _dictionary.end(); mi++)
 	{
 		p = *mi;
+
+
 		if (p.second == word)
 			foundWord = true;
 	}

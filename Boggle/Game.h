@@ -11,6 +11,7 @@
 #include"Console.h"
 #include<vector>
 #include<sstream>
+#include<windows.h>
 using namespace std;
 
 class Game
@@ -28,6 +29,7 @@ public:
 	void roundPoints(ostream& os);
 	bool checkForVictory();
 	void displayWinner(ostream& os);
+
 private:
 	vector<Player> _players;
 	Config _config;

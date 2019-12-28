@@ -4,7 +4,7 @@
 // Mariana Xavier
 
 #include"Game.h"
-#include<windows.h>
+
 using namespace std;
 
 Game::Game()
@@ -85,10 +85,10 @@ bool Game::minLetters(const string word)
 //--------------------------------------------------------------------------------------------------------------
 bool Game::findInBoard(const string word, ostream& os)
 {
-	return _board.findWord(word, os);
+	return _board.findWord(word,os);
 }
 //--------------------------------------------------------------------------------------------------------------
-bool Game::findInDictionary(const string word)
+bool Game::findInDictionary(string word)
 {
 	return _dictionary.find(word);
 }
@@ -143,12 +143,12 @@ void Game::roundPoints(ostream& os)
 			getline(Words, word);
 			if (minLetters(word) == false)
 				os << word << ": 0 (the word doesn't have the minimum amount of letters necessary)." << endl;
-			else if (findInBoard(word) == false)
-				os << word << ": 0 (the word can't possibly be formed with this board)." << endl;
 			else if (findInDictionary(word) == false)
 				os << word << ": 0 (the word isn't on the list of valid words)" << endl;
 			else if (repeatedWord(word) == true)
 				os << word << ": 0 (the word has also been chosen by another player)" << endl;
+			else if (findInBoard(word) == false)
+				os << word << ": 0 (the word can't possibly be formed with this board)." << endl;
 			else
 			{
 				os << word << ": " << charsToPoints(word) << endl; // FALTA MOSTRAR O PATH AQUI
@@ -157,7 +157,7 @@ void Game::roundPoints(ostream& os)
 		}
 		os << endl;
 	}
-	Sleep(3000);
+	Sleep(15000);
 	clrscr();
 }
 //--------------------------------------------------------------------------------------------------------------
