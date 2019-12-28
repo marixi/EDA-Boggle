@@ -11,7 +11,13 @@ void set(Game& game)
 	game.readPlayers();
 	game.readConfig("BOGGLE_CONFIG.txt");
 	game.readDictionary("WORDS_PT.txt");
-	game.readBoard("BOARD_INT.txt");	
+	game.readBoard("BOARD_INT.txt");
+
+	// This also works
+	/*Config gameConfig = game.getConfig();
+	game.readDictionary(gameConfig.getFilenameDictionary());
+	game.readBoard(gameConfig.getFilenameBoard());
+	gameConfig.displayConfig(cout);*/
 }
 
 void loop(Game game)

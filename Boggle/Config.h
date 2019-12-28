@@ -16,6 +16,8 @@ public:
 	Config();
 	Config(const string& filename);
 	void displayConfig(ostream& os) const;
+	string getFilenameDictionary();
+	string getFilenameBoard();
 	unsigned int getMaxTime() const;
 	unsigned int getMinLetters() const;
 	unsigned int getVictoryPoints() const;

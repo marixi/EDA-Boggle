@@ -56,6 +56,16 @@ void Config::displayConfig(ostream& os) const
 	os << "Number of points needed to win: " << _victoryPoints << endl;
 }
 //--------------------------------------------------------------------------------------------------------------
+string Config::getFilenameDictionary()
+{
+	return _filenameDictionary;
+}
+//--------------------------------------------------------------------------------------------------------------
+string Config::getFilenameBoard()
+{
+	return _filenameBoard;
+}
+//--------------------------------------------------------------------------------------------------------------
 unsigned int Config::getMaxTime() const
 {
 	return _maxTime;
