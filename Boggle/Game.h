@@ -26,15 +26,16 @@ public:
 	bool checkForVictory();
 	void displayWinner(ostream& os);
 private:
+	vector<Player> _players;
 	Config _config;
 	Dictionary _dictionary;
 	Board _board;
-	map<Player, string> _playersWords;
-	map<Player, int> _playersPoints;
+	map<string, string> _playersWords;
+	map<string, int> _playersPoints;
 	bool minLetters(const string word);
 	bool findInBoard(const string word, ostream& os = cout);
 	bool findInDictionary(const string word);
 	bool repeatedWord(const string wordSearch);
 	int charsToPoints(const string word);
-	Player _winner;
+	string _winner;
 };

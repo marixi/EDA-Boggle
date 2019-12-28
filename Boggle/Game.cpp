@@ -4,13 +4,14 @@
 // Mariana Xavier
 
 #include"Game.h"
+#include<windows.h>
 using namespace std;
 
 Game::Game()
 {
 	_config = Config();
 	_dictionary = Dictionary();
-	_winner = Player();
+	_winner = "NO NAME";
 }
 //--------------------------------------------------------------------------------------------------------------
 void Game::readPlayers()
@@ -18,11 +19,13 @@ void Game::readPlayers()
 	int i = 0;
 	do
 	{
-		cout << "Player " << i + 1 << ": ";
+		cout << "Player " << i + 1 << ": " << endl;
 		Player p;
 		p.readInfo();
-		_playersWords.insert(pair<Player, string>(p, "NO FILE"));
-		_playersPoints.insert(pair<Player, int>(p, 0));
+		_players.push_back(p);
+		_playersWords.insert(pair<string, string>(p.getName(), "NO FILE"));
+		_playersPoints.insert(pair<string, int>(p.getName(), 0));
+		i++;
 	} while (!cin.eof());
 	clrscr();
 }
@@ -44,8 +47,8 @@ void Game::readBoard(const string& filename)
 //--------------------------------------------------------------------------------------------------------------
 void Game::readPlayersWords()
 {
-	map<Player, string>::const_iterator ms;
-	pair<Player, string> p;
+	map<string, string>::const_iterator ms;
+	pair<string, string> p;
 	int duration = _config.getMaxTime();
 	string filename;
 	size_t i = 0;
@@ -53,13 +56,14 @@ void Game::readPlayersWords()
 	for (ms = _playersWords.begin(); ms != _playersWords.end(); ms++)
 	{
 		_board.display(cout);
-		cout << endl << "Player " << i + 1 << ": ";
+		cout << endl << "Player " << i+1 << ": " << endl;
 		p = *ms;
-		filename = (p.first).getName() + ".txt";
+		filename = p.first + ".txt";
 		p.second = filename;
-		(p.first).readWordsTimed(filename, duration);
-		i++;
+		_players[i].readWordsTimed(filename, duration);
 		clrscr();
+		i++;
+		Sleep(6000);
 	}
 }
 //--------------------------------------------------------------------------------------------------------------
@@ -82,8 +86,8 @@ bool Game::findInDictionary(const string word)
 bool Game::repeatedWord(const string wordSearch)
 {
 	int sum = 0;
-	map<Player, string>::const_iterator ms;
-	pair<Player, string> p;
+	map<string, string>::const_iterator ms;
+	pair<string, string> p;
 	for (ms = _playersWords.begin(); ms != _playersWords.end(); ms++)
 	{
 		p = *ms;
@@ -118,10 +122,10 @@ int Game::charsToPoints(const string word)
 //--------------------------------------------------------------------------------------------------------------
 void Game::roundPoints(ostream& os)
 {
-	map<Player, string>::const_iterator ms;
-	map<Player, int>::const_iterator mi;
-	pair<Player, string> ps;
-	pair<Player, int> pi;
+	map<string, string>::const_iterator ms;
+	map<string, int>::const_iterator mi;
+	pair<string, string> ps;
+	pair<string, int> pi;
 	for (mi = _playersPoints.begin(); mi != _playersPoints.end(); mi++)
 	{
 		pi = *mi;
@@ -153,8 +157,8 @@ void Game::roundPoints(ostream& os)
 //--------------------------------------------------------------------------------------------------------------
 bool Game::checkForVictory()
 {
-	map<Player, int>::const_iterator m;
-	pair<Player, int> p;
+	map<string, int>::const_iterator m;
+	pair<string, int> p;
 	for (m = _playersPoints.begin(); m != _playersPoints.end(); m++)
 	{
 		p = *m;
@@ -168,6 +172,6 @@ bool Game::checkForVictory()
 //--------------------------------------------------------------------------------------------------------------
 void Game::displayWinner(ostream& os)
 {
-	os << "The winner is " << (_winner.first).getName() << "!";
+	os << "The winner is " << _winner << "!";
 }
 
