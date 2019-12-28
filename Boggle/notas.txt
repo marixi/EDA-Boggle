@@ -1,2 +1,0 @@
-set para guardar as palavras do dicionario
-importar do ficheiro eliminar palavras do txt de palavras menor que 3 e maior que 16
