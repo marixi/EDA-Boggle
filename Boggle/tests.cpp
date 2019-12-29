@@ -110,9 +110,10 @@ void testBoardFindWordanddisplayPath()
 	Board b("BOARD_INT.txt");
 	b.display(cout);
 	string s = "NEGA";
+	vector<Position> wordPath;
 
 	bool f;
-	f=b.findWord(s,cout);
+	f=b.findWord(s, wordPath);
 	cout << endl << f << endl;
 }
 

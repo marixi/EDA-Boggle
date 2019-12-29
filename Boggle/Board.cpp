@@ -115,7 +115,7 @@ void Board::display(ostream& os) const
 	os << "\n";
 }
 //---------------------------------------------------------------------------------------------------------------
-bool Board::findWord(string word, ostream& os)
+bool Board::findWord(string word, vector<Position>& path)
 {
 	// Mark all characters as not visited 
 	vector<vector<bool>> visited(_numRows, vector<bool>(_numCols, false));
@@ -129,11 +129,8 @@ bool Board::findWord(string word, ostream& os)
 		word[i] = toupper(word[i]);
 	}
 
-	// Declaration of the path
-	vector<Position> path;
-
 	// Initialize a board with only the top char
-	vector<vector<char>>boardTop;// FAZER O MOLDE PARA ESTA boardtop PARA SER PASSADA PARA A FUNCAO SEGUINTE
+	vector<vector<char>>boardTop;
 	boardTop.resize(_numRows, vector<char>(_numCols));
 
 	for (size_t a = 0; a < _numRows; a++)
@@ -153,13 +150,13 @@ bool Board::findWord(string word, ostream& os)
 				firstlett.col = j + 1;
 				path.push_back(firstlett);
 
-				findWordAux(boardTop, visited, i, j, str, word, found, os, path);
+				findWordAux(boardTop, visited, i, j, str, word, found, path);
 			}
 
 	return found; //depois ao testar dizer que se saiu true entao ta otimo... se saiu false entao deu asneira
 }
 //---------------------------------------------------------------------------------------------------------------
-void Board::isNextLetter(const vector<vector<char>>& board, vector<vector<bool>>& visited, size_t row, size_t col, string& str, const string& word, bool& found, ostream& os, vector<Position> path)
+void Board::isNextLetter(const vector<vector<char>>& board, vector<vector<bool>>& visited, size_t row, size_t col, string& str, const string& word, bool& found, vector<Position>& path)
 {
 	if (row >= 0 && col >= 0 && !visited[row][col] && str.length() < word.length() && !found && word.substr(0, str.length()) == str)
 	{
@@ -168,11 +165,11 @@ void Board::isNextLetter(const vector<vector<char>>& board, vector<vector<bool>>
 		addUpLetter.col = col + 1;
 		path.push_back(addUpLetter);
 
-		findWordAux(board, visited, row, col, str, word, found, os, path);
+		findWordAux(board, visited, row, col, str, word, found, path);
 	}
 }
 //---------------------------------------------------------------------------------------------------------------
-bool Board::findWordAux(const vector<vector<char>>& board, vector<vector<bool>>& visited, size_t i, size_t j, string& str, const string& word, bool& found, ostream& os, vector<Position>& path)
+bool Board::findWordAux(const vector<vector<char>>& board, vector<vector<bool>>& visited, size_t i, size_t j, string& str, const string& word, bool& found, vector<Position>& path)
 {
 	// Mark current board cell as visited and append current character to 'str'
 	visited[i][j] = true;
@@ -181,12 +178,7 @@ bool Board::findWordAux(const vector<vector<char>>& board, vector<vector<bool>>&
 	// If 'str' is equal to 'word', then "announce" it has been found
 	if (str == word)
 	{
-		found = true;
-		os << word << " can be found in the board, following the path : \n";
-		for (size_t a = 0; a < path.size(); a++)
-		{
-			os << "(" << path[a].lin << "," << path[a].col << ") \n";
-		}
+		found = true;		
 	}
 	else // The word isn't complete.
 	{
@@ -195,43 +187,43 @@ bool Board::findWordAux(const vector<vector<char>>& board, vector<vector<bool>>&
 		{
 			for (size_t row = i; row <= i + 1 && row < _numRows; row++)
 				for (size_t col = j; col <= j + 1 && col < _numCols; col++)
-					isNextLetter(board, visited, row, col, str, word, found, os, path);
+					isNextLetter(board, visited, row, col, str, word, found, path);
 		}
 		else if (i == 0 && (j >= 1 && j < _numCols - 1))
 		{
 			for (size_t row = i; row <= i + 1 && row < _numRows; row++)
 				for (size_t col = j-1; col <= j + 1 && col < _numCols; col++)
-					isNextLetter(board, visited, row, col, str, word, found, os, path);
+					isNextLetter(board, visited, row, col, str, word, found, path);
 		}
 		else if (i == 0 && j == _numCols - 1)
 		{
 			for (size_t row = i; row <= i + 1 && row < _numRows; row++)
 				for (size_t col = j-1; col <= j && col < _numCols; col++)
-					isNextLetter(board, visited, row, col, str, word, found, os, path);
+					isNextLetter(board, visited, row, col, str, word, found, path);
 		}
 		else if (j == 0 && (i >= 1 && i < _numRows - 1))
 		{
 			for (size_t row = i-1; row <= i + 1 && row < _numRows; row++)
 				for (size_t col = j; col <= j + 1 && col < _numCols; col++)
-					isNextLetter(board, visited, row, col, str, word, found, os, path);
+					isNextLetter(board, visited, row, col, str, word, found, path);
 		}
 		else if (i == _numRows - 1 && j == 0)
 		{
 			for (size_t row = i-1; row <= i && row < _numRows; row++)
 				for (size_t col = j; col <= j + 1 && col < _numCols; col++)
-					isNextLetter(board, visited, row, col, str, word, found, os, path);
+					isNextLetter(board, visited, row, col, str, word, found, path);
 		}
 		else if (i == _numRows - 1 && j == _numCols - 1)
 		{
 			for (size_t row = i-1; row <= i && row < _numRows; row++)
 				for (size_t col = j-1; col <= j && col < _numCols; col++)
-					isNextLetter(board, visited, row, col, str, word, found, os, path);
+					isNextLetter(board, visited, row, col, str, word, found, path);
 		}
 		else
 		{
 			for (size_t row = i - 1; row <= i + 1 && row < _numRows; row++)
 				for (size_t col = j - 1; col <= j + 1 && col < _numCols; col++)
-					isNextLetter(board, visited, row, col, str, word, found, os, path);
+					isNextLetter(board, visited, row, col, str, word, found, path);
 		}
 
 		/*Erases current character from string, 

@@ -63,9 +63,9 @@ bool Game::minLetters(const string word)
 		return true;
 }
 //--------------------------------------------------------------------------------------------------------------
-bool Game::findInBoard(const string word, ostream& os)
+bool Game::findInBoard(const string word, vector<Position>& wordPath)
 {
-	return _board.findWord(word, os);
+	return _board.findWord(word, wordPath);
 }
 //--------------------------------------------------------------------------------------------------------------
 bool Game::findInDictionary(string word)
@@ -124,26 +124,45 @@ void Game::roundPoints(ostream& os)
 			getline(Words, word);
 			if (!word.empty())
 			{
+				vector<Position> wordPath;
 				if (minLetters(word) == false)
 					os << word << ": 0 (the word doesn't have the minimum amount of letters necessary)." << endl;
+				else if (findInBoard(word, wordPath) == false)
+					os << word << ": 0 (the word can't possibly be formed with this board)." << endl;
 				else if (findInDictionary(word) == false)
 					os << word << ": 0 (the word isn't on the list of valid words)" << endl;
 				else if (repeatedWord(word) == true)
-					os << word << ": 0 (the word has also been chosen by another player)" << endl;
-				else if (findInBoard(word) == false)
-					os << word << ": 0 (the word can't possibly be formed with this board)." << endl;
+					os << word << ": 0 (the word has also been chosen by another player)" << endl;				
 				else
 				{
-					os << word << ": " << charsToPoints(word) << endl;
+					showWordPath(word, wordPath, os);
+					os << word << ": " << charsToPoints(word) << " points" << endl;
 					(_players[i]).updatePoints(charsToPoints(word));
 				}
 			}
 		}
 		os << endl;
+		os << "Total Points: " << _players[i].getPoints() << endl;
+		Words.close();
 	}
 	cout << endl;
+
+	//cout << "Press any key to continue..." << endl;
+	//cin.ignore(1000,'\n');
+	//cin.ignore();
+	//cin.get();
 	system("pause");
 	clrscr();
+}
+//--------------------------------------------------------------------------------------------------------------
+void Game::showWordPath(const string &word,vector<Position>& wordPath, ostream& os)
+{
+	os << word<< " can be found in the board, following the path : \n";
+	for (size_t a = 0; a < wordPath.size(); a++)
+	{
+		os << "(" << wordPath[a].lin << "," << wordPath[a].col << ")   ";
+	}
+	os << endl;
 }
 //--------------------------------------------------------------------------------------------------------------
 bool Game::checkForVictory()

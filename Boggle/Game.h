@@ -25,14 +25,17 @@ public:
 	bool checkForVictory(); // Checks if the players have reacher the necessary points to win
 	void displayWinner(ostream& os); // Shows the winner on the screen
 private:
+	// Attributes 
 	vector<Player> _players;
 	Config _config;
 	Dictionary _dictionary;
 	Board _board;
+	Player _winner;
 	bool minLetters(const string word);
-	bool findInBoard(const string word, ostream& os = cout);
+	bool findInBoard(const string word, vector<Position>& wordPath);
+	void showWordPath(const string& word,vector<Position>& wordPath, ostream& os = cout);
 	bool findInDictionary(const string word);
 	bool repeatedWord(const string wordSearch);
 	int charsToPoints(const string word);
-	Player _winner;
+	
 };
