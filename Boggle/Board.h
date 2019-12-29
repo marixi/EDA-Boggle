@@ -5,6 +5,7 @@
 
 #pragma once
 #include"Cube.h"
+#include"Console.h"
 #include<fstream>
 #include<string>
 #include<stdio.h>

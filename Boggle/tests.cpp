@@ -10,6 +10,7 @@
 #include"Player.h"
 #include"Board.h"
 #include"Game.h"
+#include"Console.h"
 using namespace std;
 
 // Test for the dictionary functions
@@ -126,30 +127,37 @@ void testConfigConstructorsAndDisplay()
 
 //int main()
 //{
-//	/*cout << "Test for the dictionary functions: " << endl;
-//	testDictionaryConstructorAndDisplay();
-//	cout << testDictionaryFind() << endl;*/
+////	/*cout << "Test for the dictionary functions: " << endl;
+////	testDictionaryConstructorAndDisplay();
+////	cout << testDictionaryFind() << endl;*/
+////
+////	/*cout << endl << "Test for the cube functions: " << endl;
+////	testCubeConstructorAndDisplayAll();
+////	cout << endl << testCubeGetTopLetter() << endl;
+////	testCubeRollAndDisplayTop();
+////	cout << endl;*/
+////
+////	/*cout << endl << "Test for the player functions: " << endl;
+////	testPlayerConstructorAndDisplay();
+////	testPlayerReadInfo();
+////	testPlayerReadWordsTimed();*/
+////	
+////	/*cout << endl << "Test for the Board functions: " << endl;
+////	testBoardConstructorsAndDisplay();
+////	testBoardCubeInPosition();
+////	testBoardTopLetter();
+////	testBoardShuffle();
+////	testBoardFindWordanddisplayPath();*/
+////
+////	/*cout << endl << "Test for the Config functions: " << endl;
+////	testConfigConstructorsAndDisplay();*/
+////
+//	setcolor(4, 0);
+//	cout << "this must be red" << endl;
+//	cout << "the background is yellow";
 //
-//	/*cout << endl << "Test for the cube functions: " << endl;
-//	testCubeConstructorAndDisplayAll();
-//	cout << endl << testCubeGetTopLetter() << endl;
-//	testCubeRollAndDisplayTop();
-//	cout << endl;*/
-//
-//	/*cout << endl << "Test for the player functions: " << endl;
-//	testPlayerConstructorAndDisplay();
-//	testPlayerReadInfo();
-//	testPlayerReadWordsTimed();*/
-//	
-//	/*cout << endl << "Test for the Board functions: " << endl;
-//	testBoardConstructorsAndDisplay();
-//	testBoardCubeInPosition();
-//	testBoardTopLetter();
-//	testBoardShuffle();
-//	testBoardFindWordanddisplayPath();*/
-//
-//	/*cout << endl << "Test for the Config functions: " << endl;
-//	testConfigConstructorsAndDisplay();*/
+//	gotoxy(1, 0);
+//	setcolor(2, 0);
 //
 //	return 0;
 //}

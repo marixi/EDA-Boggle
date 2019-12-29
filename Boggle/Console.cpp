@@ -53,3 +53,40 @@ void clrscr(void)
   // Move Cursor to upper left corner
   SetConsoleCursorPosition(hCon, upperLeftCorner);
 }
+
+//--------------------------------------------------------------------------------
+
+//referencia de extração do codigo para mudar o tamanho de letra
+//h ttp://www.cplusplus.com/forum/general/118967/
+
+void setFontSize(int FontSize)
+{
+	CONSOLE_FONT_INFOEX info = { 0 };
+	info.cbSize = sizeof(info);
+	info.dwFontSize.Y = FontSize; // leave X as zero
+	info.FontWeight = FW_NORMAL;
+	wcscpy_s(info.FaceName, L"Lucida Console");
+	SetCurrentConsoleFontEx(GetStdHandle(STD_OUTPUT_HANDLE), NULL, &info);
+}
+
+//--------------------------------------------------------------------------------
+//referencia de extração do codigo para descobrir a posição do cursor na board
+//h ttp://www.cplusplus.com/forum/general/74380/
+int wherex()
+{
+	CONSOLE_SCREEN_BUFFER_INFO csbi;
+	if (!GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE),&csbi))
+		return -1;
+
+	return csbi.dwCursorPosition.X;
+}
+
+//--------------------------------------------------------------------------------
+int wherey()
+{
+	CONSOLE_SCREEN_BUFFER_INFO csbi;
+	if (!GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE),&csbi))
+		return -1;
+
+	return csbi.dwCursorPosition.Y;
+}

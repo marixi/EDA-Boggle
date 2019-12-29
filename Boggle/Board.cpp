@@ -98,13 +98,20 @@ void Board::display(ostream& os) const
 	os << "  ";
 	for (size_t header = 0; header < _numRows; header++)
 	{
+
+		setcolor(9);
 		os << header + 1 << "  ";
+		setcolor();
+
 	}
 	os << "\n";
 
 	for (size_t row = 0; row < _numRows; row++)
 	{
+		setcolor(9);
 		os << row + 1 << " ";
+		setcolor();
+
 		for (size_t col = 0; col < _numCols; col++)
 		{
 			_board[row][col].displayTop(os);
@@ -164,6 +171,7 @@ void Board::isNextLetter(const vector<vector<char>>& board, vector<vector<bool>>
 		addUpLetter.lin = row + 1;
 		addUpLetter.col = col + 1;
 		path.push_back(addUpLetter);
+
 
 		findWordAux(board, visited, row, col, str, word, found, path);
 	}

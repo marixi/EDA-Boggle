@@ -6,6 +6,8 @@
 #ifndef CONSOLE_H
 #define CONSOLE_H
 
+//#include"winnt.h"
+
 // COLOR CODES
 
 #define BLACK 0
@@ -27,17 +29,28 @@
 
 #define WHITE 15
 
+struct Coord
+{
+	int X;
+	int Y;
+};
+
 //--------------------------------------------------------------------------------
 // Move cursor to column 'x', line 'y'
 void gotoxy(int x, int y);
 
 //--------------------------------------------------------------------------------
 // Set text color & background
-void setcolor(unsigned int color, unsigned int background_color);
+void setcolor(unsigned int color=15, unsigned int background_color=0);
 
 //--------------------------------------------------------------------------------
 // Clear screen
 void clrscr(void);
 //--------------------------------------------------------------------------------
+
+void setFontSize(int FontSize);
+
+int wherex();
+int wherey();
 
 #endif

@@ -126,18 +126,24 @@ void Game::roundPoints(ostream& os)
 			{
 				vector<Position> wordPath;
 				if (minLetters(word) == false)
-					os << word << ": 0 (the word doesn't have the minimum amount of letters necessary)." << endl;
+					os << word << ": 0 (the word doesn't have the minimum amount of letters necessary)" << endl;
 				else if (findInBoard(word, wordPath) == false)
-					os << word << ": 0 (the word can't possibly be formed with this board)." << endl;
+					os << word << ": 0 (the word can't possibly be formed with this board)" << endl;
 				else if (findInDictionary(word) == false)
 					os << word << ": 0 (the word isn't on the list of valid words)" << endl;
 				else if (repeatedWord(word) == true)
-					os << word << ": 0 (the word has also been chosen by another player)" << endl;				
+					os << word << ": 0 (the word has also been chosen by another player)" << endl;
 				else
 				{
+					int color;
 					showWordPath(word, wordPath, os);
 					os << word << ": " << charsToPoints(word) << " points" << endl;
 					(_players[i]).updatePoints(charsToPoints(word));
+					Sleep(1000);
+					int r = wherex(); int t = wherey();
+					gotoxy(0, 0);
+					_board.display(os);
+					gotoxy(r, t);
 				}
 			}
 		}
@@ -155,14 +161,50 @@ void Game::roundPoints(ostream& os)
 	clrscr();
 }
 //--------------------------------------------------------------------------------------------------------------
-void Game::showWordPath(const string &word,vector<Position>& wordPath, ostream& os)
+void Game::showWordPath(const string& word, vector<Position>& wordPath, ostream& os)
 {
-	os << word<< " can be found in the board, following the path : \n";
+	int colorCode = rand() % 14 + 1;
+	setcolor(colorCode);
+	os << word;
+	setcolor();
+	os << " can be found in the board, following the path : \n";
+
 	for (size_t a = 0; a < wordPath.size(); a++)
 	{
 		os << "(" << wordPath[a].lin << "," << wordPath[a].col << ")   ";
+
+		int x = wherex(); int y = wherey(); int c = 0;
+
+		switch (wordPath[a].col)
+		{
+		case 1:
+			c = 3;
+			break;
+		case 2:
+			c = 6;
+			break;
+		case 3:
+			c = 9;
+			break;
+		case 4:
+			c = 12;
+			break;
+		case 5:
+			c = 15;
+			break;
+		case 6:
+			c = 18;
+			break;
+		}
+
+		gotoxy(c, wordPath[a].lin);
+		setcolor(colorCode);
+		cout << "\b" << word[a];
+		setcolor();
+		gotoxy(x, y);
 	}
-	os << endl;
+
+	os << endl << endl;
 }
 //--------------------------------------------------------------------------------------------------------------
 bool Game::checkForVictory()
@@ -182,6 +224,6 @@ bool Game::checkForVictory()
 //--------------------------------------------------------------------------------------------------------------
 void Game::displayWinner(ostream& os)
 {
-	os << "The winner is " << _winner.getName() << "!";
+	os << "The winner is " << _winner.getName() << "! \n";
 }
 

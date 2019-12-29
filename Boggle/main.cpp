@@ -9,6 +9,7 @@ using namespace std;
 void set(Game& game)
 {
 	game.setGame("BOGGLE_CONFIG.txt");
+	clrscr();
 	game.readPlayers();
 }
 
@@ -23,8 +24,14 @@ void loop(Game game)
 
 int main()
 {
- srand(time(NULL));
- Game game;
- set(game);
- loop(game);
+	setFontSize(24);
+
+	cout << "EDA PROJECT" << endl << endl << "Boggle is loading... ";
+	srand(time(NULL));
+	Game game;
+	set(game);
+	loop(game);
+
+	return 0;
+
 }
