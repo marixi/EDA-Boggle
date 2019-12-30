@@ -135,7 +135,6 @@ void Game::roundPoints(ostream& os)
 					os << word << ": 0 (the word has also been chosen by another player)" << endl;
 				else
 				{
-					int color;
 					showWordPath(word, wordPath, os);
 					os << word << ": " << charsToPoints(word) << " points" << endl;
 					(_players[i]).updatePoints(charsToPoints(word));
@@ -169,7 +168,7 @@ void Game::showWordPath(const string& word, vector<Position>& wordPath, ostream&
 	setcolor();
 	os << " can be found in the board, following the path : \n";
 
-	for (size_t a = 0; a < wordPath.size(); a++)
+	for (size_t a = 0; a < word.length(); a++)
 	{
 		os << "(" << wordPath[a].lin << "," << wordPath[a].col << ")   ";
 

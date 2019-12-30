@@ -24,7 +24,7 @@ void loop(Game game)
 
 int main()
 {
-	setFontSize(24);
+	setFontSize(18);
 
 	cout << "EDA PROJECT" << endl << endl << "Boggle is loading... ";
 	srand(time(NULL));

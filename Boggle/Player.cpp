@@ -62,14 +62,6 @@ void Player::readStrTimed(string& str, time_t duration)
 				return;
 			}
 
-			//if (c == BACKSPACE)
-			//  cout << BEEP;
-			//else
-			//{
-			//  cout << c << flush;
-			//  str = str + c;
-			//}
-
 			if (c == BACKSPACE)
 			{
 				if (str == "")
@@ -79,7 +71,6 @@ void Player::readStrTimed(string& str, time_t duration)
 					cout << "\b" << " \b" << flush;
 					str.pop_back();
 				}
-
 			}
 			else
 			{

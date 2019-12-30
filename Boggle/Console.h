@@ -47,8 +47,11 @@ void setcolor(unsigned int color=15, unsigned int background_color=0);
 // Clear screen
 void clrscr(void);
 //--------------------------------------------------------------------------------
-
+//references of the functions in console .cpp
+// Set different font size in console
 void setFontSize(int FontSize);
+//--------------------------------------------------------------------------------
+//Determine the present coordinates of the cursor
 
 int wherex();
 int wherey();

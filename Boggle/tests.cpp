@@ -110,12 +110,18 @@ void testBoardFindWordanddisplayPath()
 {
 	Board b("BOARD_INT.txt");
 	b.display(cout);
-	string s = "NEGA";
+	string s = "ERGA";//ERGA
 	vector<Position> wordPath;
 
 	bool f;
 	f=b.findWord(s, wordPath);
 	cout << endl << f << endl;
+
+	for (size_t a = 0; a < wordPath.size(); a++)
+	{
+		cout << "(" << wordPath[a].lin << "," << wordPath[a].col << ")   ";
+	}
+
 }
 
 // Test for the config functions
@@ -142,12 +148,12 @@ void testConfigConstructorsAndDisplay()
 ////	testPlayerReadInfo();
 ////	testPlayerReadWordsTimed();*/
 ////	
-////	/*cout << endl << "Test for the Board functions: " << endl;
-////	testBoardConstructorsAndDisplay();
-////	testBoardCubeInPosition();
-////	testBoardTopLetter();
-////	testBoardShuffle();
-////	testBoardFindWordanddisplayPath();*/
+	//cout << endl << "Test for the Board functions: " << endl;
+	//testBoardConstructorsAndDisplay();
+	//testBoardCubeInPosition();
+	//testBoardTopLetter();
+	//testBoardShuffle();
+	//testBoardFindWordanddisplayPath();
 ////
 ////	/*cout << endl << "Test for the Config functions: " << endl;
 ////	testConfigConstructorsAndDisplay();*/

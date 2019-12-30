@@ -28,9 +28,8 @@ public:
 	void shuffle(); // Rolls all cubes and shuffles them on the board.
 	void display(ostream& os) const; // Displays board.
 	bool findWord(string word, vector<Position>& wordPath);
+
 private:
-	void replace(unsigned int indexrow,unsigned int indexcol, Cube c);
-	void replace(const Position& pos, Cube c);
 	void isNextLetter(const vector<vector<char>>& board, vector<vector<bool>>& visited, size_t row, size_t col, string& str, const string& word, bool& found, vector<Position>& path);
 	bool findWordAux(const vector<vector<char>>& board, vector<vector<bool>>& visited, size_t i, size_t j, string& str, const string& word, bool& found, vector<Position>& path);
 

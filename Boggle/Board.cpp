@@ -150,7 +150,7 @@ bool Board::findWord(string word, vector<Position>& path)
 	//once that is found pass to findWordAux
 	for (size_t i = 0; i < _numRows; i++)
 		for (size_t j = 0; j < _numCols; j++)
-			if (_board[i][j].getTopLetter() == word[0])
+			if (boardTop[i][j] == word[0] && path.size() < word.length())
 			{
 				Position firstlett;
 				firstlett.lin = i + 1;
@@ -158,14 +158,14 @@ bool Board::findWord(string word, vector<Position>& path)
 				path.push_back(firstlett);
 
 				findWordAux(boardTop, visited, i, j, str, word, found, path);
+				break;
 			}
-
 	return found; //depois ao testar dizer que se saiu true entao ta otimo... se saiu false entao deu asneira
 }
 //---------------------------------------------------------------------------------------------------------------
 void Board::isNextLetter(const vector<vector<char>>& board, vector<vector<bool>>& visited, size_t row, size_t col, string& str, const string& word, bool& found, vector<Position>& path)
 {
-	if (row >= 0 && col >= 0 && !visited[row][col] && str.length() < word.length() && !found && word.substr(0, str.length()) == str)
+	if (row >= 0 && col >= 0 && !visited[row][col] && path.size() < word.length() && str.length() < word.length() && !found && word.substr(0, str.length()) == str)
 	{
 		Position addUpLetter;
 		addUpLetter.lin = row + 1;
@@ -227,6 +227,12 @@ bool Board::findWordAux(const vector<vector<char>>& board, vector<vector<bool>>&
 				for (size_t col = j-1; col <= j && col < _numCols; col++)
 					isNextLetter(board, visited, row, col, str, word, found, path);
 		}
+		//else if (i == _numRows - 1 && (j >= 1 && j < _numCols - 1))
+		//{
+		//	for (size_t row = i - 1; row <= i && row < _numRows; row++)
+		//		for (size_t col = j - 1; col <= j+1 && col < _numCols; col++)
+		//			isNextLetter(board, visited, row, col, str, word, found, path);
+		//}
 		else
 		{
 			for (size_t row = i - 1; row <= i + 1 && row < _numRows; row++)
@@ -246,16 +252,3 @@ bool Board::findWordAux(const vector<vector<char>>& board, vector<vector<bool>>&
 	}
 	return found;
 }
-//---------------------------------------------------------------------------------------------------------------
-void Board::replace(unsigned int indexrow, unsigned int indexcol, Cube c)
-{
-	_board[indexrow][indexcol] = c;
-}
-//---------------------------------------------------------------------------------------------------------------
-void Board::replace(const Position& pos, Cube c)
-{
-	unsigned int indexrow = pos.lin - 1;
-	unsigned int indexcol = pos.col - 1;
-	_board[indexrow][indexcol] = c;
-}
-//---------------------------------------------------------------------------------------------------------------
