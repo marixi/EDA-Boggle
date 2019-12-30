@@ -112,9 +112,9 @@ int Game::charsToPoints(const string word)
 //--------------------------------------------------------------------------------------------------------------
 void Game::roundPoints(ostream& os)
 {
-	_board.display(os);
 	for (size_t i = 0; i < _players.size(); i++)
 	{
+		_board.display(os);
 		os << endl << endl << "Player " << i + 1 << ": " << endl;
 		string filename = (_players[i]).getName() + ".txt";
 		ifstream Words(filename);
@@ -126,17 +126,17 @@ void Game::roundPoints(ostream& os)
 			{
 				vector<Position> wordPath;
 				if (minLetters(word) == false)
-					os << word << ": 0 (the word doesn't have the minimum amount of letters necessary)" << endl;
+					os << word << ": 0 (the word doesn't have the minimum amount of letters necessary)" << endl << endl;
 				else if (findInBoard(word, wordPath) == false)
-					os << word << ": 0 (the word can't possibly be formed with this board)" << endl;
+					os << word << ": 0 (the word can't possibly be formed with this board)" << endl << endl;
 				else if (findInDictionary(word) == false)
-					os << word << ": 0 (the word isn't on the list of valid words)" << endl;
+					os << word << ": 0 (the word isn't on the list of valid words)" << endl << endl;
 				else if (repeatedWord(word) == true)
-					os << word << ": 0 (the word has also been chosen by another player)" << endl;
+					os << word << ": 0 (the word has also been chosen by another player)" << endl << endl;
 				else
 				{
 					showWordPath(word, wordPath, os);
-					os << word << ": " << charsToPoints(word) << " points" << endl;
+					os << word << ": " << charsToPoints(word) << " points" << endl << endl;
 					(_players[i]).updatePoints(charsToPoints(word));
 					Sleep(1000);
 					int r = wherex(); int t = wherey();
@@ -149,15 +149,16 @@ void Game::roundPoints(ostream& os)
 		os << endl;
 		os << "Total Points: " << _players[i].getPoints() << endl;
 		Words.close();
+
+		os << endl;
+		system("pause");
+		clrscr();
 	}
-	cout << endl;
-	system("pause");
-	clrscr();
 }
 //--------------------------------------------------------------------------------------------------------------
 void Game::showWordPath(const string& word, vector<Position>& wordPath, ostream& os)
 {
-	int colorCode = rand() % 14 + 1;
+	int colorCode = rand() % 13 + 1;
 	setcolor(colorCode);
 	os << word;
 	setcolor();
@@ -183,6 +184,7 @@ void Game::showWordPath(const string& word, vector<Position>& wordPath, ostream&
 		cout << "\b" << word[a];
 		setcolor();
 		gotoxy(x, y);
+		Sleep(500);
 	}
 	os << endl << endl;
 }

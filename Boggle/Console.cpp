@@ -80,8 +80,6 @@ int wherex()
 
 	return csbi.dwCursorPosition.X;
 }
-
-//--------------------------------------------------------------------------------
 int wherey()
 {
 	CONSOLE_SCREEN_BUFFER_INFO csbi;
@@ -89,4 +87,11 @@ int wherey()
 		return -1;
 
 	return csbi.dwCursorPosition.Y;
+}
+//--------------------------------------------------------------------------------
+//Colocar a consola em modo fullscreen
+//h ttps://stackoverflow.com/questions/4053554/running-a-c-console-program-in-full-screen
+void fullscr()
+{
+	SetConsoleDisplayMode(GetStdHandle(STD_OUTPUT_HANDLE), CONSOLE_FULLSCREEN_MODE, 0);
 }

@@ -18,15 +18,15 @@
 #define RED 4
 #define MAGENTA 5
 #define BROWN 6
-#define LIGHTGRAY 7
-#define DARKGRAY 8
-#define LIGHTBLUE 9
-#define LIGHTGREEN 10
-#define LIGHTCYAN 11
-#define LIGHTRED 12
-#define LIGHTMAGENTA 13
-#define YELLOW 14
+#define DARKGRAY 7
+#define LIGHTBLUE 8
+#define LIGHTGREEN 9
+#define LIGHTCYAN 10
+#define LIGHTRED 11
+#define LIGHTMAGENTA 12
+#define YELLOW 13
 
+#define LIGHTGRAY 14
 #define WHITE 15
 
 struct Coord
@@ -56,4 +56,6 @@ void setFontSize(int FontSize);
 int wherex();
 int wherey();
 
+
+void fullscr();
 #endif
