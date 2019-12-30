@@ -15,10 +15,10 @@ Config::Config()
 	_victoryPoints = 0;
 }
 //--------------------------------------------------------------------------------------------------------------
-void Config::defineAtributes(string aux, string& atribute)
+void Config::defineAttributes(string aux, string& attribute)
 {
 	aux.erase(0, aux.find_first_of(':') + 2);
-	atribute = aux;
+	attribute = aux;
 }
 //--------------------------------------------------------------------------------------------------------------
 Config::Config(const string& filename)
@@ -34,17 +34,17 @@ Config::Config(const string& filename)
 	string header, separator, aux;
 	getline(f, header);
 	getline(f, separator);
-	vector<string> atributes = { "_filenameBoard", "_filenameDictionary", "_maxTime", "_minLetters", "_victoryPoints" };
-	for (size_t i = 0; i < atributes.size(); i++)
+	vector<string> attributes = { "_filenameBoard", "_filenameDictionary", "_maxTime", "_minLetters", "_victoryPoints" };
+	for (size_t i = 0; i < attributes.size(); i++)
 	{
 		getline(f, aux);
-		defineAtributes(aux, atributes[i]);
+		defineAttributes(aux, attributes[i]);
 	}
-	_filenameBoard = atributes[0];
-	_filenameDictionary = atributes[1];
-	_maxTime = stoi(atributes[2]);
-	_minLetters = stoi(atributes[3]);
-	_victoryPoints = stoi(atributes[4]);
+	_filenameBoard = attributes[0];
+	_filenameDictionary = attributes[1];
+	_maxTime = stoi(attributes[2]);
+	_minLetters = stoi(attributes[3]);
+	_victoryPoints = stoi(attributes[4]);
 
 	// Closes the file stream.
 	f.close();
@@ -60,12 +60,12 @@ void Config::displayConfig(ostream& os) const
 	os << "Number of points needed to win: " << _victoryPoints << endl;
 }
 //--------------------------------------------------------------------------------------------------------------
-string Config::getFilenameDictionary()
+string Config::getFilenameDictionary() const
 {
 	return _filenameDictionary;
 }
 //--------------------------------------------------------------------------------------------------------------
-string Config::getFilenameBoard()
+string Config::getFilenameBoard() const
 {
 	return _filenameBoard;
 }

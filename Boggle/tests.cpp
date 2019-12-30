@@ -82,14 +82,6 @@ void testBoardConstructorsAndDisplay()
 	b2.display(cout);
 }
 
-void testBoardCubeInPosition()
-{
-	Board b("BOARD_INT.txt");
-	Position pos = { 1,1 };
-	Cube c = b.cubeInPosition(pos);
-	c.displayAll(cout);
-}
-
 void testBoardTopLetter()
 {
 	Board b("BOARD_INT.txt");

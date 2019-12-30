@@ -208,4 +208,41 @@ void Game::displayWinner(ostream& os)
 {
 	os << "The winner is " << _winner.getName() << "! \n";
 }
+//--------------------------------------------------------------------------------------------------------------
+void Game::gameReport()
+{
+	int gameNumber = readGameNumber();
+	string filename = "BOGGLE_GAME_" + to_string(gameNumber) + ".TXT";
+	ofstream f(filename);
+
+	// Title
+	f << "Boggle - Game Report - " << gameNumber << endl << endl;
+
+	// Players
+	f << "Players:" << endl;
+	for (auto player : _players)
+	{
+		player.displayInfo(f);
+	}
+
+	//Initial Board
+	
+
+}
+
+int Game::readGameNumber()
+{
+	ifstream f("BOGGLE_GAME_NUM.TXT");
+	
+	if (f.fail())
+	{
+		cerr << "Error: \"" << "BOGGLE_GAME_NUM.TXT" << "\" was not found! \n";
+		exit(1);
+	}
+
+	int gameNumber = 0;
+	f >> gameNumber;
+
+	return gameNumber;
+}
 

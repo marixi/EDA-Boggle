@@ -65,11 +65,6 @@ Board::Board(const string& filename)
 	f.close();
 }
 //---------------------------------------------------------------------------------------------------------------
-Cube Board::cubeInPosition(const Position& pos)
-{
-	return _board[pos.lin - 1][pos.col - 1];
-}
-//---------------------------------------------------------------------------------------------------------------
 char Board::getTopLetter(const Position& pos) const
 {
 	Cube temp = _board[pos.lin - 1][pos.col - 1];

@@ -23,7 +23,6 @@ class Board
 public:
 	Board(size_t numRows = 4, size_t numCols = 4); // Builds a board with default Cubes.
 	Board(const string& filename); // Loads board from 'filename'.
-	Cube cubeInPosition(const Position& pos); // Gives cube in position 'pos'.
 	char getTopLetter(const Position& pos) const; // Get top letter at position 'pos'.
 	void shuffle(); // Rolls all cubes and shuffles them on the board.
 	void display(ostream& os) const; // Displays board.
