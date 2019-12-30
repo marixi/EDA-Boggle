@@ -29,10 +29,9 @@ Player::Player(string name, int age)
 void Player::readInfo()
 {
 	string age;
-	cout << "Insert Player's name: "; cin >> _name; // getline(cin, _name);
+	cout << "Insert Player's name: "; getline(cin, _name);
 	cout << "Insert Player's age: "; cin >> age;
-	//cin.clear();
-	//cin.ignore(1000, '\n');
+	cin.ignore(1000, '\n');
 }
 //--------------------------------------------------------------------------------------------------------------
 /*

@@ -31,7 +31,7 @@ void Game::readPlayers()
 		p.readInfo();
 		_players.push_back(p);
 		i++;
-	} while (!cin.eof());
+	}while (!cin.eof());
 	_players.resize(_players.size() - 1);
 	cout << endl;
 	system("pause");
@@ -151,11 +151,6 @@ void Game::roundPoints(ostream& os)
 		Words.close();
 	}
 	cout << endl;
-
-	//cout << "Press any key to continue..." << endl;
-	//cin.ignore(1000,'\n');
-	//cin.ignore();
-	//cin.get();
 	system("pause");
 	clrscr();
 }
@@ -176,33 +171,19 @@ void Game::showWordPath(const string& word, vector<Position>& wordPath, ostream&
 
 		switch (wordPath[a].col)
 		{
-		case 1:
-			c = 3;
-			break;
-		case 2:
-			c = 6;
-			break;
-		case 3:
-			c = 9;
-			break;
-		case 4:
-			c = 12;
-			break;
-		case 5:
-			c = 15;
-			break;
-		case 6:
-			c = 18;
-			break;
+		case 1: c = 3; break;
+		case 2: c = 6; break;
+		case 3: c = 9; break;
+		case 4: c = 12; break;
+		case 5: c = 15; break;
+		case 6: c = 18; break;
 		}
-
 		gotoxy(c, wordPath[a].lin);
 		setcolor(colorCode);
 		cout << "\b" << word[a];
 		setcolor();
 		gotoxy(x, y);
 	}
-
 	os << endl << endl;
 }
 //--------------------------------------------------------------------------------------------------------------

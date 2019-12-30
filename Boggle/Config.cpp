@@ -15,10 +15,10 @@ Config::Config()
 	_victoryPoints = 0;
 }
 //--------------------------------------------------------------------------------------------------------------
-void Config::defineParameters(string aux, string& parameter)
+void Config::defineAtributes(string aux, string& atribute)
 {
 	aux.erase(0, aux.find_first_of(':') + 2);
-	parameter = aux;
+	atribute = aux;
 }
 //--------------------------------------------------------------------------------------------------------------
 Config::Config(const string& filename)
@@ -34,18 +34,17 @@ Config::Config(const string& filename)
 	string header, separator, aux;
 	getline(f, header);
 	getline(f, separator);
-	vector<string> parameters = { "_filenameBoard", "_filenameDictionary", "_maxTime", "_minLetters", "_victoryPoints" };
-	
-	for (size_t i = 0; i < parameters.size(); i++)
+	vector<string> atributes = { "_filenameBoard", "_filenameDictionary", "_maxTime", "_minLetters", "_victoryPoints" };
+	for (size_t i = 0; i < atributes.size(); i++)
 	{
 		getline(f, aux);
-		defineParameters(aux, parameters[i]);
+		defineAtributes(aux, atributes[i]);
 	}
-	_filenameBoard = parameters[0];
-	_filenameDictionary = parameters[1];
-	_maxTime = stoi(parameters[2]);
-	_minLetters = stoi(parameters[3]);
-	_victoryPoints = stoi(parameters[4]);
+	_filenameBoard = atributes[0];
+	_filenameDictionary = atributes[1];
+	_maxTime = stoi(atributes[2]);
+	_minLetters = stoi(atributes[3]);
+	_victoryPoints = stoi(atributes[4]);
 
 	// Closes the file stream.
 	f.close();

@@ -16,7 +16,7 @@ public:
 	Dictionary();
 	Dictionary(const string& filename); // Loads "dictionary" from 'filename'.
 	bool find(const string& word); // Finds 'word' in '_dictionary'.
-	void display(ostream& os) const; // Displays all the words. (Don't do it for big dictionaries!)
+	void display(ostream& os) const; // Displays all the words.
 private:
 	map<int, string> _dictionary;
 };

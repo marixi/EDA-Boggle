@@ -38,10 +38,8 @@ Board::Board(const string& filename)
 		cerr << "Error: Failed to read board size.";
 		exit(1);
 	}
-
 	_numRows = n1;
 	_numCols = n2;
-
 	_board.resize(n1, vector<Cube>(n2));
 
 	size_t a = 0; size_t b = 0;
@@ -55,7 +53,7 @@ Board::Board(const string& filename)
 			faces[j] = face;
 		}
 		_board[a][b] = Cube(faces);
-		if (b < n2 - 1) // Increment the position of the cubes
+		if (b < n2 - 1) // Increment the position of the cubes.
 			b++;
 		else
 		{
@@ -63,7 +61,6 @@ Board::Board(const string& filename)
 			a++;
 		}
 	}
-
 	// Closes the file stream.
 	f.close();
 }
@@ -75,7 +72,7 @@ Cube Board::cubeInPosition(const Position& pos)
 //---------------------------------------------------------------------------------------------------------------
 char Board::getTopLetter(const Position& pos) const
 {
-	Cube temp = _board[pos.lin - 1][pos.col - 1]; // QUERIA POR ESTA MERDA COM A FUNCAO DE CIMA | isto dá para fazer mas tem de se tirar o const
+	Cube temp = _board[pos.lin - 1][pos.col - 1];
 	return temp.getTopLetter();
 }
 //---------------------------------------------------------------------------------------------------------------
@@ -98,11 +95,9 @@ void Board::display(ostream& os) const
 	os << "  ";
 	for (size_t header = 0; header < _numRows; header++)
 	{
-
 		setcolor(9);
 		os << header + 1 << "  ";
 		setcolor();
-
 	}
 	os << "\n";
 
@@ -111,7 +106,6 @@ void Board::display(ostream& os) const
 		setcolor(9);
 		os << row + 1 << " ";
 		setcolor();
-
 		for (size_t col = 0; col < _numCols; col++)
 		{
 			_board[row][col].displayTop(os);
@@ -147,7 +141,7 @@ bool Board::findWord(string word, vector<Position>& path)
 	bool found = false;
 
 	// Consider every character and look for 'word', starting with the first character
-	//once that is found pass to findWordAux
+	// once that is found pass to findWordAux
 	for (size_t i = 0; i < _numRows; i++)
 		for (size_t j = 0; j < _numCols; j++)
 			if (boardTop[i][j] == word[0] && path.size() < word.length())
@@ -160,7 +154,7 @@ bool Board::findWord(string word, vector<Position>& path)
 				findWordAux(boardTop, visited, i, j, str, word, found, path);
 				break;
 			}
-	return found; //depois ao testar dizer que se saiu true entao ta otimo... se saiu false entao deu asneira
+	return found;
 }
 //---------------------------------------------------------------------------------------------------------------
 void Board::isNextLetter(const vector<vector<char>>& board, vector<vector<bool>>& visited, size_t row, size_t col, string& str, const string& word, bool& found, vector<Position>& path)
@@ -171,8 +165,6 @@ void Board::isNextLetter(const vector<vector<char>>& board, vector<vector<bool>>
 		addUpLetter.lin = row + 1;
 		addUpLetter.col = col + 1;
 		path.push_back(addUpLetter);
-
-
 		findWordAux(board, visited, row, col, str, word, found, path);
 	}
 }
@@ -227,12 +219,6 @@ bool Board::findWordAux(const vector<vector<char>>& board, vector<vector<bool>>&
 				for (size_t col = j-1; col <= j && col < _numCols; col++)
 					isNextLetter(board, visited, row, col, str, word, found, path);
 		}
-		//else if (i == _numRows - 1 && (j >= 1 && j < _numCols - 1))
-		//{
-		//	for (size_t row = i - 1; row <= i && row < _numRows; row++)
-		//		for (size_t col = j - 1; col <= j+1 && col < _numCols; col++)
-		//			isNextLetter(board, visited, row, col, str, word, found, path);
-		//}
 		else
 		{
 			for (size_t row = i - 1; row <= i + 1 && row < _numRows; row++)

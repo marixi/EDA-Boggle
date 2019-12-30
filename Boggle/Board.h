@@ -27,13 +27,11 @@ public:
 	char getTopLetter(const Position& pos) const; // Get top letter at position 'pos'.
 	void shuffle(); // Rolls all cubes and shuffles them on the board.
 	void display(ostream& os) const; // Displays board.
-	bool findWord(string word, vector<Position>& wordPath);
+	bool findWord(string word, vector<Position>& wordPath); // Returns true if a word can be found on the board.
 
 private:
 	void isNextLetter(const vector<vector<char>>& board, vector<vector<bool>>& visited, size_t row, size_t col, string& str, const string& word, bool& found, vector<Position>& path);
 	bool findWordAux(const vector<vector<char>>& board, vector<vector<bool>>& visited, size_t i, size_t j, string& str, const string& word, bool& found, vector<Position>& path);
-
-	// Class Atributes
 	size_t _numRows, _numCols; // Number of columns and number of rows of the board
 	vector<vector<Cube>> _board; // Vector of Cubes by rows and columns.
 };

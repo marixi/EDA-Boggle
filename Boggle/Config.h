@@ -13,14 +13,14 @@ using namespace std;
 class Config
 {
 public:
-	Config();
-	Config(const string& filename);
-	void displayConfig(ostream& os) const;
-	string getFilenameDictionary();
-	string getFilenameBoard();
-	unsigned int getMaxTime() const;
-	unsigned int getMinLetters() const;
-	unsigned int getVictoryPoints() const;
+	Config(); // Creates default configuration.
+	Config(const string& filename); // Reads configuration from 'filename'.
+	void displayConfig(ostream& os) const; // Displays configuration.
+	string getFilenameDictionary(); // Returns filename for loading dictionary.
+	string getFilenameBoard(); // Returns filename for loading board.
+	unsigned int getMaxTime() const; // Returns maximum time.
+	unsigned int getMinLetters() const; // Returns minimum letters.
+	unsigned int getVictoryPoints() const; // Returns victory points.
 
 private:
 	string _filenameDictionary;
@@ -28,6 +28,6 @@ private:
 	unsigned int _maxTime; // Maximum time for each round/game.
 	unsigned int _minLetters; // Minimum of letters of a word.
 	unsigned int _victoryPoints; // Points required to win.
-	void defineParameters(string aux, string& parameter);
+	void defineAtributes(string aux, string& parameter);
 };
 

@@ -25,13 +25,10 @@ void loop(Game game)
 int main()
 {
 	setFontSize(18);
-
 	cout << "EDA PROJECT" << endl << endl << "Boggle is loading... ";
 	srand(time(NULL));
 	Game game;
 	set(game);
 	loop(game);
-
 	return 0;
-
 }
