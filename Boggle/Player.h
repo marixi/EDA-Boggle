@@ -18,7 +18,7 @@ class Player
 public:
 	Player(); // builds a player with name="NO NAME".
 	Player(string name); // builds a player with a name.
-	Player(string name, int age); // builds a player with a name and age.
+	Player(string name, string age); // builds a player with a name and age.
 	void readInfo(); // reads player's info (name, age).
 	void readWordsTimed(const string& fileName, time_t duration); // reads words of the player's bet, in one round.
 	void displayInfo(ostream& os) const;  // displays the player's name and age.

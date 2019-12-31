@@ -19,7 +19,7 @@ Player::Player(string name)
 	_points = 0;
 }
 //--------------------------------------------------------------------------------------------------------------
-Player::Player(string name, int age)
+Player::Player(string name, string age)
 {
 	_name = name;
 	_age = age;
