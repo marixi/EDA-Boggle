@@ -114,11 +114,22 @@ void Game::roundPoints(ostream& os)
 {
 	for (size_t i = 0; i < _players.size(); i++)
 	{
+		// Opens game report file in append mode.
+		ofstream outFile;
+		outFile.open(_reportFilename, std::ios_base::app);
+
+		outFile << endl;
+		outFile << "BOARD:" << endl;
+		_board.display(outFile);
+		outFile << "Player " << i + 1 << "Bets: " << endl;
+
 		_board.display(os);
-		os << endl << endl << "Player " << i + 1 << ": " << endl;
+		os << endl << endl << "Player " << i + 1 << " Bets: " << endl;
+
 		string filename = (_players[i]).getName() + ".txt";
 		ifstream Words(filename);
 		string word;
+
 		while (!Words.eof())
 		{
 			getline(Words, word);
@@ -126,17 +137,33 @@ void Game::roundPoints(ostream& os)
 			{
 				vector<Position> wordPath;
 				if (minLetters(word) == false)
+				{
 					os << word << ": 0 (the word doesn't have the minimum amount of letters necessary)" << endl << endl;
+					outFile << word << ": 0 (the word doesn't have the minimum amount of letters necessary)" << endl << endl;
+				}			
 				else if (findInBoard(word, wordPath) == false)
+				{
 					os << word << ": 0 (the word can't possibly be formed with this board)" << endl << endl;
+					outFile << word << ": 0 (the word can't possibly be formed with this board)" << endl << endl;
+				}					
 				else if (findInDictionary(word) == false)
+				{
 					os << word << ": 0 (the word isn't on the list of valid words)" << endl << endl;
+					outFile << word << ": 0 (the word isn't on the list of valid words)" << endl << endl;
+				}					
 				else if (repeatedWord(word) == true)
+				{
 					os << word << ": 0 (the word has also been chosen by another player)" << endl << endl;
+					outFile << word << ": 0 (the word has also been chosen by another player)" << endl << endl;
+				}					
 				else
 				{
-					showWordPath(word, wordPath, os);
+					showWordPath(word, wordPath, outFile);
+					outFile << word << ": " << charsToPoints(word) << " points" << endl << endl;
+
+					showWordPath(word, wordPath, os);			
 					os << word << ": " << charsToPoints(word) << " points" << endl << endl;
+
 					(_players[i]).updatePoints(charsToPoints(word));
 					Sleep(1000);
 					int r = wherex(); int t = wherey();
@@ -146,6 +173,9 @@ void Game::roundPoints(ostream& os)
 				}
 			}
 		}
+		outFile << "Total Points: " << _players[i].getPoints() << endl;
+		outFile << endl;
+
 		os << endl;
 		os << "Total Points: " << _players[i].getPoints() << endl;
 		Words.close();

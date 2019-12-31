@@ -27,7 +27,7 @@ public:
 	void updatePoints(unsigned int roundPoints); // update player's points.
 private:
 	string _name; // name of the player.
-	unsigned int _age; // age of the player.
+	string _age; // age of the player.
 	void readStrTimed(string& str, time_t duration);
 	unsigned int _points; // total points of the player in the game.
 };

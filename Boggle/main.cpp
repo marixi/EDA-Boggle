@@ -20,7 +20,6 @@ void loop(Game& game)
 	do {
 		game.readPlayersWords();
 		game.roundPoints(cout);
-		game.gameReport(2);
 	} while (game.checkForVictory() == false);
 	game.displayWinner(cout);
 	game.gameReport(3);
@@ -31,7 +30,7 @@ int main()
 	//fullscr(); mete a consola em fullscreen, só usar quando ja se tiver o menu feito e se quiser jogar o jogo até ao fim
 	setFontSize(18);
 	cout << "EDA PROJECT" << endl << endl << "Boggle is loading... ";
-	srand(time(NULL));
+	srand((unsigned int)time(NULL));
 	Game game;
 	set(game);
 	loop(game);

@@ -1,0 +1,95 @@
+Boggle Game Report 4
+
+PLAYERS:
+Player's Name: Ricardofski
+Player's Age: 69
+Player's Name: Broses
+Player's Age: 420BlazeIT
+
+BOARD:
+  1  2  3  4  5  6  
+1 O  R  N  I  N  B  
+2 A  A  L  Q  B  P  
+3 S  R  R  T  T  Q  
+4 T  S  A  I  U  V  
+5 U  V  M  W  S  L  
+6 E  L  H  C  E  I  
+
+Player 1: 
+ORAL can be found in the board, following the path : 
+(1,1)   (1,2)   (2,2)   (2,3)   
+
+ORAL: 1 points
+
+NINB: 0 (the word isn't on the list of valid words)
+
+BINA: 0 (the word isn't on the list of valid words)
+
+RAIU: 0 (the word isn't on the list of valid words)
+
+RAITU: 0 (the word isn't on the list of valid words)
+
+RAMCEE: 0 (the word can't possibly be formed with this board)
+
+Total Points: 1
+
+
+BOARD:
+  1  2  3  4  5  6  
+1 O  R  N  I  N  B  
+2 A  A  L  Q  B  P  
+3 S  R  R  T  T  Q  
+4 T  S  A  I  U  V  
+5 U  V  M  W  S  L  
+6 E  L  H  C  E  I  
+
+Player 2: 
+SAI can be found in the board, following the path : 
+(4,2)   (4,3)   (4,4)   
+
+SAI: 1 points
+
+SAIU can be found in the board, following the path : 
+(4,2)   (4,3)   (4,4)   (4,5)   
+
+SAIU: 1 points
+
+LUV: 0 (the word isn't on the list of valid words)
+
+LEI can be found in the board, following the path : 
+(5,6)   (6,5)   (6,6)   
+
+LEI: 1 points
+
+SEI can be found in the board, following the path : 
+(5,5)   (6,5)   (6,6)   
+
+SEI: 1 points
+
+USE can be found in the board, following the path : 
+(4,5)   (5,5)   (6,5)   
+
+USE: 1 points
+
+USEI can be found in the board, following the path : 
+(4,5)   (5,5)   (6,5)   (6,6)   
+
+USEI: 1 points
+
+LEI can be found in the board, following the path : 
+(5,6)   (6,5)   (6,6)   
+
+LEI: 1 points
+
+SAIRE: 0 (the word can't possibly be formed with this board)
+
+SAIR can be found in the board, following the path : 
+(4,2)   (4,3)   (4,4)   (3,3)   
+
+SAIR: 1 points
+
+CE: 0 (the word doesn't have the minimum amount of letters necessary)
+
+Total Points: 8
+
+The winner is Broses! 
