@@ -97,15 +97,18 @@ bool Game::repeatedWord(const string wordSearch)
 		return false;
 }
 //--------------------------------------------------------------------------------------------------------------
-bool Game::sameWord(const string wordSearch, vector<string>& v)
+bool Game::sameWord(const string wordSearch, vector<string> v)
 {
+	bool sameWord = false;
 	for (size_t i = 0; i < v.size(); i++)
 	{
 		if (v[i] == wordSearch)
-			return true;
-		else
-			return false;
+		{
+			sameWord = true;
+			break;
+		}
 	}
+	return sameWord;
 }
 //--------------------------------------------------------------------------------------------------------------
 int Game::charsToPoints(const string word)
@@ -132,46 +135,42 @@ void Game::roundPoints(ostream& os)
 		outFile << endl;
 		outFile << "BOARD:" << endl;
 		_board.display(outFile);
-		outFile << "Player " << i + 1 << "Bets: " << endl;
+		outFile << "Player " << i + 1 << " bets: " << endl;
 
 		_board.display(os);
-		os << endl << endl << "Player " << i + 1 << " Bets: " << endl;
+		os << endl << endl << "Player " << i + 1 << " bets: " << endl;
 
 		string filename = (_players[i]).getName() + ".txt";
 		ifstream Words(filename);
 		string word;
-
-
-
+		vector<string> v;
 		while (!Words.eof())
 		{
 			getline(Words, word);
-
 			if (!word.empty())
-			{	
-				vector <string> v;
+			{
 				vector<Position> wordPath;
 				if (minLetters(word) == false)
 				{
 					os << word << ": 0 (the word doesn't have the minimum amount of letters necessary)" << endl << endl;
 					outFile << word << ": 0 (the word doesn't have the minimum amount of letters necessary)" << endl << endl;
-				}			
+				}
 				else if (findInBoard(word, wordPath) == false)
 				{
 					os << word << ": 0 (the word can't possibly be formed with this board)" << endl << endl;
 					outFile << word << ": 0 (the word can't possibly be formed with this board)" << endl << endl;
-				}					
+				}
 				else if (findInDictionary(word) == false)
 				{
 					os << word << ": 0 (the word isn't on the list of valid words)" << endl << endl;
 					outFile << word << ": 0 (the word isn't on the list of valid words)" << endl << endl;
-				}					
+				}
 				else if (repeatedWord(word) == true)
 				{
 					os << word << ": 0 (the word has also been chosen by another player)" << endl << endl;
 					outFile << word << ": 0 (the word has also been chosen by another player)" << endl << endl;
 				}
-				else if (sameWord(word,v) == true)
+				else if (sameWord(word, v)==true)
 				{
 					os << word << ": 0 (the word has already been called)" << endl << endl;
 					outFile << word << ": 0 (the word has already been called)" << endl << endl;
@@ -182,7 +181,7 @@ void Game::roundPoints(ostream& os)
 					showWordPathinFile(word, wordPath, outFile);
 					outFile << word << ": " << charsToPoints(word) << " points" << endl << endl;
 
-					showWordPathinConsole(word, wordPath, os);			
+					showWordPathinConsole(word, wordPath, os);
 					os << word << ": " << charsToPoints(word) << " points" << endl << endl;
 
 					(_players[i]).updatePoints(charsToPoints(word));
@@ -282,47 +281,32 @@ void Game::gameReport(const unsigned int mode)
 		f << "Boggle Game Report " << _gameNumber << endl << endl;
 
 		f << "PLAYERS:" << endl;
+		int i = 1;
 		for (auto player : _players)
 		{
+			f << "Player " << i << " - ";
 			player.displayInfo(f);
+			i++;
 		}
-
 		f.close();
 		break;
 	}
-	case 2: // Writes boards, points and player's bets into game report.
-	{
-		ofstream f;
-		f.open(_reportFilename, std::ios_base::app);
-
-		f << "Round" << endl << endl;
-		roundPoints(f);
-
-		f.close();
-		break;
-	}
-	case 3: // Writes winner into game report.
+	case 2: // Writes winner into game report.
 	{
 		ofstream f;
 		f.open(_reportFilename, std::ios_base::app);
 		displayWinner(f);
-		
 		f.close();
 		break;
 	}
 	default:
 		break;
 	}
-
-
-
-
 }
-
+//--------------------------------------------------------------------------------------------------------------
 void Game::discoverReportFilename()
 {
 	ifstream fi("BOGGLE_GAME_NUM.TXT");
-
 	if (fi.fail())
 	{
 		cerr << "Error: \"" << "BOGGLE_GAME_NUM.TXT" << "\" was not found! \n";
@@ -335,7 +319,7 @@ void Game::discoverReportFilename()
 	ofstream fo("BOGGLE_GAME_NUM.TXT");
 	fo << _gameNumber + 1;
 	fo.close();
-	
+
 	_gameNumber++;
 	_reportFilename = "BOGGLE_GAME_" + to_string(_gameNumber) + ".TXT";
 }

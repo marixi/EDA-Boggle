@@ -120,8 +120,8 @@ void Player::readWordsTimed(const string& fileName, time_t duration)
 //--------------------------------------------------------------------------------------------------------------
 void Player::displayInfo(ostream& os) const
 {
-	os << "Player's Name: " << _name << endl;
-	os << "Player's Age: " << _age << endl;
+	os << "Name: " << _name << "; ";
+	os << "Age: " << _age << "." << endl;
 }
 //--------------------------------------------------------------------------------------------------------------
 string Player::getName()

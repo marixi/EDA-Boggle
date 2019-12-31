@@ -1,6 +1,2 @@
 ﻿  Game.cpp
-  main.cpp
-  tests.cpp
-  Generating Code...
-D:\Visual Studio\Ex e proj\EDA\Boggle\Game.cpp(109): warning C4715:  'Game::sameWord': not all control paths return a value
-  Boggle.vcxproj -> D:\Visual Studio\Ex e proj\EDA\Boggle\Debug\Boggle.exe
+  Boggle.vcxproj -> C:\Users\maria\Documents\GitHub\EDA\Boggle\Debug\Boggle.exe

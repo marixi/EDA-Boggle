@@ -22,7 +22,7 @@ void loop(Game& game)
 		game.roundPoints(cout);
 	} while (game.checkForVictory() == false);
 	game.displayWinner(cout);
-	game.gameReport(3);
+	game.gameReport(2);
 }
 
 int main()
