@@ -97,19 +97,12 @@ bool Game::repeatedWord(const string wordSearch)
 		return false;
 }
 //--------------------------------------------------------------------------------------------------------------
-bool Game::sameWord(const string wordSearch, string filename, unsigned int j)
+bool Game::sameWord(const string wordSearch, vector<string> v)
 {
-	ifstream f(filename);
 	bool sameWord = false;
-	string aux;
-	for (size_t i = 0; i < j; i++)
+	for (size_t i = 0; i < v.size(); i++)
 	{
-		getline(f, aux);
-	}
-	while (!f.eof())
-	{
-		getline(f, aux);
-		if (aux == wordSearch)
+		if (v[i] == wordSearch)
 		{
 			sameWord = true;
 			break;
@@ -150,13 +143,12 @@ void Game::roundPoints(ostream& os)
 		string filename = (_players[i]).getName() + ".txt";
 		ifstream Words(filename);
 		string word;
-		int j = 0;
+		vector<string> v;
 		while (!Words.eof())
 		{
 			getline(Words, word);
 			if (!word.empty())
 			{
-				j++;
 				vector<Position> wordPath;
 				if (minLetters(word) == false)
 				{
@@ -178,13 +170,14 @@ void Game::roundPoints(ostream& os)
 					os << word << ": 0 (the word has also been chosen by another player)" << endl << endl;
 					outFile << word << ": 0 (the word has also been chosen by another player)" << endl << endl;
 				}
-				else if (sameWord(word,filename,j) == true)
+				else if (sameWord(word, v)==true)
 				{
 					os << word << ": 0 (the word has already been called)" << endl << endl;
 					outFile << word << ": 0 (the word has already been called)" << endl << endl;
 				}
 				else
 				{
+					v.push_back(word);
 					showWordPathinFile(word, wordPath, outFile);
 					outFile << word << ": " << charsToPoints(word) << " points" << endl << endl;
 
