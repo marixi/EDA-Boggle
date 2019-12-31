@@ -11,15 +11,19 @@ void set(Game& game)
 	game.setGame("BOGGLE_CONFIG.txt");
 	clrscr();
 	game.readPlayers();
+	game.discoverReportFilename();
+	game.gameReport(1);
 }
 
-void loop(Game game)
+void loop(Game& game)
 {
 	do {
 		game.readPlayersWords();
 		game.roundPoints(cout);
+		game.gameReport(2);
 	} while (game.checkForVictory() == false);
 	game.displayWinner(cout);
+	game.gameReport(3);
 }
 
 int main()

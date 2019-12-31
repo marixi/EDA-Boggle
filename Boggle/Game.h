@@ -24,12 +24,14 @@ public:
 	void roundPoints(ostream& os); // Reads words and calculates points.
 	bool checkForVictory(); // Checks if the players have reached the necessary points to win.
 	void displayWinner(ostream& os); // Shows the winner.
-	void gameReport(); // Creates a Game Report with the information from that game.
-	int readGameNumber(); // Reads and returns from a file the number of the game, and then increments that number.
+	void gameReport(const unsigned int mode); // Creates a Game Report with the information from that game.
+	void discoverReportFilename(); // Reads and returns from a file the number of the game, and then increments that number.
 private: 
 	vector<Player> _players;
 	Config _config;
 	Dictionary _dictionary;
+	string _reportFilename;
+	unsigned int _gameNumber;
 	Board _board;
 	Player _winner;
 	bool minLetters(const string word); // Checks if the word has minumum letters.

@@ -1,4 +1,0 @@
-MEL
-VAO
-CU
-LER

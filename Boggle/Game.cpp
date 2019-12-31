@@ -31,7 +31,7 @@ void Game::readPlayers()
 		p.readInfo();
 		_players.push_back(p);
 		i++;
-	}while (!cin.eof());
+	} while (!cin.eof());
 	_players.resize(_players.size() - 1);
 	cout << endl;
 	system("pause");
@@ -209,40 +209,71 @@ void Game::displayWinner(ostream& os)
 	os << "The winner is " << _winner.getName() << "! \n";
 }
 //--------------------------------------------------------------------------------------------------------------
-void Game::gameReport()
+void Game::gameReport(const unsigned int mode)
 {
-	int gameNumber = readGameNumber();
-	string filename = "BOGGLE_GAME_" + to_string(gameNumber) + ".TXT";
-	ofstream f(filename);
-
-	// Title
-	f << "Boggle - Game Report - " << gameNumber << endl << endl;
-
-	// Players
-	f << "Players:" << endl;
-	for (auto player : _players)
+	switch (mode)
 	{
-		player.displayInfo(f);
+	case 1: // Writes tittle and players into game report.
+	{
+		ofstream f(_reportFilename);
+		f << "Boggle Game Report " << _gameNumber << endl << endl;
+
+		f << "PLAYERS:" << endl;
+		for (auto player : _players)
+		{
+			player.displayInfo(f);
+		}
+
+		f.close();
+		break;
+	}
+	case 2: // Writes boards, points and player's bets into game report.
+	{
+		ofstream f;
+		f.open(_reportFilename, std::ios_base::app);
+
+		f << "Round" << endl << endl;
+		roundPoints(f);
+
+		f.close();
+		break;
+	}
+	case 3: // Writes winner into game report.
+	{
+		ofstream f;
+		f.open(_reportFilename, std::ios_base::app);
+		displayWinner(f);
+		
+		f.close();
+		break;
+	}
+	default:
+		break;
 	}
 
-	//Initial Board
-	
+
+
 
 }
 
-int Game::readGameNumber()
+void Game::discoverReportFilename()
 {
-	ifstream f("BOGGLE_GAME_NUM.TXT");
-	
-	if (f.fail())
+	ifstream fi("BOGGLE_GAME_NUM.TXT");
+
+	if (fi.fail())
 	{
 		cerr << "Error: \"" << "BOGGLE_GAME_NUM.TXT" << "\" was not found! \n";
 		exit(1);
 	}
 
-	int gameNumber = 0;
-	f >> gameNumber;
+	fi >> _gameNumber;
+	fi.close();
 
-	return gameNumber;
+	ofstream fo("BOGGLE_GAME_NUM.TXT");
+	fo << _gameNumber + 1;
+	fo.close();
+	
+	_gameNumber++;
+	_reportFilename = "BOGGLE_GAME_" + to_string(_gameNumber) + ".TXT";
 }
 
