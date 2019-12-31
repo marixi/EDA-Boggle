@@ -97,6 +97,17 @@ bool Game::repeatedWord(const string wordSearch)
 		return false;
 }
 //--------------------------------------------------------------------------------------------------------------
+bool Game::sameWord(const string wordSearch, vector<string>& v)
+{
+	for (size_t i = 0; i < v.size(); i++)
+	{
+		if (v[i] == wordSearch)
+			return true;
+		else
+			return false;
+	}
+}
+//--------------------------------------------------------------------------------------------------------------
 int Game::charsToPoints(const string word)
 {
 	unsigned int length = word.length() / sizeof(char);
@@ -130,11 +141,15 @@ void Game::roundPoints(ostream& os)
 		ifstream Words(filename);
 		string word;
 
+
+
 		while (!Words.eof())
 		{
 			getline(Words, word);
+
 			if (!word.empty())
-			{
+			{	
+				vector <string> v;
 				vector<Position> wordPath;
 				if (minLetters(word) == false)
 				{
@@ -155,13 +170,19 @@ void Game::roundPoints(ostream& os)
 				{
 					os << word << ": 0 (the word has also been chosen by another player)" << endl << endl;
 					outFile << word << ": 0 (the word has also been chosen by another player)" << endl << endl;
-				}					
+				}
+				else if (sameWord(word,v) == true)
+				{
+					os << word << ": 0 (the word has already been called)" << endl << endl;
+					outFile << word << ": 0 (the word has already been called)" << endl << endl;
+				}
 				else
 				{
-					showWordPath(word, wordPath, outFile);
+					v.push_back(word);
+					showWordPathinFile(word, wordPath, outFile);
 					outFile << word << ": " << charsToPoints(word) << " points" << endl << endl;
 
-					showWordPath(word, wordPath, os);			
+					showWordPathinConsole(word, wordPath, os);			
 					os << word << ": " << charsToPoints(word) << " points" << endl << endl;
 
 					(_players[i]).updatePoints(charsToPoints(word));
@@ -186,9 +207,9 @@ void Game::roundPoints(ostream& os)
 	}
 }
 //--------------------------------------------------------------------------------------------------------------
-void Game::showWordPath(const string& word, vector<Position>& wordPath, ostream& os)
+void Game::showWordPathinConsole(const string& word, vector<Position>& wordPath, ostream& os)
 {
-	int colorCode = rand() % 13 + 1;
+	int colorCode = rand() % 11 + 1;
 	setcolor(colorCode);
 	os << word;
 	setcolor();
@@ -215,6 +236,18 @@ void Game::showWordPath(const string& word, vector<Position>& wordPath, ostream&
 		setcolor();
 		gotoxy(x, y);
 		Sleep(500);
+	}
+	os << endl << endl;
+}
+//--------------------------------------------------------------------------------------------------------------
+void Game::showWordPathinFile(const string& word, vector<Position>& wordPath, ostream& os)
+{
+	os << word << " can be found in the board, following the path : \n";
+
+	for (size_t a = 0; a < word.length(); a++)
+	{
+		os << "(" << wordPath[a].lin << "," << wordPath[a].col << ")   ";
+
 	}
 	os << endl << endl;
 }

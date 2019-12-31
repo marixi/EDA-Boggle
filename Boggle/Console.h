@@ -17,15 +17,15 @@
 #define CYAN 3
 #define RED 4
 #define MAGENTA 5
-#define BROWN 6
-#define DARKGRAY 7
-#define LIGHTBLUE 8
-#define LIGHTGREEN 9
-#define LIGHTCYAN 10
-#define LIGHTRED 11
-#define LIGHTMAGENTA 12
-#define YELLOW 13
+#define LIGHTBLUE 6
+#define LIGHTGREEN 7
+#define LIGHTCYAN 8
+#define LIGHTRED 9
+#define LIGHTMAGENTA 10
+#define YELLOW 11
 
+#define BROWN 12
+#define DARKGRAY 13
 #define LIGHTGRAY 14
 #define WHITE 15
 

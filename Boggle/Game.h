@@ -35,8 +35,10 @@ private:
 	Board _board;
 	Player _winner;
 	bool minLetters(const string word); // Checks if the word has minumum letters.
+	bool sameWord(const string wordSearch, vector<string>& v);
 	bool findInBoard(const string word, vector<Position>& wordPath); // Checks if the word can be found on the board.
-	void showWordPath(const string& word,vector<Position>& wordPath, ostream& os = cout); // Shows the path of the found word.
+	void showWordPathinConsole(const string& word,vector<Position>& wordPath, ostream& os = cout); // Shows the path of the found word.
+	void showWordPathinFile(const string& word, vector<Position>& wordPath, ostream& os);
 	bool findInDictionary(const string word); // Checks if the word can be found on the dictionary.
 	bool repeatedWord(const string wordSearch); // Checks if more than one player has chosen that word.
 	int charsToPoints(const string word); // Converts valid word into points.

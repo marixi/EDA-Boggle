@@ -35,4 +35,5 @@ int main()
 	set(game);
 	loop(game);
 	return 0;
+
 }
