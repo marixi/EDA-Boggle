@@ -1,0 +1,23 @@
+Boggle Game Report 16
+
+PLAYERS:
+Player 1 - Name: ricardo; Age: 23.
+
+BOARD:
+  1  2  3  4  
+1 F  S  S  R  
+2 O  N  A  I  
+3 E  T  N  A  
+4 L  E  I  R  
+
+Player 1 bets: 
+RONA: 0 (the word can't possibly be formed with this board)
+
+LEITE can be found in the board, following the path : 
+(4,1)   (4,2)   (4,3)   (3,2)   (3,1)   
+
+LEITE: 2 points
+
+Total Points: 2
+
+The winner is ricardo!

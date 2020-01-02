@@ -1,0 +1,32 @@
+Boggle Game Report 15
+
+PLAYERS:
+Player 1 - Name: mariana; Age: 2.
+
+BOARD:
+  1  2  3  4  
+1 E  O  E  O  
+2 A  S  S  R  
+3 K  N  C  R  
+4 E  S  D  R  
+
+Player 1 bets: 
+SEO: 0 (the word isn't on the list of valid words)
+
+REO: 0 (the word isn't on the list of valid words)
+
+SDO: 0 (the word can't possibly be formed with this board)
+
+SAO can be found in the board, following the path : 
+(2,2)   (2,1)   (1,2)   
+
+SAO: 1 points
+
+NAO can be found in the board, following the path : 
+(3,2)   (2,1)   (1,2)   
+
+NAO: 1 points
+
+Total Points: 2
+
+The winner is mariana!

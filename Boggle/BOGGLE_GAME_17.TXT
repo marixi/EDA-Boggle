@@ -1,0 +1,21 @@
+Boggle Game Report 17
+
+PLAYERS:
+Player 1 - Name: Teste1; Age: 1.
+
+BOARD:
+  1  2  3  4  
+1 E  A  E  Q  
+2 S  C  S  A  
+3 N  V  P  W  
+4 L  L  S  I  
+
+Player 1 bets: 
+SECA can be found in the board, following the path : 
+(2,1)   (1,1)   (2,2)   (1,2)   
+
+SECA: 1 points
+
+Total Points: 1
+
+The winner is Teste1!

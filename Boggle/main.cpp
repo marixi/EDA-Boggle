@@ -6,8 +6,11 @@
 #include"Game.h"
 using namespace std;
 
-void menu(unsigned int phase, Game& game);
+void menu(Game& game);
 
+/*
+This function explains the rules of the game.
+*/
 void rules(Config c)
 {
 	cout << "EDA PROJECT" << endl << endl;
@@ -18,6 +21,9 @@ void rules(Config c)
 	cout << "The goal of the game is to reach " << c.getVictoryPoints() << " points." << endl << endl << endl;
 }
 
+/*
+This function is used to set up the game initially.
+*/
 void set(Game& game)
 {
 	game.setGame("BOGGLE_CONFIG.txt");
@@ -25,6 +31,9 @@ void set(Game& game)
 	game.readPlayers();
 }
 
+/*
+This function is called after the set and only ends when one of the players wins.
+*/
 void loop(Game& game)
 {
 	do
@@ -34,31 +43,39 @@ void loop(Game& game)
 		game.readPlayersWords();
 		game.roundPoints(cout);
 	} while (game.checkForVictory() == false);
+
 	game.displayWinner(cout);
 	game.gameReport(2);
 	system("pause");
 }
 
-void menu(unsigned int phase, Game& game)
+/*
+This function displays the menu of the game.
+*/
+void menu(Game& game)
 {
-	string keepPlaying;
-	int option;
+	int option = 0;
+	bool isFirstTime = true;
+
 	for (;;)
 	{
 		clrscr();
 		cout << "Menu: " << endl;
 		cout << "1. New Game" << endl;
-		if (phase == 1)
+		if (isFirstTime == true)
 			cout << "2. Quit Game" << endl;
-		else if (phase == 2)
+		else if (isFirstTime == false)
 		{
 			cout << "2. Play Again" << endl;
 			cout << "3. Quit Game" << endl;
 		}
+
+		// Here the user chooses the option.
 		cin >> option;
 		cin.clear();
 		cin.ignore(1000, '\n');
 		clrscr();
+
 		if (option == 1) // New Game
 		{
 			game.clearPlayers();
@@ -67,15 +84,15 @@ void menu(unsigned int phase, Game& game)
 			set(game);
 			loop(game);
 			cin.clear();
-			menu(2, game);
+			isFirstTime = false;
 		}
-		else if (phase == 2 && option == 2) // Play Again
+		else if (isFirstTime == false && option == 2) // Play Again
 		{
 			game.clearPoints();
 			loop(game);
-			menu(2, game);
+			isFirstTime = false;
 		}
-		else if ((phase == 1 && option == 2)||(phase == 2 && option == 3)) // Exit
+		else if ((isFirstTime == true && option == 2)||(isFirstTime == false && option == 3)) // Exit
 		{
 			cout << "Thank you for playing! " << endl;
 			break;
@@ -85,13 +102,12 @@ void menu(unsigned int phase, Game& game)
 
 int main()
 {
-	fullscr();
 	setFontSize(18);
 	srand((unsigned int)time(NULL));
 	Config c("BOGGLE_CONFIG.txt");
 	Game game;
 	rules(c);
 	system("pause");
-	menu(1, game);
+	menu(game);
 	return 0;
 }
