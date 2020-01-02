@@ -1,0 +1,36 @@
+Boggle Game Report 8
+
+PLAYERS:
+Player 1 - Name: sd; Age: 32.
+
+BOARD:
+  1  2  3  4  
+1 N  T  C  I  
+2 A  L  S  R  
+3 H  R  E  X  
+4 A  A  Y  B  
+
+Player 1 bets: 
+LER can be found in the board, following the path : 
+(2,2)   (3,3)   (2,4)   
+
+LER: 1 points
+
+SER can be found in the board, following the path : 
+(2,3)   (3,3)   (2,4)   
+
+SER: 1 points
+
+SERA can be found in the board, following the path : 
+(2,3)   (3,3)   (3,2)   (2,1)   
+
+SERA: 1 points
+
+LERA can be found in the board, following the path : 
+(2,2)   (3,3)   (3,2)   (2,1)   
+
+LERA: 1 points
+
+Total Points: 4
+
+The winner is sd!

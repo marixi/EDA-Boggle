@@ -1,0 +1,27 @@
+Boggle Game Report 10
+
+PLAYERS:
+Player 1 - Name: sd; Age: 23.
+
+BOARD:
+  1  2  3  4  
+1 I  S  R  I  
+2 U  N  D  U  
+3 S  L  E  X  
+4 Z  A  E  J  
+
+Player 1 bets: 
+LED: 0 (the word isn't on the list of valid words)
+
+DIU can be found in the board, following the path : 
+(2,3)   (1,4)   (2,4)   
+
+DIU: 1 points
+
+ULA: 0 (the word isn't on the list of valid words)
+
+S: 0 (the word doesn't have the minimum amount of letters necessary)
+
+Total Points: 1
+
+The winner is sd!

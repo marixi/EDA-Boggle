@@ -27,7 +27,8 @@ void set(Game& game)
 
 void loop(Game& game)
 {
-	do {
+	do
+	{
 		game.discoverReportFilename();
 		game.gameReport(1);
 		game.readPlayersWords();
@@ -36,80 +37,49 @@ void loop(Game& game)
 	game.displayWinner(cout);
 	game.gameReport(2);
 	system("pause");
-	menu(2,game);
 }
 
 void menu(unsigned int phase, Game& game)
 {
-	switch (phase)
+	string keepPlaying;
+	int option;
+	for (;;)
 	{
-	case 1:
-	{
-		string keepPlaying;
-		int option;
-		for (;;)
-		{
-			clrscr();
-			cout << "Menu: " << endl;
-			cout << "1. New Game" << endl;
+		clrscr();
+		cout << "Menu: " << endl;
+		cout << "1. New Game" << endl;
+		if (phase == 1)
 			cout << "2. Quit Game" << endl;
-			cin >> option;
-			cin.clear();
-			cin.ignore(1000, '\n');
-			clrscr();
-			if (option == 1)
-			{
-				game.clearPlayers();
-				game.clearPoints();
-				cout << endl << "Boggle is loading... ";
-				set(game);
-				loop(game);
-				cin.clear();
-			}
-			else
-			{
-				break;
-			}
-		}
-		break;
-	}
-	case 2:
-	{
-		string keepPlaying;
-		int option;
-		for (;;)
+		else if (phase == 2)
 		{
-			clrscr();
-			cout << "Menu: " << endl;
-			cout << "1. New Game" << endl;
-			cout << "2. Play again" << endl;
-			cout << "3. Exit to homepage" << endl;
-			cin >> option;
-			cin.clear();
-			cin.ignore(1000, '\n');
-			clrscr();
-			if (option == 1)
-			{
-				game.clearPlayers();
-				game.clearPoints();
-				cout << endl << "Boggle is loading... ";
-				set(game);
-				loop(game);
-				cin.clear();
-			}
-			else if (option == 2)
-			{
-				game.clearPoints();
-				loop(game);
-			}
-			else
-			{
-				cout << "Thank you for playing! " << endl;
-				break;
-			}
+			cout << "2. Play Again" << endl;
+			cout << "3. Quit Game" << endl;
 		}
-		break;
-	}
+		cin >> option;
+		cin.clear();
+		cin.ignore(1000, '\n');
+		clrscr();
+		if (option == 1) // New Game
+		{
+			game.clearPlayers();
+			game.clearPoints();
+			cout << endl << "Boggle is loading... ";
+			set(game);
+			loop(game);
+			cin.clear();
+			menu(2, game);
+		}
+		else if (phase == 2 && option == 2) // Play Again
+		{
+			game.clearPoints();
+			loop(game);
+			menu(2, game);
+		}
+		else if ((phase == 1 && option == 2)||(phase == 2 && option == 3)) // Exit
+		{
+			cout << "Thank you for playing! " << endl;
+			break;
+		}
 	}
 }
 
