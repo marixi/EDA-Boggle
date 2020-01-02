@@ -6,6 +6,8 @@
 #include"Game.h"
 using namespace std;
 
+void menu(unsigned int phase, Game& game);
+
 void rules(Config c)
 {
 	cout << "EDA PROJECT" << endl << endl;
@@ -34,49 +36,92 @@ void loop(Game& game)
 	game.displayWinner(cout);
 	game.gameReport(2);
 	system("pause");
+	menu(2,game);
+}
+
+void menu(unsigned int phase, Game& game)
+{
+	switch (phase)
+	{
+	case 1:
+	{
+		string keepPlaying;
+		int option;
+		for (;;)
+		{
+			clrscr();
+			cout << "Menu: " << endl;
+			cout << "1. New Game" << endl;
+			cout << "2. Quit Game" << endl;
+			cin >> option;
+			cin.clear();
+			cin.ignore(1000, '\n');
+			clrscr();
+			if (option == 1)
+			{
+				game.clearPlayers();
+				game.clearPoints();
+				cout << endl << "Boggle is loading... ";
+				set(game);
+				loop(game);
+				cin.clear();
+			}
+			else
+			{
+				break;
+			}
+		}
+		break;
+	}
+	case 2:
+	{
+		string keepPlaying;
+		int option;
+		for (;;)
+		{
+			clrscr();
+			cout << "Menu: " << endl;
+			cout << "1. New Game" << endl;
+			cout << "2. Play again" << endl;
+			cout << "3. Exit to homepage" << endl;
+			cin >> option;
+			cin.clear();
+			cin.ignore(1000, '\n');
+			clrscr();
+			if (option == 1)
+			{
+				game.clearPlayers();
+				game.clearPoints();
+				cout << endl << "Boggle is loading... ";
+				set(game);
+				loop(game);
+				cin.clear();
+			}
+			else if (option == 2)
+			{
+				game.clearPoints();
+				loop(game);
+			}
+			else
+			{
+				cout << "Thank you for playing! " << endl;
+				break;
+			}
+		}
+		break;
+	}
+	}
 }
 
 int main()
 {
-	//fullscr(); mete a consola em fullscreen, só usar quando ja se tiver o menu feito e se quiser jogar o jogo até ao fim
+	fullscr();
 	setFontSize(18);
 	srand((unsigned int)time(NULL));
 	Config c("BOGGLE_CONFIG.txt");
 	Game game;
 	rules(c);
 	system("pause");
-	string keepPlaying;
-	int option;
-	for(;;)
-	{
-		clrscr();
-		cout << "Menu: " << endl;
-		cout << "1. New Game" << endl;
-		cout << "2. Play again" << endl;
-		cout << "3. Exit" << endl;
-		cin >> option;
-		cin.clear();
-		cin.ignore(1000, '\n');
-		clrscr();
-		if (option==1)
-		{
-			game.clearPlayers();
-			game.clearPoints();
-			cout << endl << "Boggle is loading... ";
-			set(game);
-			loop(game);
-			cin.clear();
-		}
-		else if (option == 2)
-		{
-			game.clearPoints();
-			loop(game);
-		}
-		else 
-		{
-			cout << "Thank you for playing! " << endl;
-			break;
-		}			
-	}
+	menu(1, game);
 	return 0;
 }

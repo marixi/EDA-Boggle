@@ -1,0 +1,28 @@
+Boggle Game Report 4
+
+PLAYERS:
+Player 1 - Name: hui; Age: 74.
+
+BOARD:
+  1  2  3  4  
+1 E  E  O  A  
+2 N  T  E  U  
+3 A  A  Y  M  
+4 I  S  O  N  
+
+Player 1 bets: 
+TENA: 0 (the word isn't on the list of valid words)
+
+SAI can be found in the board, following the path : 
+(4,2)   (3,1)   (4,1)   
+
+SAI: 1 points
+
+TEU can be found in the board, following the path : 
+(2,2)   (2,3)   (2,4)   
+
+TEU: 1 points
+
+Total Points: 2
+
+The winner is hui!
