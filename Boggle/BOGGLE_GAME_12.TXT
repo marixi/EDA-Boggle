@@ -1,0 +1,38 @@
+Boggle Game Report 12
+
+PLAYERS:
+Player 1 - Name: dcf; Age: 23.
+
+BOARD:
+  1  2  3  4  
+1 N  V  D  L  
+2 H  A  S  R  
+3 N  I  U  O  
+4 I  P  O  S  
+
+Player 1 bets: 
+PIU: 0 (the word isn't on the list of valid words)
+
+PIA can be found in the board, following the path : 
+(4,2)   (3,2)   (2,2)   
+
+PIA: 1 points
+
+SUOR can be found in the board, following the path : 
+(2,3)   (3,3)   (3,4)   (2,4)   
+
+SUOR: 1 points
+
+PISA can be found in the board, following the path : 
+(4,2)   (3,2)   (2,3)   (2,2)   
+
+PISA: 1 points
+
+PINHA can be found in the board, following the path : 
+(4,2)   (3,2)   (3,1)   (2,1)   (2,2)   
+
+PINHA: 2 points
+
+Total Points: 5
+
+The winner is dcf!
