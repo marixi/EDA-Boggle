@@ -6,7 +6,6 @@
 #ifndef CONSOLE_H
 #define CONSOLE_H
 
-//#include"winnt.h"
 
 // COLOR CODES
 
@@ -17,23 +16,18 @@
 #define CYAN 3
 #define RED 4
 #define MAGENTA 5
-#define LIGHTBLUE 6
-#define LIGHTGREEN 7
-#define LIGHTCYAN 8
-#define LIGHTRED 9
-#define LIGHTMAGENTA 10
-#define YELLOW 11
+#define BROWN 6
+#define LIGHTGRAY 7
+#define DARKGRAY 8
+#define LIGHTBLUE 9
+#define LIGHTGREEN 10
+#define LIGHTCYAN 11
+#define LIGHTRED 12
+#define LIGHTMAGENTA 13
+#define YELLOW 14
 
-#define BROWN 12
-#define DARKGRAY 13
-#define LIGHTGRAY 14
 #define WHITE 15
 
-struct Coord
-{
-	int X;
-	int Y;
-};
 
 //--------------------------------------------------------------------------------
 // Move cursor to column 'x', line 'y'

@@ -29,11 +29,19 @@ int main()
 {
 	//fullscr(); mete a consola em fullscreen, só usar quando ja se tiver o menu feito e se quiser jogar o jogo até ao fim
 	setFontSize(18);
-	cout << "EDA PROJECT" << endl << endl << "Boggle is loading... ";
+
+	Config c("BOGGLE_CONFIG.txt");
+	cout << "EDA PROJECT" << endl << endl;
+	cout << "The Boggle Game focus on making words with the given board by associatingletters next to each other." << endl << endl;
+	cout << "Rules:" << endl << endl;
+	cout << "- Each play round lasts " << c.getMaxTime() << " seconds." << endl;
+	cout << "- Each word must have more than " << c.getMinLetters() << " letters." << endl << endl;
+	cout << "The goal of the game is to reach " << c.getVictoryPoints() << " points." << endl << endl << endl;
+	cout << endl << "Boggle is loading... ";
 	srand((unsigned int)time(NULL));
 	Game game;
 	set(game);
 	loop(game);
+	setcolor(0);//eheh
 	return 0;
-
 }

@@ -1,0 +1,18 @@
+Boggle Game Report 4
+
+PLAYERS:
+Player 1 - Name: sg; Age: 123.
+
+BOARD:
+  1  2  3  4  
+1 E  E  C  W  
+2 A  E  R  I  
+3 V  T  U  A  
+4 I  S  E  O  
+
+Player 1 bets: 
+TUA can be found in the board, following the path : 
+(3,2)   (3,3)   (3,4)   
+
+TUA: 1 points
+

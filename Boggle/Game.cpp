@@ -208,7 +208,13 @@ void Game::roundPoints(ostream& os)
 //--------------------------------------------------------------------------------------------------------------
 void Game::showWordPathinConsole(const string& word, vector<Position>& wordPath, ostream& os)
 {
-	int colorCode = rand() % 11 + 1;
+	int colorCode=0;
+	do
+	{
+		int color = rand() % 14 + 1;
+		colorCode = color;
+	} while (colorCode == 7 || colorCode == 8 || colorCode == 9);
+
 	setcolor(colorCode);
 	os << word;
 	setcolor();

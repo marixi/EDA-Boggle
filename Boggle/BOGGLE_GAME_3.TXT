@@ -1,0 +1,34 @@
+Boggle Game Report 3
+
+PLAYERS:
+Player 1 - Name: du; Age: 12.
+
+BOARD:
+  1  2  3  4  
+1 E  A  E  A  
+2 T  I  P  U  
+3 A  E  A  I  
+4 F  C  N  R  
+
+Player 1 bets: 
+TIPA can be found in the board, following the path : 
+(2,1)   (2,2)   (2,3)   (1,2)   
+
+TIPA: 1 points
+
+PAI can be found in the board, following the path : 
+(2,3)   (1,2)   (2,2)   
+
+PAI: 1 points
+
+PIA can be found in the board, following the path : 
+(2,3)   (2,2)   (1,2)   
+
+PIA: 1 points
+
+PUIR: 0 (the word isn't on the list of valid words)
+
+PUIRA: 0 (the word isn't on the list of valid words)
+
+Total Points: 3
+
