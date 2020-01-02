@@ -1,4 +1,0 @@
-Boggle Game Report 21
-
-PLAYERS:
-Player 1 - Name: Mariana; Age: 21.

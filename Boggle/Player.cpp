@@ -137,3 +137,8 @@ void Player::updatePoints(unsigned int roundPoints)
 {
 	_points += roundPoints;
 }
+//--------------------------------------------------------------------------------------------------------------
+void Player::setPoints(unsigned int newPoints)
+{
+	_points = newPoints;
+}

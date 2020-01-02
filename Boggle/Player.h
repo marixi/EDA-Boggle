@@ -25,6 +25,7 @@ public:
 	string getName(); // access to the player's name.
 	unsigned int getPoints(); // access to the player's points.
 	void updatePoints(unsigned int roundPoints); // update player's points.
+	void setPoints(unsigned int newPoints);
 private:
 	string _name; // name of the player.
 	string _age; // age of the player.

@@ -46,7 +46,7 @@ int main()
 	rules(c);
 	system("pause");
 	string keepPlaying;
-	string option;
+	int option;
 	for(;;)
 	{
 		clrscr();
@@ -54,30 +54,29 @@ int main()
 		cout << "1. New Game" << endl;
 		cout << "2. Play again" << endl;
 		cout << "3. Exit" << endl;
-		getline(cin, option);
-		cout << "cout 1 " << option;
-		system("pause");
+		cin >> option;
+		cin.clear();
+		cin.ignore(1000, '\n');
 		clrscr();
-		if (stoi(option)==1)
+		if (option==1)
 		{
-			cout << "cout 2 " << stoi(option);
+			game.clearPlayers();
+			game.clearPoints();
 			cout << endl << "Boggle is loading... ";
 			set(game);
 			loop(game);
+			cin.clear();
 		}
-		else if (stoi(option) == 2)
+		else if (option == 2)
 		{
+			game.clearPoints();
 			loop(game);
 		}
 		else 
 		{
+			cout << "Thank you for playing! " << endl;
 			break;
 		}			
 	}
-	//setcolor(0);//eheh
 	return 0;
 }
-//cout << endl << "Do you want to play again? (Y/N) ";
-//getline(cin, keepPlaying);
-//for (size_t i = 0; i < keepPlaying.size(); i++)
-//	keepPlaying[i] = toupper(keepPlaying[i]);

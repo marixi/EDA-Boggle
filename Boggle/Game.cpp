@@ -329,3 +329,14 @@ void Game::discoverReportFilename()
 	_gameNumber++;
 	_reportFilename = "BOGGLE_GAME_" + to_string(_gameNumber) + ".TXT";
 }
+//--------------------------------------------------------------------------------------------------------------
+void Game::clearPoints()
+{
+	for (size_t i = 0; i < _players.size(); i++)
+		(_players[i]).setPoints(0);
+}
+//--------------------------------------------------------------------------------------------------------------
+void Game::clearPlayers()
+{
+	_players.clear();
+}

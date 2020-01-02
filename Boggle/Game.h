@@ -26,6 +26,8 @@ public:
 	void displayWinner(ostream& os); // Shows the winner.
 	void gameReport(const unsigned int mode); // Creates a Game Report with the information from that game.
 	void discoverReportFilename(); // Reads and returns from a file the number of the game, and then increments that number.
+	void clearPoints();
+	void clearPlayers();
 private: 
 	vector<Player> _players;
 	Config _config;

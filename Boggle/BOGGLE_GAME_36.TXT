@@ -1,4 +1,0 @@
-Boggle Game Report 36
-
-PLAYERS:
-Player 1 - Name: sdf; Age: 32.

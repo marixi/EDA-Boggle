@@ -1,4 +1,0 @@
-Boggle Game Report 12
-
-PLAYERS:
-Player 1 - Name: Mariana; Age: 20.
