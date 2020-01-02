@@ -1,0 +1,35 @@
+Boggle Game Report 16
+
+PLAYERS:
+Player 1 - Name: nh; Age: 75.
+
+BOARD:
+  1  2  3  4  
+1 T  N  P  L  
+2 Z  A  N  Q  
+3 B  L  A  I  
+4 S  A  N  A  
+
+Player 1 bets: 
+BLA: 0 (the word isn't on the list of valid words)
+
+NANA can be found in the board, following the path : 
+(1,2)   (2,2)   (2,3)   (3,3)   
+
+NANA: 1 points
+
+SANA can be found in the board, following the path : 
+(4,1)   (4,2)   (4,3)   (3,3)   
+
+SANA: 1 points
+
+PANA can be found in the board, following the path : 
+(1,3)   (2,2)   (2,3)   (3,3)   
+
+PANA: 1 points
+
+LANA: 0 (the word isn't on the list of valid words)
+
+Total Points: 3
+
+The winner is nh!

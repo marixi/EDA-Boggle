@@ -1,0 +1,66 @@
+Boggle Game Report 10
+
+PLAYERS:
+Player 1 - Name: mariana; Age: 20.
+
+BOARD:
+  1  2  3  4  
+1 Z  T  E  M  
+2 I  C  N  I  
+3 B  U  S  E  
+4 N  N  M  W  
+
+Player 1 bets: 
+TEM can be found in the board, following the path : 
+(1,2)   (1,3)   (1,4)   
+
+TEM: 1 points
+
+BUS can be found in the board, following the path : 
+(3,1)   (3,2)   (3,3)   
+
+BUS: 1 points
+
+MUSE: 0 (the word isn't on the list of valid words)
+
+NUM can be found in the board, following the path : 
+(2,3)   (3,2)   (4,3)   
+
+NUM: 1 points
+
+CUS can be found in the board, following the path : 
+(2,2)   (3,2)   (3,3)   
+
+CUS: 1 points
+
+TEM: 0 (the word has already been called)
+
+Total Points: 4
+
+
+BOARD:
+  1  2  3  4  
+1 E  O  Y  M  
+2 K  T  D  L  
+3 A  L  R  H  
+4 F  C  O  R  
+
+Player 1 bets: 
+COR can be found in the board, following the path : 
+(4,2)   (4,3)   (3,3)   
+
+COR: 1 points
+
+FATO can be found in the board, following the path : 
+(4,1)   (3,1)   (2,2)   (1,2)   
+
+FATO: 1 points
+
+CATO can be found in the board, following the path : 
+(4,2)   (3,1)   (2,2)   (1,2)   
+
+CATO: 1 points
+
+Total Points: 7
+
+The winner is mariana! 

@@ -1,0 +1,21 @@
+Boggle Game Report 18
+
+PLAYERS:
+Player 1 - Name: mariana; Age: 223.
+
+BOARD:
+  1  2  3  4  
+1 N  N  P  R  
+2 D  T  N  M  
+3 E  E  E  A  
+4 B  S  S  I  
+
+Player 1 bets: 
+TEM can be found in the board, following the path : 
+(2,2)   (3,3)   (2,4)   
+
+TEM: 1 points
+
+Total Points: 1
+
+The winner is mariana!

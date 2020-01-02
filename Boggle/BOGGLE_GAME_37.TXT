@@ -1,0 +1,21 @@
+Boggle Game Report 37
+
+PLAYERS:
+Player 1 - Name: ss; Age: 2.
+
+BOARD:
+  1  2  3  4  
+1 O  I  E  U  
+2 F  E  T  X  
+3 E  A  Y  M  
+4 B  L  R  S  
+
+Player 1 bets: 
+TIO can be found in the board, following the path : 
+(2,3)   (1,2)   (1,1)   
+
+TIO: 1 points
+
+Total Points: 1
+
+The winner is ss!

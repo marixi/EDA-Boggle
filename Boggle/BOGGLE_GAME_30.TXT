@@ -1,0 +1,31 @@
+Boggle Game Report 30
+
+PLAYERS:
+Player 1 - Name: ir; Age: 1.
+
+BOARD:
+  1  2  3  4  
+1 N  T  D  W  
+2 I  S  R  R  
+3 E  S  T  R  
+4 N  O  U  A  
+
+Player 1 bets: 
+TUA can be found in the board, following the path : 
+(3,3)   (4,3)   (4,4)   
+
+TUA: 1 points
+
+RUA can be found in the board, following the path : 
+(3,4)   (4,3)   (4,4)   
+
+RUA: 1 points
+
+SOU can be found in the board, following the path : 
+(3,2)   (4,2)   (4,3)   
+
+SOU: 1 points
+
+Total Points: 4
+
+The winner is ir!

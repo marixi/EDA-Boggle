@@ -1,0 +1,33 @@
+Boggle Game Report 31
+
+PLAYERS:
+Player 1 - Name: scs; Age: 23.
+
+BOARD:
+  1  2  3  4  
+1 I  E  D  X  
+2 K  N  P  U  
+3 V  A  U  Q  
+4 A  P  O  I  
+
+Player 1 bets: 
+DEI can be found in the board, following the path : 
+(1,3)   (1,2)   (1,1)   
+
+DEI: 1 points
+
+PAU can be found in the board, following the path : 
+(2,3)   (3,2)   (3,3)   
+
+PAU: 1 points
+
+PAO can be found in the board, following the path : 
+(2,3)   (3,2)   (4,3)   
+
+PAO: 1 points
+
+EWFDDSZ: 0 (the word can't possibly be formed with this board)
+
+Total Points: 3
+
+The winner is scs!

@@ -1,0 +1,41 @@
+Boggle Game Report 8
+
+PLAYERS:
+Player 1 - Name: gfd; Age: 23.
+
+BOARD:
+  1  2  3  4  
+1 B  T  I  I  
+2 Z  A  G  O  
+3 T  N  C  R  
+4 H  R  S  O  
+
+Player 1 bets: 
+TIA can be found in the board, following the path : 
+(1,2)   (1,3)   (2,2)   
+
+TIA: 1 points
+
+TIO can be found in the board, following the path : 
+(1,2)   (1,3)   (2,4)   
+
+TIO: 1 points
+
+CAI can be found in the board, following the path : 
+(3,3)   (2,2)   (1,3)   
+
+CAI: 1 points
+
+COR can be found in the board, following the path : 
+(3,3)   (2,4)   (3,4)   
+
+COR: 1 points
+
+SORO can be found in the board, following the path : 
+(4,3)   (4,4)   (3,4)   (2,4)   
+
+SORO: 1 points
+
+Total Points: 5
+
+The winner is gfd! 

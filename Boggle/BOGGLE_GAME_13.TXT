@@ -1,0 +1,59 @@
+Boggle Game Report 13
+
+PLAYERS:
+Player 1 - Name: Mariana; Age: 20.
+
+BOARD:
+  1  2  3  4  
+1 R  U  S  E  
+2 T  G  C  U  
+3 Z  T  N  O  
+4 E  A  O  O  
+
+Player 1 bets: 
+CONTA can be found in the board, following the path : 
+(2,3)   (3,4)   (3,3)   (3,2)   (4,2)   
+
+CONTA: 2 points
+
+TAN: 0 (the word isn't on the list of valid words)
+
+Total Points: 2
+
+
+BOARD:
+  1  2  3  4  
+1 L  U  S  I  
+2 E  A  E  X  
+3 Z  E  U  M  
+4 N  N  D  U  
+
+Player 1 bets: 
+SEU can be found in the board, following the path : 
+(1,3)   (2,3)   (1,2)   
+
+SEU: 1 points
+
+LUA can be found in the board, following the path : 
+(1,1)   (1,2)   (2,2)   
+
+LUA: 1 points
+
+MEU can be found in the board, following the path : 
+(3,4)   (2,3)   (1,2)   
+
+MEU: 1 points
+
+MEUS can be found in the board, following the path : 
+(3,4)   (2,3)   (1,2)   (1,3)   
+
+MEUS: 1 points
+
+SEI can be found in the board, following the path : 
+(1,3)   (2,3)   (1,4)   
+
+SEI: 1 points
+
+Total Points: 7
+
+The winner is Mariana!

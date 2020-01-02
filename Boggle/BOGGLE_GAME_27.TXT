@@ -1,0 +1,23 @@
+Boggle Game Report 27
+
+PLAYERS:
+Player 1 - Name: z‚; Age: 21.
+
+BOARD:
+  1  2  3  4  
+1 K  G  E  E  
+2 F  R  N  R  
+3 B  L  M  R  
+4 N  T  G  M  
+
+Player 1 bets: 
+REN: 0 (the word isn't on the list of valid words)
+
+GENE can be found in the board, following the path : 
+(1,2)   (1,3)   (2,3)   (1,4)   
+
+GENE: 1 points
+
+Total Points: 1
+
+The winner is z‚!

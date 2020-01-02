@@ -1,0 +1,47 @@
+Boggle Game Report 7
+
+PLAYERS:
+Player 1 - Name: mair; Age: 20.
+
+BOARD:
+  1  2  3  4  
+1 U  N  M  E  
+2 D  T  U  A  
+3 R  E  R  E  
+4 H  S  E  A  
+
+Player 1 bets: 
+MEU can be found in the board, following the path : 
+(1,3)   (1,4)   (2,3)   
+
+MEU: 1 points
+
+TUA can be found in the board, following the path : 
+(2,2)   (2,3)   (2,4)   
+
+TUA: 1 points
+
+RUA: 0 (the word can't possibly be formed with this board)
+
+SER can be found in the board, following the path : 
+(4,2)   (3,2)   (3,1)   
+
+SER: 1 points
+
+TER can be found in the board, following the path : 
+(2,2)   (3,2)   (3,1)   
+
+TER: 1 points
+
+MUA: 0 (the word isn't on the list of valid words)
+
+RUM: 0 (the word can't possibly be formed with this board)
+
+TRES can be found in the board, following the path : 
+(2,2)   (3,1)   (3,2)   (4,2)   
+
+TRES: 1 points
+
+Total Points: 5
+
+The winner is mair! 

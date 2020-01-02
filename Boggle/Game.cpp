@@ -274,7 +274,7 @@ bool Game::checkForVictory()
 //--------------------------------------------------------------------------------------------------------------
 void Game::displayWinner(ostream& os)
 {
-	os << "The winner is " << _winner.getName() << "! \n";
+	os << "The winner is " << _winner.getName() << "!" << endl;
 }
 //--------------------------------------------------------------------------------------------------------------
 void Game::gameReport(const unsigned int mode)
@@ -329,4 +329,3 @@ void Game::discoverReportFilename()
 	_gameNumber++;
 	_reportFilename = "BOGGLE_GAME_" + to_string(_gameNumber) + ".TXT";
 }
-

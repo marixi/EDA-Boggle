@@ -1,0 +1,46 @@
+Boggle Game Report 14
+
+PLAYERS:
+Player 1 - Name: mswd; Age: 232.
+
+BOARD:
+  1  2  3  4  
+1 F  L  O  R  
+2 D  I  N  O  
+3 I  P  A  I  
+4 T  N  E  E  
+
+Player 1 bets: 
+PANO can be found in the board, following the path : 
+(3,2)   (3,3)   (2,3)   (1,3)   
+
+PANO: 1 points
+
+FINO can be found in the board, following the path : 
+(1,1)   (2,2)   (2,3)   (1,3)   
+
+FINO: 1 points
+
+LONA can be found in the board, following the path : 
+(1,2)   (1,3)   (2,3)   (3,3)   
+
+LONA: 1 points
+
+FLOR can be found in the board, following the path : 
+(1,1)   (1,2)   (1,3)   (1,4)   
+
+FLOR: 1 points
+
+PAO can be found in the board, following the path : 
+(3,2)   (3,3)   (2,4)   
+
+PAO: 1 points
+
+PAI can be found in the board, following the path : 
+(3,2)   (3,3)   (2,2)   
+
+PAI: 1 points
+
+Total Points: 6
+
+The winner is mswd!

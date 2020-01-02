@@ -1,0 +1,29 @@
+Boggle Game Report 29
+
+PLAYERS:
+Player 1 - Name: ir; Age: 1.
+
+BOARD:
+  1  2  3  4  
+1 L  T  I  R  
+2 E  G  D  L  
+3 F  L  D  X  
+4 D  A  E  J  
+
+Player 1 bets: 
+LELE: 0 (the word isn't on the list of valid words)
+
+FALE can be found in the board, following the path : 
+(3,1)   (4,2)   (3,2)   (2,1)   
+
+FALE: 1 points
+
+DAFE: 0 (the word isn't on the list of valid words)
+
+LID: 0 (the word isn't on the list of valid words)
+
+DE: 0 (the word doesn't have the minimum amount of letters necessary)
+
+Total Points: 1
+
+The winner is ir!

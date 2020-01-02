@@ -1,0 +1,21 @@
+Boggle Game Report 17
+
+PLAYERS:
+Player 1 - Name: mariana; Age: 20.
+
+BOARD:
+  1  2  3  4  
+1 N  A  E  A  
+2 T  N  C  E  
+3 E  E  O  X  
+4 T  P  S  I  
+
+Player 1 bets: 
+PENA can be found in the board, following the path : 
+(4,2)   (3,1)   (2,2)   (1,2)   
+
+PENA: 1 points
+
+Total Points: 1
+
+The winner is mariana!
