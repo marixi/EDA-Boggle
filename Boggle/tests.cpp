@@ -55,7 +55,7 @@ void testCubeRollAndDisplayTop()
 void testPlayerConstructorAndDisplay()
 {
 	string name = "Avo Cantigas";
-	int age = 70;
+	string age = "70";
 	Player player(name, age);
 	player.displayInfo(cout);
 }
