@@ -1,4 +1,0 @@
-Boggle Game Report 14
-
-PLAYERS:
-Player 1 - Name: fye; Age: 123.
