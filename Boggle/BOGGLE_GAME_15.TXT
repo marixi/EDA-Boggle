@@ -1,0 +1,54 @@
+Boggle Game Report 15
+
+PLAYERS:
+Player 1 - Name: duarte; Age: 20.
+Player 2 - Name: Nuno; Age: 20.
+
+BOARD:
+  1  2  3  4  
+1 U  G  P  W  
+2 R  T  M  R  
+3 F  L  E  I  
+4 D  E  U  J  
+
+Player 1 bets: 
+MEIO: 0 (the word can't possibly be formed with this board)
+
+MEU can be found in the board, following the path : 
+(2,3)   (3,3)   (4,3)   
+
+MEU: 1 points
+
+TLE: 0 (the word isn't on the list of valid words)
+
+TELE can be found in the board, following the path : 
+(2,2)   (3,3)   (3,2)   (4,2)   
+
+TELE: 1 points
+
+DFGH: 0 (the word can't possibly be formed with this board)
+
+FRUTE: 0 (the word isn't on the list of valid words)
+
+FRUTEM: 0 (the word isn't on the list of valid words)
+
+Total Points: 2
+
+
+BOARD:
+  1  2  3  4  
+1 U  G  P  W  
+2 R  T  M  R  
+3 F  L  E  I  
+4 D  E  U  J  
+
+Player 2 bets: 
+DEU can be found in the board, following the path : 
+(4,1)   (4,2)   (4,3)   
+
+DEU: 1 points
+
+FLETE+: 0 (the word can't possibly be formed with this board)
+
+Total Points: 1
+

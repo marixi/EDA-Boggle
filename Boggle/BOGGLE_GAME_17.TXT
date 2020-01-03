@@ -1,0 +1,80 @@
+Boggle Game Report 17
+
+PLAYERS:
+Player 1 - Name: duarte; Age: 20.
+Player 2 - Name: Nuno; Age: 20.
+
+BOARD:
+  1  2  3  4  
+1 A  O  E  M  
+2 T  N  P  R  
+3 B  T  A  S  
+4 E  R  T  A  
+
+Player 1 bets: 
+TONTA can be found in the board, following the path : 
+(2,1)   (1,2)   (2,2)   (3,2)   (3,3)   
+
+TONTA: 2 points
+
+PARSA: 0 (the word isn't on the list of valid words)
+
+TANTO can be found in the board, following the path : 
+(3,2)   (3,3)   (2,2)   (2,1)   (1,2)   
+
+TANTO: 2 points
+
+TRE: 0 (the word isn't on the list of valid words)
+
+TASA: 0 (the word isn't on the list of valid words)
+
+POE can be found in the board, following the path : 
+(2,3)   (1,2)   (1,3)   
+
+POE: 1 points
+
+Total Points: 10
+
+
+BOARD:
+  1  2  3  4  
+1 A  O  E  M  
+2 T  N  P  R  
+3 B  T  A  S  
+4 E  R  T  A  
+
+Player 2 bets: 
+PATA can be found in the board, following the path : 
+(2,3)   (3,3)   (4,3)   (4,4)   
+
+PATA: 1 points
+
+ANTA can be found in the board, following the path : 
+(1,1)   (2,2)   (3,2)   (3,3)   
+
+ANTA: 1 points
+
+BERTA can be found in the board, following the path : 
+(3,1)   (4,1)   (4,2)   (3,2)   (3,3)   
+
+BERTA: 2 points
+
+PARTE can be found in the board, following the path : 
+(2,3)   (3,3)   (4,2)   (3,2)   (4,1)   
+
+PARTE: 2 points
+
+BETA can be found in the board, following the path : 
+(3,1)   (4,1)   (3,2)   (3,3)   
+
+BETA: 1 points
+
+SATA can be found in the board, following the path : 
+(3,4)   (3,3)   (4,3)   (4,4)   
+
+SATA: 1 points
+
+Total Points: 9
+
+The winner is duarte!
+

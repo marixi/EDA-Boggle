@@ -102,7 +102,7 @@ void testBoardFindWordanddisplayPath()
 {
 	Board b("BOARD_INT.txt");
 	b.display(cout);
-	string s = "ERGA";//ERGA
+	string s = "gabe";
 	vector<Position> wordPath;
 
 	bool f;
@@ -125,37 +125,37 @@ void testConfigConstructorsAndDisplay()
 
 //int main()
 //{
-////	/*cout << "Test for the dictionary functions: " << endl;
-////	testDictionaryConstructorAndDisplay();
-////	cout << testDictionaryFind() << endl;*/
+//////	/*cout << "Test for the dictionary functions: " << endl;
+//////	testDictionaryConstructorAndDisplay();
+//////	cout << testDictionaryFind() << endl;*/
+//////
+//////	/*cout << endl << "Test for the cube functions: " << endl;
+//////	testCubeConstructorAndDisplayAll();
+//////	cout << endl << testCubeGetTopLetter() << endl;
+//////	testCubeRollAndDisplayTop();
+//////	cout << endl;*/
+//////
+//////	/*cout << endl << "Test for the player functions: " << endl;
+//////	testPlayerConstructorAndDisplay();
+//////	testPlayerReadInfo();
+//////	testPlayerReadWordsTimed();*/
+//////	
+//	cout << endl << "Test for the Board functions: " << endl;
+//	/*testBoardConstructorsAndDisplay();
+//	testBoardCubeInPosition();
+//	testBoardTopLetter();
+//	testBoardShuffle();*/
+//	testBoardFindWordanddisplayPath();
+//////
+//////	/*cout << endl << "Test for the Config functions: " << endl;
+//////	testConfigConstructorsAndDisplay();*/
+//////
+////	setcolor(4, 0);
+////	cout << "this must be red" << endl;
+////	cout << "the background is yellow";
 ////
-////	/*cout << endl << "Test for the cube functions: " << endl;
-////	testCubeConstructorAndDisplayAll();
-////	cout << endl << testCubeGetTopLetter() << endl;
-////	testCubeRollAndDisplayTop();
-////	cout << endl;*/
+////	gotoxy(1, 0);
+////	setcolor(2, 0);
 ////
-////	/*cout << endl << "Test for the player functions: " << endl;
-////	testPlayerConstructorAndDisplay();
-////	testPlayerReadInfo();
-////	testPlayerReadWordsTimed();*/
-////	
-	//cout << endl << "Test for the Board functions: " << endl;
-	//testBoardConstructorsAndDisplay();
-	//testBoardCubeInPosition();
-	//testBoardTopLetter();
-	//testBoardShuffle();
-	//testBoardFindWordanddisplayPath();
-////
-////	/*cout << endl << "Test for the Config functions: " << endl;
-////	testConfigConstructorsAndDisplay();*/
-////
-//	setcolor(4, 0);
-//	cout << "this must be red" << endl;
-//	cout << "the background is yellow";
-//
-//	gotoxy(1, 0);
-//	setcolor(2, 0);
-//
-//	return 0;
+////	return 0;
 //}

@@ -1,0 +1,27 @@
+Boggle Game Report 11
+
+PLAYERS:
+Player 1 - Name: fye; Age: 123.
+
+BOARD:
+  1  2  3  4  
+1 E  A  G  B  
+2 A  L  A  H  
+3 T  V  P  U  
+4 E  E  T  F  
+
+Player 1 bets: 
+AVE can be found in the board, following the path : 
+(2,1)   (3,2)   (4,1)   
+
+AVE: 1 points
+
+ALGA can be found in the board, following the path : 
+(1,2)   (2,2)   (1,3)   (2,3)   
+
+ALGA: 1 points
+
+Total Points: 2
+
+The winner is fye!
+

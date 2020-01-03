@@ -146,9 +146,15 @@ bool Board::findWord(string word, vector<Position>& path)
 				firstlett.col = j + 1;
 				path.push_back(firstlett);
 
-				findWordAux(boardTop, visited, i, j, str, word, found, path);
-				break;
+				bool inside=false;
+				inside=findWordAux(boardTop, visited, i, j, str, word, found, path);
+				if (path.size() == word.length())
+				{
+					found = inside;
+					break;
+				}
 			}
+
 	return found;
 }
 //---------------------------------------------------------------------------------------------------------------

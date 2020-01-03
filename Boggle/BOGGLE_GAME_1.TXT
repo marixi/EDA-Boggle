@@ -1,0 +1,25 @@
+Boggle Game Report 1
+
+PLAYERS:
+Player 1 - Name: a tua mae; Age: 100.
+
+BOARD:
+  1  2  3  4  
+1 E  G  M  R  
+2 I  S  O  I  
+3 R  T  M  S  
+4 N  I  L  J  
+
+Player 1 bets: 
+TIR: 0 (the word isn't on the list of valid words)
+
+MOM: 0 (the word isn't on the list of valid words)
+
+LITO: 0 (the word isn't on the list of valid words)
+
+MIR: 0 (the word isn't on the list of valid words)
+
+MIS: 0 (the word isn't on the list of valid words)
+
+Total Points: 0
+

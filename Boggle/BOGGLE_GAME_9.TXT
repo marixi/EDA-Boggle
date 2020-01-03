@@ -1,0 +1,26 @@
+Boggle Game Report 9
+
+PLAYERS:
+Player 1 - Name: a tua mae; Age: 100.
+
+BOARD:
+  1  2  3  4  
+1 L  T  I  N  
+2 D  O  E  J  
+3 H  C  D  A  
+4 K  G  M  U  
+
+Player 1 bets: 
+MAU can be found in the board, following the path : 
+(4,3)   (3,4)   (4,4)   
+
+MAU: 1 points
+
+OCD: 0 (the word isn't on the list of valid words)
+
+TEJA: 0 (the word isn't on the list of valid words)
+
+Total Points: 1
+
+The winner is a tua mae!
+

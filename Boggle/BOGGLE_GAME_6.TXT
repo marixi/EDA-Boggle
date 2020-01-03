@@ -1,0 +1,32 @@
+Boggle Game Report 6
+
+PLAYERS:
+Player 1 - Name: a tua mae; Age: 100.
+
+BOARD:
+  1  2  3  4  
+1 R  S  A  E  
+2 N  E  G  J  
+3 F  A  T  O  
+4 O  G  A  L  
+
+Player 1 bets: 
+FATO can be found in the board, following the path : 
+(3,1)   (3,2)   (3,3)   (3,4)   
+
+FATO: 1 points
+
+ETA can be found in the board, following the path : 
+(2,2)   (3,3)   (3,2)   
+
+ETA: 1 points
+
+TAL can be found in the board, following the path : 
+(3,3)   (4,3)   (4,4)   
+
+TAL: 1 points
+
+Total Points: 3
+
+The winner is a tua mae!
+

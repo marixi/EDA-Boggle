@@ -1,0 +1,29 @@
+Boggle Game Report 5
+
+PLAYERS:
+Player 1 - Name: a tua mae; Age: 100.
+
+BOARD:
+  1  2  3  4  
+1 F  S  E  A  
+2 V  E  G  J  
+3 T  E  E  U  
+4 A  U  I  I  
+
+Player 1 bets: 
+TEU can be found in the board, following the path : 
+(3,1)   (3,2)   (4,2)   
+
+TEU: 1 points
+
+TUI can be found in the board, following the path : 
+(3,1)   (4,2)   (4,3)   
+
+TUI: 1 points
+
+JEGE: 0 (the word isn't on the list of valid words)
+
+Total Points: 2
+
+The winner is a tua mae!
+

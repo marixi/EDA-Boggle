@@ -1,0 +1,19 @@
+Boggle Game Report 10
+
+PLAYERS:
+Player 1 - Name: a tua mae; Age: 100.
+
+BOARD:
+  1  2  3  4  
+1 A  A  L  O  
+2 E  E  N  A  
+3 B  S  O  H  
+4 O  G  C  E  
+
+Player 1 bets: 
+ENOL: 0 (the word can't possibly be formed with this board)
+
+ENO: 0 (the word can't possibly be formed with this board)
+
+Total Points: 0
+

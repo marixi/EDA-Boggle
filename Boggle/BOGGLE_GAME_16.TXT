@@ -1,0 +1,47 @@
+Boggle Game Report 16
+
+PLAYERS:
+Player 1 - Name: duarte; Age: 20.
+Player 2 - Name: Nuno; Age: 20.
+
+BOARD:
+  1  2  3  4  
+1 K  I  C  R  
+2 F  R  E  X  
+3 A  T  S  N  
+4 N  T  N  M  
+
+Player 1 bets: 
+FARTE can be found in the board, following the path : 
+(2,1)   (3,1)   (2,2)   (3,2)   (2,3)   
+
+FARTE: 2 points
+
+CIRSE: 0 (the word isn't on the list of valid words)
+
+SET: 0 (the word isn't on the list of valid words)
+
+SETA can be found in the board, following the path : 
+(3,3)   (2,3)   (3,2)   (3,1)   
+
+SETA: 1 points
+
+TAN: 0 (the word isn't on the list of valid words)
+
+Total Points: 5
+
+
+BOARD:
+  1  2  3  4  
+1 K  I  C  R  
+2 F  R  E  X  
+3 A  T  S  N  
+4 N  T  N  M  
+
+Player 2 bets: 
+FAN: 0 (the word isn't on the list of valid words)
+
+TRICA: 0 (the word can't possibly be formed with this board)
+
+Total Points: 1
+
