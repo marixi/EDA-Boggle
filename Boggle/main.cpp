@@ -101,7 +101,6 @@ void menu(Game& game)
 
 int main()
 {
-	fullscr();
 	setFontSize(18);
 	srand((unsigned int)time(NULL));
 	Config c("BOGGLE_CONFIG.txt");

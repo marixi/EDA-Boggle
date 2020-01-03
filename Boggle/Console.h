@@ -40,14 +40,10 @@ void setcolor(unsigned int color=15, unsigned int background_color=0);
 void clrscr(void);
 //--------------------------------------------------------------------------------
 //references of the following functions in console .cpp
-
 // Set different font size in console
 void setFontSize(int FontSize);
 //--------------------------------------------------------------------------------
 //Determine the present coordinates of the cursor
 int wherex();
 int wherey();
-//--------------------------------------------------------------------------------
-//Puts the console window in fullscreen mode
-void fullscr();
 #endif

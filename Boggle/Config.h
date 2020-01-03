@@ -28,6 +28,6 @@ private:
 	unsigned int _maxTime; // Maximum time for each round/game.
 	unsigned int _minLetters; // Minimum of letters of a word.
 	unsigned int _victoryPoints; // Points required to win.
-	void defineAttributes(string aux, string& attributes);// 
+	void defineAttributes(string aux, string& attributes); // Necessary for constructor, reads essencial information from a line of the file 
 };
 

@@ -81,11 +81,3 @@ int wherey()
 
 	return csbi.dwCursorPosition.Y;
 }
-//--------------------------------------------------------------------------------
-//referencia de extração do codigo para colocar a consola em modo fullscreen
-//h ttps://stackoverflow.com/questions/4053554/running-a-c-console-program-in-full-screen
-
-void fullscr()
-{
-	SetConsoleDisplayMode(GetStdHandle(STD_OUTPUT_HANDLE), CONSOLE_FULLSCREEN_MODE, 0);
-}
