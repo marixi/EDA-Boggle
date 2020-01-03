@@ -32,11 +32,6 @@ void Player::readInfo()
 	cout << "Insert Player's age: "; getline(cin,_age);
 }
 //--------------------------------------------------------------------------------------------------------------
-/*
-Reads a word to string 'str'
-It must be read before 'duration' time is elapsed,
-otherwise 'str' will be an empty string
-*/
 void Player::readStrTimed(string& str, time_t duration)
 {
 	const char CARRIAGE_RETURN = 13, SPACE = ' ', TAB = '\t', BACKSPACE = 8, BEEP = 7;
@@ -58,7 +53,7 @@ void Player::readStrTimed(string& str, time_t duration)
 				cout << endl;
 				return;
 			}
-
+			//It allows to erase a written word, only beeping when there's an empty string
 			if (c == BACKSPACE)
 			{
 				if (str == "")
@@ -81,15 +76,9 @@ void Player::readStrTimed(string& str, time_t duration)
 	return;
 }
 //--------------------------------------------------------------------------------------------------------------
-/*
-Author: JAS
-Reads several words and stores them into file named 'fileName'.
-All letters are converted to uppercase.
-The words must be read before 'duration' time is elapsed
-*/
 void Player::readWordsTimed(const string& fileName, time_t duration)
 {
-	const char BEEP = (char)7; // Isto realmente faz um beep quando é mostrado na consola.
+	const char BEEP = (char)7;
 	time_t t1 = time(NULL), t2;
 	int tAvail;
 

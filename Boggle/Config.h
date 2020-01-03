@@ -23,11 +23,11 @@ public:
 	unsigned int getVictoryPoints() const; // Returns victory points.
 
 private:
-	string _filenameDictionary;
-	string _filenameBoard;
+	string _filenameDictionary; //name of the file that contains the list of valid words
+	string _filenameBoard; //name of the file that contains the dimensions and the cubes of the board
 	unsigned int _maxTime; // Maximum time for each round/game.
 	unsigned int _minLetters; // Minimum of letters of a word.
 	unsigned int _victoryPoints; // Points required to win.
-	void defineAttributes(string aux, string& attributes);
+	void defineAttributes(string aux, string& attributes);// 
 };
 

@@ -25,10 +25,10 @@ public:
 	string getName(); // access to the player's name.
 	unsigned int getPoints(); // access to the player's points.
 	void updatePoints(unsigned int roundPoints); // update player's points.
-	void setPoints(unsigned int newPoints);
+	void setPoints(unsigned int newPoints);//sets the player points to the argument value
 private:
 	string _name; // name of the player.
 	string _age; // age of the player.
-	void readStrTimed(string& str, time_t duration);
+	void readStrTimed(string& str, time_t duration); //reads a word to the string, before the time is elapsed
 	unsigned int _points; // total points of the player in the game.
 };

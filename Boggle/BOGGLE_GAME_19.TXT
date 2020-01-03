@@ -1,0 +1,47 @@
+Boggle Game Report 19
+
+PLAYERS:
+Player 1 - Name: elsa; Age: 21.
+
+BOARD:
+  1  2  3  4  
+1 I  S  D  X  
+2 V  O  U  O  
+3 E  E  P  U  
+4 I  S  M  E  
+
+Player 1 bets: 
+SOU can be found in the board, following the path : 
+(1,2)   (2,2)   (2,3)   
+
+SOU: 1 points
+
+DUO can be found in the board, following the path : 
+(1,3)   (2,3)   (2,2)   
+
+DUO: 1 points
+
+DOU can be found in the board, following the path : 
+(1,3)   (2,2)   (2,3)   
+
+DOU: 1 points
+
+PUME: 0 (the word isn't on the list of valid words)
+
+PUE: 0 (the word isn't on the list of valid words)
+
+SEM can be found in the board, following the path : 
+(4,2)   (3,2)   (4,3)   
+
+SEM: 1 points
+
+VEI: 0 (the word isn't on the list of valid words)
+
+VEIS can be found in the board, following the path : 
+(2,1)   (3,1)   (4,1)   (4,2)   
+
+VEIS: 1 points
+
+Total Points: 5
+
+The winner is elsa!

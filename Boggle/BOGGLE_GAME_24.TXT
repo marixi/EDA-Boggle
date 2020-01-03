@@ -1,0 +1,15 @@
+Boggle Game Report 24
+
+PLAYERS:
+Player 1 - Name: fgh; Age: 7852.
+
+BOARD:
+  1  2  3  4  
+1 N  A  U  Q  
+2 H  S  S  O  
+3 U  V  P  L  
+4 A  L  O  N  
+
+Player 1 bets: 
+Total Points: 0
+

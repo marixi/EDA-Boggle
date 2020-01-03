@@ -274,7 +274,7 @@ bool Game::checkForVictory()
 //--------------------------------------------------------------------------------------------------------------
 void Game::displayWinner(ostream& os)
 {
-	os << "The winner is " << _winner.getName() << "!" << endl;
+	os << "The winner is " << _winner.getName() << "!" << endl << endl;
 }
 //--------------------------------------------------------------------------------------------------------------
 void Game::gameReport(const unsigned int mode)

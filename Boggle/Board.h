@@ -15,7 +15,7 @@ using namespace std;
 
 struct Position
 {
-	int lin, col; // position of a cube (top letter) on the board
+	int lin, col; // position of a cube (top letter) on the console board
 };
 
 class Board
@@ -29,8 +29,8 @@ public:
 	bool findWord(string word, vector<Position>& wordPath); // Returns true if a word can be found on the board.
 
 private:
-	void isNextLetter(const vector<vector<char>>& board, vector<vector<bool>>& visited, size_t row, size_t col, string& str, const string& word, bool& found, vector<Position>& path);
-	bool findWordAux(const vector<vector<char>>& board, vector<vector<bool>>& visited, size_t i, size_t j, string& str, const string& word, bool& found, vector<Position>& path);
+	void isNextLetter(const vector<vector<char>>& board, vector<vector<bool>>& visited, size_t row, size_t col, string& str, const string& word, bool& found, vector<Position>& path);//checks if the letter is valid and builds the correspondent path
+	bool findWordAux(const vector<vector<char>>& board, vector<vector<bool>>& visited, size_t i, size_t j, string& str, const string& word, bool& found, vector<Position>& path); // returns true if an adjacent letter is avlid to build the word
 	size_t _numRows, _numCols; // Number of columns and number of rows of the board
 	vector<vector<Cube>> _board; // Vector of Cubes by rows and columns.
 };

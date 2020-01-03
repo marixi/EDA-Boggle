@@ -18,5 +18,5 @@ public:
 	bool find(const string& word); // Finds 'word' in '_dictionary'.
 	void display(ostream& os) const; // Displays all the words.
 private:
-	map<int, string> _dictionary;
+	map<int, string> _dictionary; //map with the index and corresponding word
 };

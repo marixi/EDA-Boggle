@@ -9,7 +9,6 @@ using namespace std;
 
 //================================================================================
 
-// Move cursor to column 'x', line 'y'
 void gotoxy(int x, int y)
 {
   COORD coord;
@@ -17,10 +16,7 @@ void gotoxy(int x, int y)
   coord.Y = y;
   SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 }
-
 //--------------------------------------------------------------------------------
-
-// Set text color & background
 void setcolor(unsigned int color, unsigned int background_color)
 {
   HANDLE hCon = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -30,10 +26,7 @@ void setcolor(unsigned int color, unsigned int background_color)
     //SetConsoleTextAttribute(hCon, color | BACKGROUND_BLUE | BACKGROUND_GREEN | BACKGROUND_RED);
     SetConsoleTextAttribute(hCon, color | BACKGROUND_BLUE | BACKGROUND_GREEN | BACKGROUND_RED);
 }
-
 //--------------------------------------------------------------------------------
-
-// Clear screen
 void clrscr(void)
 {
   COORD upperLeftCorner = { 0, 0 };
@@ -54,8 +47,7 @@ void clrscr(void)
   SetConsoleCursorPosition(hCon, upperLeftCorner);
 }
 
-//--------------------------------------------------------------------------------
-
+//================================================================================
 //referencia de extração do codigo para mudar o tamanho de letra
 //h ttp://www.cplusplus.com/forum/general/118967/
 
@@ -72,6 +64,7 @@ void setFontSize(int FontSize)
 //--------------------------------------------------------------------------------
 //referencia de extração do codigo para descobrir a posição do cursor na board
 //h ttp://www.cplusplus.com/forum/general/74380/
+
 int wherex()
 {
 	CONSOLE_SCREEN_BUFFER_INFO csbi;
@@ -89,8 +82,9 @@ int wherey()
 	return csbi.dwCursorPosition.Y;
 }
 //--------------------------------------------------------------------------------
-//Colocar a consola em modo fullscreen
+//referencia de extração do codigo para colocar a consola em modo fullscreen
 //h ttps://stackoverflow.com/questions/4053554/running-a-c-console-program-in-full-screen
+
 void fullscr()
 {
 	SetConsoleDisplayMode(GetStdHandle(STD_OUTPUT_HANDLE), CONSOLE_FULLSCREEN_MODE, 0);
