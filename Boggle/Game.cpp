@@ -315,8 +315,10 @@ void Game::discoverReportFilename()
 	ifstream fi("BOGGLE_GAME_NUM.TXT");
 	if (fi.fail())
 	{
-		cerr << "Error: \"" << "BOGGLE_GAME_NUM.TXT" << "\" was not found! \n";
-		exit(1);
+		ofstream fo("BOGGLE_GAME_NUM.TXT");
+		fo << 0;
+		fo.close();
+		ifstream fi("BOGGLE_GAME_NUM.TXT");
 	}
 
 	fi >> _gameNumber;

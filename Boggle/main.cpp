@@ -35,10 +35,10 @@ void set(Game& game)
 //This function is called after the set and only ends when one of the players wins.
 void loop(Game& game)
 {
+	game.discoverReportFilename();
+	game.gameReport(1);
 	do
 	{
-		game.discoverReportFilename();
-		game.gameReport(1);
 		game.readPlayersWords();
 		game.roundPoints(cout);
 	} while (game.checkForVictory() == false);
