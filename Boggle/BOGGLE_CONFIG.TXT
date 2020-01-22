@@ -2,6 +2,6 @@ Configuration of the Boggle program
 ====================================
 Board filename .................... : BOARD_INT.TXT
 Words filename .................... : WORDS_PT.TXT
-Time per player bet (seconds) ..... : 10
+Time per player bet (seconds) ..... : 20
 Minimum number of letters in a word : 3
 Number of points needed to win ...  : 5

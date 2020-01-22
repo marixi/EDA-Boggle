@@ -83,6 +83,10 @@ void Board::shuffle()
 	}
 	//Randomly shuffles the cubes on the board.
 	random_shuffle(_board.begin(), _board.end());
+
+	for (size_t i = 0; i < _numRows; i++)
+		random_shuffle(_board[i].begin(), _board[i].end());
+	
 }
 //---------------------------------------------------------------------------------------------------------------
 void Board::display(ostream& os) const

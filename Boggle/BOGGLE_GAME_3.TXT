@@ -1,0 +1,40 @@
+Boggle Game Report 3
+
+PLAYERS:
+Player 1 - Name: Duarte; Age: 21.
+
+BOARD:
+  1  2  3  4  
+1 P  G  U  U  
+2 I  S  H  S  
+3 E  I  D  O  
+4 A  O  J  E  
+
+Player 1 bets: 
+PISA: 0 (the word can't possibly be formed with this board)
+
+PISI: 0 (the word isn't on the list of valid words)
+
+SIO: 0 (the word isn't on the list of valid words)
+
+CIO: 0 (the word can't possibly be formed with this board)
+
+SUDO: 0 (the word can't possibly be formed with this board)
+
+SOU: 0 (the word can't possibly be formed with this board)
+
+SODS: 0 (the word isn't on the list of valid words)
+
+HOJE can be found in the board, following the path : 
+(2,3)   (3,4)   (4,3)   (4,4)   
+
+HOJE: 1 points
+
+EDA: 0 (the word can't possibly be formed with this board)
+
+JEO: 0 (the word isn't on the list of valid words)
+
+PI: 0 (the word doesn't have the minimum amount of letters necessary)
+
+Total Points: 1
+

@@ -1,0 +1,89 @@
+Boggle Game Report 1
+
+PLAYERS:
+Player 1 - Name: 1; Age: 1.
+
+BOARD:
+  1  2  3  4  
+1 V  A  G  J  
+2 T  E  P  W  
+3 R  S  O  R  
+4 F  C  E  F  
+
+Player 1 bets: 
+ROESE: 0 (the word isn't on the list of valid words)
+
+Total Points: 0
+
+
+BOARD:
+  1  2  3  4  
+1 N  E  D  I  
+2 B  T  M  N  
+3 V  I  E  O  
+4 S  R  T  X  
+
+Player 1 bets: 
+VI: 0 (the word doesn't have the minimum amount of letters necessary)
+
+VIR can be found in the board, following the path : 
+(3,1)   (3,2)   (4,2)   
+
+VIR: 1 points
+
+TEO: 0 (the word isn't on the list of valid words)
+
+TEM can be found in the board, following the path : 
+(2,2)   (1,2)   (2,3)   
+
+TEM: 1 points
+
+DIOM: 0 (the word can't possibly be formed with this board)
+
+DIM: 0 (the word isn't on the list of valid words)
+
+Total Points: 2
+
+
+BOARD:
+  1  2  3  4  
+1 F  C  D  I  
+2 A  E  A  R  
+3 K  E  P  E  
+4 Z  I  Y  A  
+
+Player 1 bets: 
+FACEARARE: 0 (the word can't possibly be formed with this board)
+
+OAR: 0 (the word can't possibly be formed with this board)
+
+PAR can be found in the board, following the path : 
+(3,3)   (2,3)   (2,4)   
+
+PAR: 1 points
+
+Total Points: 3
+
+
+BOARD:
+  1  2  3  4  
+1 R  S  S  S  
+2 O  G  E  R  
+3 H  R  N  A  
+4 A  O  L  J  
+
+Player 1 bets: 
+SER can be found in the board, following the path : 
+(1,2)   (2,3)   (2,4)   
+
+SER: 1 points
+
+SERA can be found in the board, following the path : 
+(1,2)   (2,3)   (2,4)   (3,4)   
+
+SERA: 1 points
+
+Total Points: 5
+
+The winner is 1!
+
